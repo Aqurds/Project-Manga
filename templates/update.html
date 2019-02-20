@@ -1,0 +1,183 @@
+
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<link rel="alternate" hreflang="en-US" href="https://user.manganelo.com/user_changes_info" />
+<meta name="robots" content="noindex,nofollow" />
+<meta charset="utf-8">
+<title>Update Profile</title>
+<meta name="viewport" content="width=device-width" />
+<link rel="shortcut icon" href="../static/themes/home/images/favicon.ico">
+<script type="text/javascript" src="../static/themes/home/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../static/themes/home/js/owl.carousel.js"></script>
+<script type="text/javascript" src="../static/themes/home/js/fsearch614e.js"></script>
+<script type="text/javascript" src="../static/themes/home/js/cookie3860.js"></script>
+<script type="text/javascript" src="../static/themes/home/js/custom-fotter7839.js"></script>
+<link rel="stylesheet" href="../static/themes/home/styles/style.css">
+<link rel="stylesheet" href="../static/themes/home/styles/style_search3860.css">
+<link rel="stylesheet" href="../static/themes/home/styles/login.css">
+<script type="application/javascript">
+            baseurljs = 'https://user.manganelo.com/';
+                        tooltypejs = '';
+            _base_url_search = 'http://manganelo.com/search/';
+            _base_url_search_author = "http://manganelo.com/search_author/";
+        </script>
+<style>
+            .rate_star.over {
+                color: #00ff00;
+            }
+        </style>
+</head>
+<body>
+
+<div id="fb-root"></div>
+
+<header>
+<div class="container container-top">
+<div class="top-logo">
+<a href="{{ url_for('home') }}" title="Manga Online"><img src="../static/themes/home/icons/logo.png" alt="Manga Online" title="Manga Online"></a>
+</div>
+<div class="top-header">
+<div class="searching">
+<form name="frmsearch">
+<input id="search_story" autocomplete="off" placeholder="Search manga..." />
+<div style="display: none;"><input /></div>
+</form>
+</div>
+<div class="user-options">
+<span class="name">
+<img src="../static/themes/home/images/user_avatar.jpg">
+<p>{{ session.username }}</p>
+</span>
+<a href="{{ url_for('bookmark') }}"><i class="notification"></i></a>
+<a href="{{ url_for('history') }}"><i class="history"></i></a>
+<a href="{{ url_for('logout') }}"><i class="logout"></i></a>
+</div>
+</div>
+<a class="mobile-menu">MENU</a>
+<nav class="wrap-menu-primary">
+<ul id="menu-menu-top" class="menu-primary">
+<li class="menu-item"><a href="{{ url_for('home') }}">HOME</a></li>
+<li class="menu-item"><a href="{{ url_for('manga') }}" title="LATEST MANGA">LATEST MANGA</a></li>
+<li class="menu-item"><a href="{{ url_for('manga') }}" title="HOT MANGA">HOT MANGA</a></li>
+<li class="menu-item"><a href="{{ url_for('manga') }}" title="NEW MANGA">NEW MANGA</a></li>
+<li class="menu-item"><a href="{{ url_for('manga') }}" title="COMPLETED MANGA">COMPLETED MANGA</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="container">
+<div class="main-wrapper">
+<div class="leftCol listCol">
+<div class="truyen-list">
+<div class="breadcrumb breadcrumbs">
+<div class="rdfa-breadcrumb">
+<div>
+<p>
+<span class="breadcrumbs-title"> </span>
+<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+<a itemprop="url" href="{{ url_for('home') }}" class="home">
+<span itemprop="title">Manga Online</span>
+</a>
+</span>
+<span class="separator">»</span>
+<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+<a>
+<span itemprop="title">Changes info</span>
+</a>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="user-panel-left">
+<div class="changes_info">
+<form method="post" id="changes_info_form" name="changes_info_form">
+<h1>Update Profile</h1>
+<div>
+<input class="dat" name="username" placeholder="User name" readonly="" style="background: #f3f3f3;" value="{{ session.username }}" />
+</div>
+<div>
+<input class="dat" name="displayname" placeholder="Display name" value="" />
+</div>
+<div>
+<input class="dat" name="email" placeholder="Email to recover Password" value="{{ session.email }}" />
+</div>
+<div>
+<input class="dat" name="phone" placeholder="Phone" value="" />
+</div>
+<div>
+<textarea class="dat_des" name="description" placeholder="Description..." maxlength="499"></textarea>
+</div>
+<input name="submit_register" type="button" id="submit_button" value="SAVE CHANGES" class="submit">
+<div id="alert-error" class="alert-error"></div>
+</form>
+</div>
+</div>
+<div class="user-panel-right">
+<div class="user-panel-setting">
+<ul>
+<li><span>&nbsp;</span> <a href="{{ url_for('update') }}">Update Profile</a></li>
+<li><span>&nbsp;</span> <a href="{{ url_for('password_change') }}">Changes Password</a></li>
+<li><span>&nbsp;</span> <a href="{{ url_for('bookmark') }}">Bookmark</a></li>
+<li><span>&nbsp;</span> <a href="{{ url_for('history') }}">History</a></li>
+
+</ul>
+</div>
+</div>
+<script>
+    $_url = 'https://user.manganelo.com/user_changes_info_handle';
+
+    function changes_info() {
+        if(document.changes_info_form.displayname.value.trim().length < 3 || document.changes_info_form.displayname.value.trim().length > 20) {
+            $('#alert-error').html('★ DisplayName must be from 3 to 20 words!');
+            return;
+        }
+
+        if(document.changes_info_form.email.value.trim().length < 3 || document.changes_info_form.email.value.trim().length > 50) {
+            $('#alert-error').html('★ Email must be from 3 to 50 words!');
+            return;
+        }
+
+        if(document.changes_info_form.description.value.trim().length > 500) {
+            $('#alert-error').html('★ Description maximum 500 words!');
+            return;
+        }
+
+        $.ajax({
+            url: $_url,
+            type:"post",
+            data: {
+                'displayname': document.changes_info_form.displayname.value,
+                'email': document.changes_info_form.email.value,
+                'phone': document.changes_info_form.phone.value,
+                'description': document.changes_info_form.description.value
+                },
+            success: function(data) {
+                if(data == 'successful') {
+                    window.location = 'https://user.manganelo.com/user_changes_info_successful';
+                } else {
+                    $('#alert-error').html(data);
+                }
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        $('#submit_button').click(function() {
+            changes_info();
+        });
+    });
+</script>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class="footer-content">
+<p>©2016 MangaNelo.com, all rights reserved. Top speed, completely free. </p>
+<p>Current Time is Feb-19-2019 22:29:24 PM.</p>
+</div>
+</footer>
+</body>
+</html>

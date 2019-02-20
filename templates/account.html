@@ -1,0 +1,137 @@
+
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<link rel="alternate" hreflang="en-US" href="https://user.manganelo.com/" />
+<meta name="robots" content="noindex,nofollow" />
+<meta charset="utf-8">
+<title>User</title>
+<meta name="viewport" content="width=device-width" />
+<link rel="shortcut icon" href="../static/themes/home/images/favicon.ico">
+<script type="text/javascript" src="../static/themes/home/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../static/themes/home/js/owl.carousel.js"></script>
+<script type="text/javascript" src="../static/themes/home/js/fsearch614e.js"></script>
+<script type="text/javascript" src="../static/themes/home/js/cookie3860.js"></script>
+<script type="text/javascript" src="../static/themes/home/js/custom-fotter7839.js"></script>
+<link rel="stylesheet" href="../static/themes/home/styles/style.css">
+<link rel="stylesheet" href="../static/themes/home/styles/style_search3860.css">
+<link rel="stylesheet" href="../static/themes/home/styles/login.css">
+<script type="application/javascript">
+            baseurljs = 'https://user.manganelo.com/';
+                        tooltypejs = '';
+            _base_url_search = 'http://manganelo.com/search/';
+            _base_url_search_author = "http://manganelo.com/search_author/";
+        </script>
+<style>
+            .rate_star.over {
+                color: #00ff00;
+            }
+        </style>
+</head>
+<body>
+
+<div id="fb-root"></div>
+
+<header>
+<div class="container container-top">
+<div class="top-logo">
+<a href="{{ url_for('home') }}" title="Manga Online"><img src="../static/themes/home/icons/logo.png" alt="Manga Online" title="Manga Online"></a>
+</div>
+<div class="top-header">
+<div class="searching">
+<form name="frmsearch">
+<input id="search_story" autocomplete="off" placeholder="Search manga..." />
+<div style="display: none;"><input /></div>
+</form>
+</div>
+
+
+
+<!-- User info in navigation menu -->
+<div class="user-options">
+<span class="name">
+<img src="../static/themes/home/images/user_avatar.jpg">
+<p>{{session.username}}</p>
+</span>
+<a href="{{ url_for('bookmark') }}"><i class="notification"></i></a>
+<a href="{{ url_for('history') }}"><i class="history"></i></a>
+<a href="{{ url_for('logout') }}"><i class="logout"></i></a>
+</div>
+<!-- User info in vavigation menu end here -->
+
+
+
+</div>
+<a class="mobile-menu">MENU</a>
+<nav class="wrap-menu-primary">
+<ul id="menu-menu-top" class="menu-primary">
+<li class="menu-item"><a href="{{ url_for('home') }}">HOME</a></li>
+<li class="menu-item"><a href="{{ url_for('manga') }}" title="LATEST MANGA">LATEST MANGA</a></li>
+<li class="menu-item"><a href="{{ url_for('manga') }}" title="HOT MANGA">HOT MANGA</a></li>
+<li class="menu-item"><a href="{{ url_for('manga') }}" title="NEW MANGA">NEW MANGA</a></li>
+<li class="menu-item"><a href="{{ url_for('manga') }}" title="COMPLETED MANGA">COMPLETED MANGA</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="container">
+<div class="main-wrapper">
+<div class="leftCol listCol">
+<div class="truyen-list">
+<div class="breadcrumb breadcrumbs">
+<div class="rdfa-breadcrumb">
+<div>
+<p>
+<span class="breadcrumbs-title"> </span>
+<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+<a itemprop="url" href="{{ url_for('home') }}" class="home">
+<span itemprop="title">Manga Online</span>
+</a>
+</span>
+<span class="separator">»</span>
+<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+<a>
+<span itemprop="title">User</span>
+</a>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="user-panel-left">
+<div style="font-size: 22px;">
+Logged in successfully.<br>
+Hello, <b>{{session.username}}</b>.<br>
+<a href="{{ url_for('home') }}">Click here</a> go visit our homepage.
+<a href="{{ url_for('home') }}">https://manga.herokuapps.com</a><br><br>
+We have updated a version 2 for the web page. If you lost "bookmark", please <a href="{{ url_for('home') }}">click here</a> and press bookmark again.
+</div>
+</div>
+<script src="https://mangakakalot.com/login_al?u_t=bG9jYWw%3D&u_i=MTM5MzY2&u_u=Z2V0dHlwZXR0eQ%3D%3D&u_a=LTE%3D" async></script>
+<script src="https://manganelo.com/login_al?u_t=bG9jYWw%3D&u_i=MTM5MzY2&u_u=Z2V0dHlwZXR0eQ%3D%3D&u_a=LTE%3D" async></script>
+<script src="https://mangabat.com/login_al?u_t=bG9jYWw%3D&u_i=MTM5MzY2&u_u=Z2V0dHlwZXR0eQ%3D%3D&u_a=LTE%3D" async></script>
+<script src="https://mangasim.com/login_al?u_t=bG9jYWw%3D&u_i=MTM5MzY2&u_u=Z2V0dHlwZXR0eQ%3D%3D&u_a=LTE%3D" async></script>
+<script src="https://mangaborn.com/login_al?u_t=bG9jYWw%3D&u_i=MTM5MzY2&u_u=Z2V0dHlwZXR0eQ%3D%3D&u_a=LTE%3D" async></script>
+<div class="user-panel-right">
+<div class="user-panel-setting">
+<ul>
+<li><span>&nbsp;</span> <a href="{{ url_for('update') }}">Update Profile</a></li>
+<li><span>&nbsp;</span> <a href="{{ url_for('password_change') }}">Changes Password</a></li>
+<li><span>&nbsp;</span> <a href="{{ url_for('bookmark') }}">Bookmark</a></li>
+<li><span>&nbsp;</span> <a href="{{ url_for('history') }}">History</a></li>
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class="footer-content">
+<p>©2016 MangaNelo.com, all rights reserved. Top speed, completely free. </p>
+<p>Current Time is Feb-19-2019 22:08:09 PM.</p>
+</div>
+</footer>
+</body>
+</html>

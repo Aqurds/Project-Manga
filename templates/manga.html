@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+
+<!-- Mirrored from mangarock.herokuapp.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Feb 2019 11:15:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <link rel="alternate" hreflang="en-US" href="index.html" />
+  <meta name="google-site-verification" content="TNfDROcsP2nhZRixOKhUq1_GZ0d_EgiCxb0eRRgfMHg" />
+  <meta name="robots" content="index,follow" />
+  <meta charset="utf-8">
+  <title>Mangakakalot - Read Manga Online</title>
+  <meta name="description" content="Read manga online free at Mangakakalot.com, update fastest, most full, synthesized 24h free with high-quality imagesa and be the first one to publish new chapters." />
+  <meta name="keywords" itemprop="keywords" content="Manga, Read Manga Online, Read Manga, Manga Online, Manga Scans, Free Manga, Mangakakalot" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="mangakakalot">
+  <meta name="twitter:title" content="Mangakakalot - Read Manga Online">
+  <meta name="twitter:description" content="Read manga online free at Mangakakalot.com, update fastest, most full, synthesized 24h free with high-quality images and be the first one to publish new chapters.">
+  <meta name="twitter:image" content="../lh3.googleusercontent.com/-iK1y5xV28gs/WCcslYmPKAI/AAAAAAACQGg/o9pv0oioVlY/s0/5826ca23a4ad3.jpg">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mangakakalot - Read Manga Online" />
+  <meta property="og:url" content="index.html" />
+  <meta property="og:image" content="../lh3.googleusercontent.com/-iK1y5xV28gs/WCcslYmPKAI/AAAAAAACQGg/o9pv0oioVlY/s0/5826ca23a4ad3.jpg" />
+  <meta property="og:description" content="Read manga online free at Mangakakalot.com, update fastest, most full, synthesized 24h free with high-quality images and be the first one to publish new chapters." />
+  <meta property="og:site_name" content="index.html" />
+  <meta property="fb:app_id" content="1664224760511779" />
+  <link rel="shortcut icon" href="../static/themes/home/images/favicon.ico" />
+
+  <script type="text/javascript" src="../static/themes/home/js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="../static/themes/home/js/owl.carousel.js"></script>
+  <script type="text/javascript" src="../static/themes/home/js/back-to-top3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/ddimgtooltip3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/fsearch614e.js?v=1.8?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/custom3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/cookie3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/starrate/js/starwarsjs3860.js?v=1"></script>
+
+  <link rel="stylesheet" href="../static/themes/home/styles/style.css">
+  <link rel="stylesheet" href="../static/themes/home/styles/owl.carousel3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/home/styles/owl.theme3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/home/styles/ddimgtooltip3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/home/styles/style_search3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/starrate/css/style3860.css?v=1" />
+
+  <script type='application/ld+json'>
+    {"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/mangarock.herokuapp.com\/","name":"mangakakalot Online","potentialAction":{"@type":"SearchAction","target":"https:\/\/mangarock.herokuapp.com\/search\/{search_term_string}","query-input":"required name=search_term_string"}}
+  </script>
+
+  <script type="application/javascript">
+      baseurljs = 'index.html';
+      tooltypejs = 'Computer';
+  </script>
+
+  <style>
+      .rate_star.over {
+          color: #00ff00;
+      }
+  </style>
+
+  <script type="application/javascript">
+      _base_url_search = 'search/index.html';
+      _base_url_search_author = "search_author/index.html";
+  </script>
+
+</head>
+
+
+
+<body>
+
+  <header>
+    <div class="container container-top">
+
+      <div class="top-logo">
+        <a href="{{ url_for('home') }}" title="Manga Online">
+          <img src="../static/themes/home/icons/logo.png" alt="Manga Online" title="Manga Online">
+        </a>
+      </div>
+      <div class="top-header">
+
+
+      <div class="searching">
+        <form name="frmsearch">
+          <input id="search_story" autocomplete="off" placeholder="Search manga..." />
+          <input style="display: none;" />
+          <select id="search_style" style="">
+            <option value="tentruyen">Manga Name</option>
+            <option value="tentacgia">Authors</option>
+          </select>
+        </form>
+      </div>
+
+
+      {% if session %}
+          <div class="user-options">
+            <span class="name">
+              <img src="../static/themes/home/images/user_avatar.jpg">
+              <p>{{session.username}}</p>
+            </span>
+            <a href="{{ url_for('bookmark') }}"><i class="notification"></i></a>
+            <a href="{{ url_for('bookmark') }}"><i class="history"></i></a>
+            <a href="{{ url_for('logout') }}"><i class="logout"></i></a>
+          </div>
+      {% else %}
+            <!-- Login & Regitration Code -->
+          <div class="user-options">
+            <div class="login-top">
+              <a rel="nofollow" href="{{ url_for('login') }}" class="btn-login">
+                Login
+              </a>
+              <a rel="nofollow" href="{{ url_for('register') }}" class="btn-register">
+                Register
+              </a>
+            </div>
+          </div>
+          <!-- Login & Registration Code End -->
+      {% endif %}
+      </div>
+
+
+      <a class="mobile-menu">
+        MENU
+      </a>
+
+      <nav class="wrap-menu-primary">
+        <ul id="menu-menu-top" class="menu-primary">
+        <li class="menu-item"><a href="{{ url_for('home') }}">HOME</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga') }}" title="LATEST MANGA">LATEST MANGA</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga') }}" title="HOT MANGA">HOT MANGA</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga') }}" title="NEW MANGA">NEW MANGA</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga') }}" title="COMPLETED MANGA">COMPLETED MANGA</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+
+
+<div class="container">
+<div class="slide">
+<h3 class="title update-slide">POPULAR MANGA</h3>
+<div id="owl-demo" class="owl-carousel">
+
+  <div class="item">
+    <img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+    <div class="slide-caption">
+      <h3>
+        <a href="manga/pn918005.html" title="Solo Leveling">
+          Solo Leveling
+        </a>
+      </h3>
+      <a href="chapter/pn918005/chapter_58.html" title="Chapter 58">
+        Chapter 58
+      </a>
+    </div>
+  </div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/jc917903.html" title="Iron Ladies">Iron Ladies</a></h3>
+<a href="chapter/jc917903/chapter_187.html" title="Chapter 187: Having A Clear Conscience">Chapter 187: Having A Clear Conscience</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/moshi_fanren.html" title="Moshi Fanren">Moshi Fanren</a></h3>
+<a href="chapter/moshi_fanren/chapter_114.html" title="Chapter 114">Chapter 114</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/domestic_na_kanojo.html" title="Domestic na Kanojo">Domestic na Kanojo</a></h3>
+<a href="chapter/domestic_na_kanojo/chapter_218.html" title="Chapter 218: Bad Girl">Chapter 218: Bad Girl</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/hq918132.html" title="The Dungeon Master">The Dungeon Master</a></h3>
+<a href="chapter/hq918132/chapter_32.html" title="Chapter 32">Chapter 32</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/tsuki_ga_michibiku_isekai_douchuu.html" title="Tsuki ga Michibiku Isekai Douchuu">Tsuki ga Michibiku Isekai Douchuu</a></h3>
+<a href="chapter/tsuki_ga_michibiku_isekai_douchuu/chapter_38.html" title="Chapter 38: Eat or Be Eaten">Chapter 38: Eat or Be Eaten</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/tales_of_demons_and_gods.html" title="Tales of Demons and Gods">Tales of Demons and Gods</a></h3>
+<a href="chapter/tales_of_demons_and_gods/chapter_210.html" title="Chapter 210.5">Chapter 210.5</a>
+</div>
+</div>
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/yong_heng_zhi_zun.html" title="Yong Heng Zhi Zun">Yong Heng Zhi Zun</a></h3>
+<a href="chapter/yong_heng_zhi_zun/chapter_113.html" title="Chapter 113: Bodyguard">Chapter 113: Bodyguard</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/star_martial_god_technique.html" title="Star Martial God Technique">Star Martial God Technique</a></h3>
+<a href="chapter/star_martial_god_technique/chapter_219.html" title="Chapter 219">Chapter 219</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/chong_sheng_resurrection.html" title="Chong Sheng - Resurrection">Chong Sheng - Resurrection</a></h3>
+<a href="chapter/chong_sheng_resurrection/chapter_132.html" title="Chapter 132">Chapter 132</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/sozai_saishuka_no_isekai_ryokouki.html" title="Sozai Saishuka no Isekai Ryokouki">Sozai Saishuka no Isekai Ryokouki</a></h3>
+<a href="chapter/sozai_saishuka_no_isekai_ryokouki/chapter_12.html" title="Chapter 12">Chapter 12</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/tsuyokute_new_saga.html" title="Tsuyokute New Saga">Tsuyokute New Saga</a></h3>
+<a href="chapter/tsuyokute_new_saga/chapter_60.html" title="Chapter 60">Chapter 60</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/zu917722.html" title="A Returner's Magic Should Be Special">A Returner's Magic Should Be Special</a></h3>
+<a href="chapter/zu917722/chapter_50.html" title="Chapter 50">Chapter 50</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/the_mythical_realm.html" title="The Mythical Realm">The Mythical Realm</a></h3>
+<a href="chapter/the_mythical_realm/chapter_159.html" title="Chapter 159.1">Chapter 159.1</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/skeleton_soldier_couldnt_protect_the_dungeon.html" title="Skeleton Soldier Couldn’t Protect the Dungeon">Skeleton Soldier Couldn’t Protect the Dungeon</a></h3>
+<a href="chapter/skeleton_soldier_couldnt_protect_the_dungeon/chapter_51.html" title="Chapter 51">Chapter 51</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/hero_i_quit_a_long_time_ago.html" title="Hero? I Quit A Long Time Ago.">Hero? I Quit A Long Time Ago.</a></h3>
+<a href="chapter/hero_i_quit_a_long_time_ago/chapter_62.html" title="Chapter 62">Chapter 62</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/tf917684.html" title="Hunter Age">Hunter Age</a></h3>
+<a href="chapter/tf917684/chapter_220.html" title="Chapter 220: Don’t Underestimate Me">Chapter 220: Don’t Underestimate Me</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/battle_through_the_heavens_prequel_the_legend_of_yao_lao.html" title="Battle Through the Heavens Prequel - The Legend of Yao Lao">Battle Through the Heavens Prequel - The Legend of Yao Lao</a></h3>
+<a href="chapter/battle_through_the_heavens_prequel_the_legend_of_yao_lao/chapter_69.html" title="Chapter 69">Chapter 69</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/read_hajime_no_ippo_manga.html" title="Hajime no Ippo">Hajime no Ippo</a></h3>
+<a href="chapter/read_hajime_no_ippo_manga/chapter_1252.html" title="Chapter 1252: The Reaper's Lineage">Chapter 1252: The Reaper's Lineage</a>
+</div>
+</div>
+
+<div class="item">
+<img src="../static/themes/home/images/404-avatar.png" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+<div class="slide-caption">
+<h3><a href="manga/yn918383.html" title="Fukushuu o Koinegau Saikyou Yuusha wa, Yami no Chikara de Senmetsu Musou Suru">Fukushuu o Koinegau Saikyou Yuusha wa, Yami no Chikara de Senmetsu Musou Suru</a></h3>
+<a href="chapter/yn918383/chapter_2.html" title="Chapter 2.1">Chapter 2.1</a>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="main-wrapper">
+<div></div>
+<div class="leftCol listCol">
+<div class="truyen-list">
+<h1 style="display: none;">Read manga online for free in high quality and most full</h1>
+<div class="breadcrumb breadcrumbs">
+<div class="rdfa-breadcrumb">
+<div>
+<p>
+<span class="breadcrumbs-title"></span>
+<span itemscope="" itemtype="https://data-vocabulary.org/Breadcrumb">
+<a itemprop="url" href="https://mangarock.herokuapp.com/" class="home" title="Manga online">
+<span itemprop="title">Manga online</span>
+</a>
+</span>
+<span class="separator">»</span>
+<span itemscope itemtype="https://data-vocabulary.org/Breadcrumb">
+<a itemprop="url" href="https://mangarock.herokuapp.com/manga_list?type=topview&category=all&state=all&page=1"><span itemprop="title">Category: All</span></a>
+</span>
+<span class="separator">»</span>
+<span itemscope itemtype="https://data-vocabulary.org/Breadcrumb">
+<a itemprop="url" href="https://mangarock.herokuapp.com/manga_list?type=topview&category=all&state=All&page=1"><span itemprop="title">Status: All</span></a>
+</span>
+<span class="separator">»</span>
+<span itemscope itemtype="https://data-vocabulary.org/Breadcrumb">
+<a itemprop="url" href="https://mangarock.herokuapp.com/manga_list?type=Latest&category=all&state=all&page=1"><span itemprop="title">Latest</span></a>
+</span>
+<span class="separator">»</span>
+Page 1 </p>
+</div>
+</div>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/x_epoch_of_dragon" title="X Epoch of Dragon">
+<img src="https://avt.mkklcdnv3.com/avatar_225/17949-x_epoch_of_dragon.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="X Epoch of Dragon">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/x_epoch_of_dragon" title="X Epoch of Dragon">X Epoch of Dragon</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/x_epoch_of_dragon/chapter_39" title="Chapter 39: Surviving Despair" style="color: black;font-size: 15px;">Chapter 39: Surviving Despair</a>
+<div>
+<span class="aye_icon">1,214,709</span>
+</div>
+<br><br>
+<p>
+Updating <a href="https://mangarock.herokuapp.com/manga/x_epoch_of_dragon" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/jy918077" title="Ghost Child">
+<img src="https://avt.mkklcdnv3.com/avatar_225/21692-jy918077.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Ghost Child">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/jy918077" title="Ghost Child">Ghost Child</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/jy918077/chapter_7" title="Vol.1 Chapter 7" style="color: black;font-size: 15px;">Vol.1 Chapter 7</a>
+<div>
+<span class="aye_icon">82,153</span>
+</div>
+<br><br>
+<p>
+Jo Sungjae spends passionate nights with the ghost that visits him every night- a ghost that resembles Dohwi, the person he loves, and as the nights progress, his condition worsens. Dowhi is worried about Sungae and invites him over to his house&hellip; What could Hong Dowhi&rsquo;s birth secret be? Will the enchanted Jo Sungjae be able to survive till the end?
+<a href="https://mangarock.herokuapp.com/manga/jy918077" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/xg918169" title="Go Riyou wa Keikaku Teki ni">
+<img src="https://avt.mkklcdnv3.com/avatar_225/21807-xg918169.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Go Riyou wa Keikaku Teki ni">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/xg918169" title="Go Riyou wa Keikaku Teki ni">Go Riyou wa Keikaku Teki ni</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/xg918169/chapter_2" title="Chapter 2: This Loan is Unjustifiable!" style="color: black;font-size: 15px;">Chapter 2: This Loan is Unjustifiable!</a>
+<div>
+<span class="aye_icon">36,213</span>
+</div>
+<br><br>
+<p>
+Makoto Kanekura works hard every day to pay off his father&#39;s debt. One day, the black-market lender Manami Godai hooks him up with a lucrative job. &quot;Every time you sleep with me, I&#39;ll slash $300 off your debt.&quot; Makoto steels himself for the worst, but it turns out he&#39;s not the bottom...! This is a money-driven romance about an innocent young ma <a href="https://mangarock.herokuapp.com/manga/xg918169" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a rel="nofollow" href="https://manganelo.com/manga/3gatsu_no_lion" title="3-gatsu no Lion">
+<img src="https://avt.mkklcdnv3.com/avatar_225/609-3gatsu_no_lion.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="3-gatsu no Lion">
+</a>
+<h3>
+<a rel="nofollow" href="https://manganelo.com/manga/3gatsu_no_lion" title="3-gatsu no Lion">3-gatsu no Lion</a>
+</h3>
+<a rel="nofollow" href="https://manganelo.com/chapter/3gatsu_no_lion/chapter_154" title="Vol.15 Chapter 154: On the Night the Stars Fall Upon (1)" style="color: black;font-size: 15px;">Vol.15 Chapter 154: On the Night the Stars Fall Upon (1)</a>
+<div>
+<span class="aye_icon">948,847</span>
+</div>
+<br><br>
+<p>
+A youth named Kiriama Rei, who lost his family as a child, endures loneliness to become a professional shogi player. Then, through a chance meeting, he develops a relationship with the three Kawamoto sisters, who hail from a working-class district of the city, and little by little his frozen heart begins to thaw. <a rel="nofollow" href="https://manganelo.com/manga/3gatsu_no_lion" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/slow_start_tokumi_yuiko" title="Slow Start ">
+<img src="https://avt.mkklcdnv3.com/avatar_225/19876-slow_start_tokumi_yuiko.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Slow Start ">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/slow_start_tokumi_yuiko" title="Slow Start ">Slow Start </a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/slow_start_tokumi_yuiko/chapter_59" title="Vol.5 Chapter 59" style="color: black;font-size: 15px;">Vol.5 Chapter 59</a>
+<div>
+<span class="aye_icon">311,932</span>
+</div>
+<br><br>
+<p>
+The story centers around 16-year-old Hana Ichinose, who unbeknownst to her classmates, was a year late in enrolling into high school. Although it may not seem like a big deal, it is a big deal to her. She wants to catch up with everyone else someday. <a href="https://mangarock.herokuapp.com/manga/slow_start_tokumi_yuiko" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a rel="nofollow" href="https://manganelo.com/manga/radiant" title="Radiant">
+<img src="https://avt.mkklcdnv3.com/avatar_225/1774-radiant.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Radiant">
+</a>
+<h3>
+<a rel="nofollow" href="https://manganelo.com/manga/radiant" title="Radiant">Radiant</a>
+</h3>
+<a rel="nofollow" href="https://manganelo.com/chapter/radiant/chapter_57" title="Vol.8 Chapter 57: The Sorcerer Kings" style="color: black;font-size: 15px;">Vol.8 Chapter 57: The Sorcerer Kings</a>
+<div>
+<span class="aye_icon">1,491,195</span>
+</div>
+<br><br>
+<p>
+Seth is an apprentice sorcerer from the Pompo Hills. Like all sorcerers, he&#39;s an &quot;infected&quot;, one of the few people having survived an encounter with a Nemesis, those creatures falling from the sky and destroying everything around them. Being immune to them, Seth wants to become a Hunter and fight the Nemesis. But what Seth really wants is to find the source of all Nemesis, the Radian <a rel="nofollow" href="https://manganelo.com/manga/radiant" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/jb918021" title="Oversimplified SCP">
+<img src="https://avt.mkklcdnv3.com/avatar_225/21636-jb918021.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Oversimplified SCP">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/jb918021" title="Oversimplified SCP">Oversimplified SCP</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/jb918021/chapter_64" title="Chapter 64: SCP-1150-RU" style="color: black;font-size: 15px;">Chapter 64: SCP-1150-RU</a>
+<div>
+<span class="aye_icon">2,176,432</span>
+</div>
+<br><br>
+<p>
+The SCP Foundation is a fictional organization documented by the web-based collaborative fiction project of the same name. In universe, the SCP Foundation is responsible for locating and containing individuals, entities, locations, and objects that violate natural law (referred to as SCPs).
+This manga summarizes the reports of the SCPs currently under the Foundation. <a href="https://mangarock.herokuapp.com/manga/jb918021" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/diamond_beat" title="Diamond Beat">
+<img src="https://avt.mkklcdnv3.com/avatar_225/7057-diamond_beat.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Diamond Beat">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/diamond_beat" title="Diamond Beat">Diamond Beat</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/diamond_beat/chapter_6" title="Vol.1 Chapter 6: Diamond Beat - Extra Story" style="color: black;font-size: 15px;">Vol.1 Chapter 6: Diamond Beat - Extra Story</a>
+<div>
+<span class="aye_icon">39,666</span>
+</div>
+<br><br>
+<p>
+From Midnight Scans:
+She was born into a family of classical musicians, but Satsuki is the one misfit. She thought that she hated music; but, then, a prince with a guitar appears...?! “You are a genius DIVA!” That’s a lie, right–?! <a href="https://mangarock.herokuapp.com/manga/diamond_beat" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/et917734" title="Hakuba no Oujisama">
+<img src="https://avt.mkklcdnv3.com/avatar_225/21349-et917734.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Hakuba no Oujisama">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/et917734" title="Hakuba no Oujisama">Hakuba no Oujisama</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/et917734/chapter_31" title="Vol.3 Chapter 31: I Don't Want to Talk About it, But..." style="color: black;font-size: 15px;">Vol.3 Chapter 31: I Don't Want to Talk About it, But...</a>
+<div>
+<span class="aye_icon">593,593</span>
+</div>
+<br><br>
+<p>
+Ozu Kotarou (25) recently changed his career from a white collar worker to a high school teacher. His new workplace is at Odawara High School, a girls only school. He starts off his first day by leaving a significant impression on the entire school by announcing that he has no interest in younger girls, especially under age girls. Kotarou is assigned to assist Hara Takako, a fellow teacher, until <a href="https://mangarock.herokuapp.com/manga/et917734" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/fad3428978978956" title="Jitsu wa Watashi wa">
+<img src="https://avt.mkklcdnv3.com/avatar_225/307-jitsu_wa_watashi_wa.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Jitsu wa Watashi wa">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/fad3428978978956" title="Jitsu wa Watashi wa">Jitsu wa Watashi wa</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/fad3428978978956/chapter_196.5" title="Vol.22 Chapter 196.5: Omake" style="color: black;font-size: 15px;">Vol.22 Chapter 196.5: Omake</a>
+<div>
+<span class="aye_icon">1,828,684</span>
+</div>
+<br><br>
+<p>
+Kuromine is a guy who does not lie, hence his nick name &quot;a bag full of holes&quot;. But everyone has secrets, and even Kuromine has one. Meet the very lovely, elegant, and mysterious Shiragami whom Kuromine has new found affections for... But what is this? Why does she have humongous wings when no one&#39;s looking and super long canines? Something is very different about this girl... <a href="https://mangarock.herokuapp.com/manga/fad3428978978956" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/uz917793" title="About a Lazy High School Guy Who Woke Up as a Girl One Morning">
+<img src="https://avt.mkklcdnv3.com/avatar_225/21407-uz917793.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="About a Lazy High School Guy Who Woke Up as a Girl One Morning">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/uz917793" title="About a Lazy High School Guy Who Woke Up as a Girl One Morning">About a Lazy High School Guy Who Woke Up as a Girl One Morning</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/uz917793/chapter_10.6" title="Chapter 10.6" style="color: black;font-size: 15px;">Chapter 10.6</a>
+<div>
+<span class="aye_icon">289,203</span>
+</div>
+<br><br>
+<p>
+After a guy wakes up as a girl one morning, his roommate wants him to turn back.
+<a href="https://mangarock.herokuapp.com/manga/uz917793" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/qb917797" title="RaW Hero">
+<img src="https://avt.mkklcdnv3.com/avatar_225/21411-qb917797.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="RaW Hero">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/qb917797" title="RaW Hero">RaW Hero</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/qb917797/chapter_8" title="Vol.2 Chapter 8" style="color: black;font-size: 15px;">Vol.2 Chapter 8</a>
+<div>
+<span class="aye_icon">331,330</span>
+</div>
+<br><br>
+<p>
+The unemployed young person Chiaki are the eldest of three brothers.
+With no parents, he started job hunting to support his two younger brothers.
+One day, finally attained to the final interview, Chiaki witness the pervert, involuntarily he tries to help, without knowing that this behavior would change his destiny. <a href="https://mangarock.herokuapp.com/manga/qb917797" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/sabaku_no_harem" title="Sabaku no Harem">
+<img src="https://avt.mkklcdnv3.com/avatar_225/1228-sabaku_no_harem.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Sabaku no Harem">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/sabaku_no_harem" title="Sabaku no Harem">Sabaku no Harem</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/sabaku_no_harem/chapter_29" title="Vol.8 Chapter 29" style="color: black;font-size: 15px;">Vol.8 Chapter 29</a>
+<div>
+<span class="aye_icon">1,905,409</span>
+</div>
+<br><br>
+<p>
+Mishe a strong willed girl raised from poverty has caught Prince Kallum&#39;s attention. Attention as in, &quot;you will become one of my concubines,&quot; thus begins Mishe&#39;s adventures into Prince Kallum&#39;s world. <a href="https://mangarock.herokuapp.com/manga/sabaku_no_harem" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/the_scholars_reincarnation" title="The Scholar's Reincarnation">
+<img src="https://avt.mkklcdnv3.com/avatar_225/17639-the_scholars_reincarnation.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="The Scholar's Reincarnation">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/the_scholars_reincarnation" title="The Scholar's Reincarnation">The Scholar's Reincarnation</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/the_scholars_reincarnation/chapter_94" title="Chapter 94" style="color: black;font-size: 15px;">Chapter 94</a>
+<div>
+<span class="aye_icon">12,373,020</span>
+</div>
+<br><br>
+<p>
+A material artist, claiming himself to be a &quot;murderer&quot; is defeated by a suicide attack in battle and is reborn as a first born child to a local lord. Having a fresh start, a warm family and a little sister to protect - he decides to become a better person in his new life. <a href="https://mangarock.herokuapp.com/manga/the_scholars_reincarnation" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/houkago_koishita" title="Houkago, Koishita">
+<img src="https://avt.mkklcdnv3.com/avatar_225/19302-houkago_koishita.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Houkago, Koishita">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/houkago_koishita" title="Houkago, Koishita">Houkago, Koishita</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/houkago_koishita/chapter_15" title="Vol.4 Chapter 15: Rain of Tears" style="color: black;font-size: 15px;">Vol.4 Chapter 15: Rain of Tears</a>
+<div>
+<span class="aye_icon">473,956</span>
+</div>
+<br><br>
+<p>
+From MAL: Hayama Kao yearns for an existence that would make people notice her. Now in high school, she is working as a temporary manager of her school's boys volleyball club against her will. Kao's older brother, an alumnus, currently a teacher and the advisor of the club, placed the responsibility on her shoulders to recruit Kuze Nagisa for the volleyball club if she wanted to quit being the ma <a href="https://mangarock.herokuapp.com/manga/houkago_koishita" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/tanakakun_wa_itsumo_kedaruge" title="Tanaka-kun wa Itsumo Kedaruge">
+<img src="https://avt.mkklcdnv3.com/avatar_225/1192-tanakakun_wa_itsumo_kedaruge.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Tanaka-kun wa Itsumo Kedaruge">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/tanakakun_wa_itsumo_kedaruge" title="Tanaka-kun wa Itsumo Kedaruge">Tanaka-kun wa Itsumo Kedaruge</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/tanakakun_wa_itsumo_kedaruge/chapter_103" title="Chapter 103" style="color: black;font-size: 15px;">Chapter 103</a>
+<div>
+<span class="aye_icon">1,282,648</span>
+</div>
+<br><br>
+<p>
+Sighing, leaning on his elbows, sleepy eyes. Tanaka-kun is a boy that basically doesn&#39;t try but isn&#39;t disliked. This is a laid-back youth comedy about Tanaka-kun and the quiet Oota who can&#39;t leave him alone. <a href="https://mangarock.herokuapp.com/manga/tanakakun_wa_itsumo_kedaruge" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/her_appetites_too_big_for_me_alone" title="Her Appetite's Too Big for Me Alone">
+<img src="https://avt.mkklcdnv3.com/avatar_225/20424-her_appetites_too_big_for_me_alone.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Her Appetite's Too Big for Me Alone">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/her_appetites_too_big_for_me_alone" title="Her Appetite's Too Big for Me Alone">Her Appetite's Too Big for Me Alone</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/her_appetites_too_big_for_me_alone/chapter_10" title="Vol.2 Chapter 10: It Takes Two." style="color: black;font-size: 15px;">Vol.2 Chapter 10: It Takes Two.</a>
+<div>
+<span class="aye_icon">531,555</span>
+</div>
+<br><br>
+<p>
+Funatsugi Maki is in love with a girl, who happens to have a voracious appetite. Little does he know, despite acting as normal as any middle-high-school-aged girl, she&#39;s actually an eldrich horror in disguise. Psychological horror and romantic comedy shenanigans ensue.
+<a href="https://mangarock.herokuapp.com/manga/her_appetites_too_big_for_me_alone" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/stealth_symphony" title="Stealth Symphony">
+<img src="https://avt.mkklcdnv3.com/avatar_225/4425-stealth_symphony.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Stealth Symphony">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/stealth_symphony" title="Stealth Symphony">Stealth Symphony</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/stealth_symphony/chapter_20.5" title="Chapter 20.5: Volume 3 Extras" style="color: black;font-size: 15px;">Chapter 20.5: Volume 3 Extras</a>
+<div>
+<span class="aye_icon">73,776</span>
+</div>
+<br><br>
+<p>
+Updating <a href="https://mangarock.herokuapp.com/manga/stealth_symphony" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/bg918482" title="What Story is This">
+<img src="https://avt.mkklcdnv3.com/avatar_225/22126-bg918482.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="What Story is This">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/bg918482" title="What Story is This">What Story is This</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/bg918482/chapter_2" title="Chapter 2" style="color: black;font-size: 15px;">Chapter 2</a>
+<div>
+<span class="aye_icon">8,824</span>
+</div>
+<br><br>
+<p>
+It is a story of a knight and a dark elf. You can expect the effect of raising fogging resistance.
+<a href="https://mangarock.herokuapp.com/manga/bg918482" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/vq918481" title="Crown of Love">
+<img src="https://avt.mkklcdnv3.com/avatar_225/22125-vq918481.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Crown of Love">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/vq918481" title="Crown of Love">Crown of Love</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/vq918481/chapter_0.8" title="Vol.4 Afterword" style="color: black;font-size: 15px;">Vol.4 Afterword</a>
+<div>
+<span class="aye_icon">3,240</span>
+</div>
+<br><br>
+<p>
+16-year-old Hisayoshi &quot;Kumi&quot; Tajima wasn&#39;t looking for love. But after he accidentally bumps into teen idol Rima Fujio, he can&#39;t stop thinking about her. Living worlds apart, he&#39;ll never have a chance to meet her again. Until Rima&#39;s former agent Ikeshiba gives him the perfect opportunity&mdash;by turning Hisayoshi into an idol himself! Too bad Rima only sees him as c <a href="https://mangarock.herokuapp.com/manga/vq918481" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a rel="nofollow" href="https://manganelo.com/manga/read_amagi_brilliant_park" title="Amagi Brilliant Park">
+<img src="https://avt.mkklcdnv3.com/avatar_225/2447-read_amagi_brilliant_park.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Amagi Brilliant Park">
+</a>
+<h3>
+<a rel="nofollow" href="https://manganelo.com/manga/read_amagi_brilliant_park" title="Amagi Brilliant Park">Amagi Brilliant Park</a>
+</h3>
+<a rel="nofollow" href="https://manganelo.com/chapter/read_amagi_brilliant_park/chapter_18" title="Vol.4 Chapter 18: Shiina Chuujyou Wants to Run Away! (3)" style="color: black;font-size: 15px;">Vol.4 Chapter 18: Shiina Chuujyou Wants to Run Away! (3)</a>
+<div>
+<span class="aye_icon">162,162</span>
+</div>
+<br><br>
+<p>
+Updating <a rel="nofollow" href="https://manganelo.com/manga/read_amagi_brilliant_park" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/honey" title="Honey">
+<img src="https://avt.mkklcdnv3.com/avatar_225/1252-honey.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Honey">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/honey" title="Honey">Honey</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/honey/chapter_17" title="Chapter 17" style="color: black;font-size: 15px;">Chapter 17</a>
+<div>
+<span class="aye_icon">26,431</span>
+</div>
+<br><br>
+<p>
+Chizuru is the new school nurse and she's eager not just to heal physical injuries but also injuries of the heart. She soon meets Kuga, a student whose father is a powerful yet sleazy politician who Kuga hates with a passion. At first Kuga just tries to avoid Chizuru's attempts to help him, but as time goes on he finds himself attracted to her. Yet Chizuru has her own demons that get in the way of <a href="https://mangarock.herokuapp.com/manga/honey" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/hajimechan_ga_ichiban" title="Hajime-chan ga Ichiban!">
+<img src="https://avt.mkklcdnv3.com/avatar_225/15156-hajimechan_ga_ichiban.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Hajime-chan ga Ichiban!">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/hajimechan_ga_ichiban" title="Hajime-chan ga Ichiban!">Hajime-chan ga Ichiban!</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/hajimechan_ga_ichiban/chapter_47" title="Chapter 47" style="color: black;font-size: 15px;">Chapter 47</a>
+<div>
+<span class="aye_icon">269,803</span>
+</div>
+<br><br>
+<p>
+Okano Hajime is an ordinary - or maybe below ordinary - girl who was forced to take care everything in the family since she was young, because her family was very poor. Hajime had five younger brothers, who were quintuplets, and they were scouted by a music company. Thus, the realistic yet dreamy older sister had to try harder to watch over her restless brothers and to pursue her own idol, who was <a href="https://mangarock.herokuapp.com/manga/hajimechan_ga_ichiban" title="">More.</a>
+</p>
+</div>
+<div class="list-truyen-item-wrap">
+<a href="https://mangarock.herokuapp.com/manga/koi_inu" title="Koi Inu.">
+<img src="https://avt.mkklcdnv3.com/avatar_225/888-koi_inu.jpg" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="Koi Inu.">
+</a>
+<h3>
+<a href="https://mangarock.herokuapp.com/manga/koi_inu" title="Koi Inu.">Koi Inu.</a>
+</h3>
+<a href="https://mangarock.herokuapp.com/chapter/koi_inu/chapter_164" title="Chapter 164: Test of Courage (4)" style="color: black;font-size: 15px;">Chapter 164: Test of Courage (4)</a>
+<div>
+<span class="aye_icon">1,907,311</span>
+</div>
+<br><br>
+<p>
+Igarashi is now in college. The bittersweet memories that he left behind in childhood are now beginning to awaken when he meets his childhood friend Chiyo-chan again after 10 years. <a href="https://mangarock.herokuapp.com/manga/koi_inu" title="">More.</a>
+</p>
+</div>
+<div style="clear: both"></div>
+<div class="phan-trang">
+<div class="group-page"><a href="https://mangarock.herokuapp.com/manga_list?type=latest&category=all&state=all&page=1" class="page page-blue">First(1)</a><a class="pageselect">1</a><a href="https://mangarock.herokuapp.com/manga_list?type=latest&category=all&state=all&page=2" class="page">2</a><a href="https://mangarock.herokuapp.com/manga_list?type=latest&category=all&state=all&page=3" class="page">3</a><a href="https://mangarock.herokuapp.com/manga_list?type=latest&category=all&state=all&page=920" class="page page-blue">Last(920)</a></div><div class="group-qty"><a class="quantitychapter page-blue">Total: 22,072 stories</a></div></div>
+<ul class="tag tag-name">
+<li><a rel="tag" class="highlight" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=all&state=all&page=1" title="All Manga">ALL</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=2&state=all&page=1" title="A work typically depicting fighting, violence, chaos, and fast paced motion....">Action</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=3&state=all&page=1" title="Contains content that is suitable only for adults. Titles in this category may include prolonged scenes of intense violence and/or graphic sexual content and nudity.">Adult</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=4&state=all&page=1" title="If a character in the story goes on a trip or along that line, your best bet is that it is an adventure manga. Otherwise, it's up to your personal prejudice on this case.">Adventure</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=6&state=all&page=1" title="A dramatic work that is light and often humorous or satirical in tone and that usually contains a happy resolution of the thematic conflict.">Comedy</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=7&state=all&page=1" title="Mangas about food, cooking skills with many food in it!!! If you're a food lover. This Cooking category is for youuu!!">Cooking</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=9&state=all&page=1" title="Fan based work inspired by official anime or manga. For MangaUpdates, original works DO NOT fall under this category">Doujinshi</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=10&state=all&page=1" title="A work meant to bring on an emotional response, such as instilling sadness or tension.">Drama</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=11&state=all&page=1" title="Possibly the line between hentai and non-hentai, ecchi usually refers to fanservice put in to attract a certain group of fans.">Ecchi</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=12&state=all&page=1" title="Anything that involves, but not limited to, magic, dream world, and fairy tales.">Fantasy</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=13&state=all&page=1" title="Girls dressing up as guys, guys dressing up as girls.. Guys turning into girls, girls turning into guys.. I think you get the picture.">Gender bender</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=14&state=all&page=1" title="A series involving one male character and many female characters (usually attracted to the male character). A Reverse Harem is when the genders are reversed.">Harem</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=15&state=all&page=1" title="Having to do with old or ancient times.">Historical</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=16&state=all&page=1" title="A painful emotion of fear, dread, and abhorrence; a shuddering with terror and detestation; the feeling inspired by something frightful and shocking.">Horror</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=17&state=all&page=1" title="Literally " Woman". Targets women 18-30. Female equivalent to seinen. Unlike shoujo the romance is more realistic and less idealized. The storytelling is more explicit and mature.">Josei</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=44&state=all&page=1" title="Manhua (simplified Chinese: 漫画; traditional Chinese: 漫畫; pinyin: Mànhuà; Jyutping: maan6 waa2) are Chinese comics produced in Mainland China, Hong Kong, and Taiwan.">Manhua</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=43&state=all&page=1" title="Manhwa (Hangul: 만화; Popular known as Webtoon, is the general Korean term for comics and print cartoons (common usage also includes animated cartoons). Outside of Korea, the term usually refers to South Korean comics, although the comics industry emerges in North Korea as well.">Manhwa</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=19&state=all&page=1" title="As the name suggests, anything martial arts related. Any of several arts of combat or self-defense, such as aikido, karate, judo, or tae kwon do, kendo, fencing, and so on and so forth.">Martial arts</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=20&state=all&page=1" title="Contains subject matter which may be too extreme for people under the age of 17. Titles in this category may contain intense violence, blood and gore, sexual content and/or strong language.">Mature</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=21&state=all&page=1" title="A work involving and usually concentrating on all types of large robotic machines.">Mecha</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=22&state=all&page=1" title="Mangas which related to the treatment of illness and injuries.">Medical</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=24&state=all&page=1" title="Usually an unexplained event occurs, and the main protagonist attempts to find out what caused it.">Mystery</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=25&state=all&page=1" title="One Shot" is a manga term that denotes series that are short, usually consisting of just one chapter. They are perfect for when you are looking for a quick read that has a start and an end, and do not want to be stuck in the middle of a story waiting for the next chapter to be released.">One shot</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=26&state=all&page=1" title="Usually deals with the philosophy of a state of mind, in most cases detailing abnormal psychology.">Psychological</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=27&state=all&page=1" title="Any love related story. We will define love as between man and woman in this case. Other than that, it is up to your own imagination of what love is.
+">Romance</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=28&state=all&page=1" title="Having a major setting of the story deal with some type of school.">School life</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=29&state=all&page=1" title="Short for science fiction, these works involve twists on technology and other science related phenomena which are contrary or stretches of the modern day scientific world.">Sci fi</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=30&state=all&page=1" title="Seinen means " young Man." Manga and anime that specifically targets young adult males around the ages of 18 to 25 are seinen titles. The stories in seinen works appeal to university students and those in the working world. Typically the story lines deal with the issues of adulthood.">Seinen</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=31&state=all&page=1" title="A work intended and primarily written for females. Usually involves a lot of romance and strong character development.">Shoujo</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=32&state=all&page=1" title="Often synonymous with yuri, this can be thought of as somewhat less extreme. " Girl's Love", so to speak.">Shoujo ai</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=33&state=all&page=1" title="A work intended and primarily written for males. These works usually involve fighting and/or violence.">Shounen</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=34&state=all&page=1" title="Often synonymous with yaoi, this can be thought of as somewhat less extreme. " Boy's Love", so to speak.">Shounen ai</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=35&state=all&page=1" title="As the name suggests, this genre represents day-to-day tribulations of one/many character(s). These challenges/events could technically happen in real life and are often -if not all the time- set in the present timeline in a world that mirrors our own.">Slice of life</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=36&state=all&page=1" title="Deals with series that are considered profane or offensive, particularly with regards to sexual content.">Smut</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=37&state=all&page=1" title="As the name suggests, anything sports related. Baseball, basketball, hockey, soccer, golf, and racing just to name a few.">Sports</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=38&state=all&page=1" title="Usually entails amazing and unexplained powers or events which defy the laws of physics.">Supernatural</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=39&state=all&page=1" title="Contains events resulting in great loss and misfortune.">Tragedy</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=40&state=all&page=1" title="Webtoon (Hangul: 웹툰) is a term used to describe South Korean webcomics or manhwa that are published online.">Webtoons</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=41&state=all&page=1" title="This work usually involves intimate relationships between men.">Yaoi</a></li>
+<li><a rel="tag" class="" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=42&state=all&page=1" title="This work usually involves intimate relationships between women.">Yuri</a></li>
+</ul>
+<ul class="tag spec-tag">
+<li><a rel="tag" href="https://mangarock.herokuapp.com/manga_list?type=newest&category=all&state=all&page=1" title="New Manga" class="">Newest</a></li>
+<li><a rel="tag" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=all&state=all&page=1" title="Top Read Manga" class="highlight">Latest</a></li>
+<li><a rel="tag" href="https://mangarock.herokuapp.com/manga_list?type=topview&category=all&state=all&page=1" title="Top Read Manga" class="">Top read</a></li>
+</ul>
+<ul class="tag spec-tag">
+<li><a rel="tag" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=all&state=all&page=1" title="New Manga" class="highlight">ALL</a></li>
+<li><a rel="tag" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=all&state=completed&page=1" title="Completed Manga" class="">Completed</a></li>
+<li><a rel="tag" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=all&state=ongoing&page=1" title="Ongoing Manga" class="">Ongoing</a></li>
+<li><a rel="tag" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=all&state=drop&page=1" title="Drop Manga" class="">Dropped</a></li>
+<li><a rel="tag" href="https://mangarock.herokuapp.com/manga_list?type=latest&category=all&state=unknown&page=1" title="Unknown Manga" class="">Unknown</a></li>
+</ul> </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<footer>
+  <div class="footer-content">
+    <p>Why You Should <a href="index.html">Read Manga</a> Online at Mangakakalot.com ?</p>
+    <p>There are many reasons you should read Manga online, and if you are a fan of this unique storytelling style then learning about them is a must. One of the biggest reasons why you should read Manga online is the money it can save you. While there's nothing like actually holding a book in your hands, there's also no denying that the cost of those books can add up quickly. So why not join the digital age and read Manga online? Another big reason to read Manga online is the huge amount of material that is available. When you go to a comic store or other book store their shelves are limited by the space that they have. When you go to an online site to read Manga those limitations don't exist. So if you want the best selection and you also want to save money then reading Manga online should be an obvious choice for you</p>
+     <p>©2016 Mangakakalot.com, all rights reserved. Top speed, completely free. </p>
+    <p>Current Time is Feb-15-2019 19:15:42 PM.</p>
+    <p>If you have questions about anything or advertising, please contact us at <b><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fd909c939a9c969c969c919289bd9a909c9491d39e9290">[email&#160;protected]</a></b></p>
+  </div>
+</footer>
+
+
+
+<!-- Javascript below footer section, footer js is influencial for carousel.js work -->
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script type="text/javascript" src="../static/themes/home/js/custom-fotter7839.js?v=1.2"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131398904-1"></script>
+
+
+
+
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-131398904-1');
+</script>
+<div id="fb-root"></div>
+<script>
+  $appidfb = '1664224760511779';
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "../connect.facebook.net/en_US/all.js#xfbml=1&appId=" + $appidfb;
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+</body>
+
+
+</html>

@@ -72,15 +72,28 @@
 </em>
 </li>
 
-<!-- bookmark button -->
-<li class="li_bookmark">
-  <div id="Bookmark">
-    <a onclick="addnote();">
-      <img src="../static/themes/home/images/theodoi.png" style="height: 50px;">
-    </a>
-  </div>
-</li>
-<!-- bookmark button end -->
+
+{% if session %}
+    <!-- bookmark button -->
+    <li class="li_bookmark">
+      <div id="Bookmark">
+        <a href="{{url_for('manga_id')}}">
+          <img src="../static/themes/home/images/theodoi.png" style="height: 50px;">
+        </a>
+      </div>
+    </li>
+    <!-- bookmark button end -->
+{% else %}
+    <!-- bookmark button -->
+    <li class="li_bookmark">
+      <div id="Bookmark">
+        <a onclick="addnote();">
+          <img src="../static/themes/home/images/theodoi.png" style="height: 50px;">
+        </a>
+      </div>
+    </li>
+    <!-- bookmark button end -->
+{% endif %}
 
 
 <li>

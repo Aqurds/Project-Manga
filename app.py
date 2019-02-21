@@ -145,7 +145,12 @@ def history():
         return redirect(url_for('login'))
 
 
-
+@app.route('/test/')
+def test():
+    data = {'username':'aqurds', 'job':'coder'}
+    user = mongo.db.testdata
+    user.insert(data)
+    return 'data added'
 
 
 if __name__ == '__main__':

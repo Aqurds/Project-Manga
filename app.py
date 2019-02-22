@@ -81,7 +81,7 @@ def login():
 
 
 
-
+# This is test route to see data structure in template. This route isn't used in website template
 @app.route('/data/')
 def data():
     # item = mongo.db.items
@@ -102,6 +102,7 @@ def account():
         return redirect(url_for('login'))
 
 
+# Logout route
 @app.route('/logout/')
 def logout():
     if session:

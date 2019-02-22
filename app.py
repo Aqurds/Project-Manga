@@ -39,6 +39,7 @@ def manga_id_chapter():
     return render_template('manga-id-chapter.html')
 
 
+# Register route
 @app.route('/register/', methods=['POST', 'GET'])
 def register():
     if session:
@@ -58,7 +59,7 @@ def register():
 
 
 
-
+# Login route
 @app.route('/login/', methods=['POST', 'GET'])
 def login():
     if session:

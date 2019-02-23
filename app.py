@@ -129,7 +129,7 @@ def password_change():
         return redirect(url_for('login'))
 
 
-
+# bookmark route
 @app.route('/bookmark/')
 def bookmark():
     if session:
@@ -138,7 +138,7 @@ def bookmark():
         return redirect(url_for('login'))
 
 
-
+# history route
 @app.route('/history/')
 def history():
     if session:

@@ -119,7 +119,7 @@ def update():
     else:
         return redirect(url_for('login'))
 
-#password change route details:
+
 
 @app.route('/password-change/')
 def password_change():
@@ -136,17 +136,8 @@ def bookmark():
         return render_template('bookmark.html')
     else:
         return redirect(url_for('login'))
-# history route# history route# history route
-# history route# history route# history route
-## history route# history route# history route# history route# history route
 
 
-
-# # history route# history route
-
-# history route# history route# history route
-
-# history route# history route# history route
 
 # history route
 @app.route('/history/')
@@ -166,7 +157,7 @@ def test():
 
 # history route will be critical as we need to memorize the total visited page by the userself. so in manga route each time a manga is loaded, we need to check the session, if session exist, then collect the user name and manga id the user visiting. Store the manga id in the user column with and fetch the history data and show in the history page. That's all.
 
-# history route# history route# history route# history route
+
 #run the scrapy on 15 min schedule and collect the manga id from front page which are updated in the last 15 min, then update only those manga with specific login
 
 if __name__ == '__main__':

@@ -353,21 +353,21 @@ Page 1 </p>
 
 {% for manga in all_manga %}
     <div class="list-truyen-item-wrap">
-      <a href="https://mangarock.herokuapp.com/manga/jy918077" title="Ghost Child">
-        <img src="{{ manga['image'] }}"  alt="Ghost Child">
+      <a href="{{url_for('manga_id')}}{{manga['id']}}" title="{{manga['title']}}">
+        <img src="{{ manga['image'] }}"  alt="{{manga['title']}}">
       </a>
       <h3>
-        <a href="{{url_for('manga_id')}}{{manga['id']}}" title="{{manga['title']}}">dsds</a>
+        <a href="{{url_for('manga_id')}}{{manga['id']}}" title="{{manga['title']}}">{{manga['title']}}</a>
       </h3>
-      <a href="https://mangarock.herokuapp.com/chapter/jy918077/chapter_7" title="Vol.1 Chapter 7" style="color: black;font-size: 15px;">
+      <!-- <a href="https://mangarock.herokuapp.com/chapter/jy918077/chapter_7" title="Vol.1 Chapter 7" style="color: black;font-size: 15px;">
         Vol.1 Chapter 7
-      </a>
+      </a> -->
       <br><br>
       <p>
 
         {{manga['summary'] | truncate(350) }}
 
-        <a href="#" title="">
+        <a href="{{url_for('manga_id')}}{{manga['id']}}" title="{{manga['title']}}">
           More.
         </a>
       </p>
@@ -389,7 +389,7 @@ Page 1 </p>
     </a>
 
     {% if first_prev_page != 0 %}
-      <a href="{{url_for('manga', page=first_prev_page)}}" class="pageselect">
+      <a href="{{url_for('manga', page=first_prev_page)}}" class="page">
         {{first_prev_page}}
       </a>
     {% endif %}
@@ -400,7 +400,7 @@ Page 1 </p>
       </a>
     {% endif %}
 
-    <a href="{{url_for('manga', page=current_page)}}" class="page">
+    <a class="pageselect">
       {{current_page}}
     </a>
 

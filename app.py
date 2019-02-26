@@ -28,15 +28,12 @@ def home_json_tooltips():
 @app.route('/manga/')
 def manga():
     items = mongo.db.all_manga_details
-    offset = 24
-
-    all_manga = list(items.find().limit(offset))
-
 
     #Getting total manga number
     total_manga = len(list(items.find()))
 
     #getting total page number
+    offset = 24
     page_number = total_manga / offset
     if total_manga % offset == 0:
         total_page_number = int(str(page_number).split('.')[0])
@@ -44,6 +41,9 @@ def manga():
         total_page_number = int(str(page_number).split('.')[0]) + 1
 
 
+
+
+    #pagination code
     first_prev_page = 0
     second_prev_page = 0
     current_page = 0
@@ -87,7 +87,16 @@ def manga():
         current_page = 3
         first_next_page = 4
         second_next_page = 5
+    #pagination code ends here
 
+    page_offset = (current_page-1) * 24
+    limit = 24
+
+    starting_manga_id = items.find().sort('_id', pymongo.ASCENDING)
+    last_manga_id = starting_manga_id[page_offset]['_id']
+
+    # all_manga = list(items.find().limit(offset))
+    all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('_id', pymongo.ASCENDING).limit(limit))
 
 
     return render_template('manga.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page)
@@ -98,9 +107,11 @@ def manga():
 
 
 
-@app.route('/manga-id/')
-def manga_id():
-    return render_template('manga-id.html')
+@app.route('/manga-id/<string:manga_id>')
+def manga_id(manga_id):
+    manga_id = request.url.split('/')[-1]
+    manga_details = mongo.db.all_manga_details.find_one({'id':manga_id})
+    return render_template('manga-id.html', manga_details = manga_details)
 
 
 @app.route('/manga-id-chapter/')

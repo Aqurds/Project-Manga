@@ -4,8 +4,8 @@ import bcrypt
 
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = 'nineanimes'
-app.config['MONGO_URI'] = 'mongodb://aqurds:2252010baby@ds115436.mlab.com:15436/nineanimes'
+app.config['MONGO_DBNAME'] = 'aqurds'
+app.config['MONGO_URI'] = 'mongodb://user:2252010baby@ds249035.mlab.com:49035/aqurds'
 
 mongo = PyMongo(app)
 
@@ -14,9 +14,10 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def home():
-    items = mongo.db.items
-    all_items = items.find().sort('views', pymongo.DESCENDING).limit(56)
-    return render_template("index.html", all_items = all_items)
+    # items = mongo.db.items
+    # all_items = items.find().sort('views', pymongo.DESCENDING).limit(56)
+    # return render_template("index.html", all_items = all_items)
+    return render_template('index.html')
 
 
 @app.route('/home_json_tooltips/')
@@ -26,7 +27,14 @@ def home_json_tooltips():
 
 @app.route('/manga/')
 def manga():
-    return render_template('manga.html')
+    items = mongo.db.all_manga_details
+    all_manga = list(items.find().limit(24))
+
+    total_manga = len(list(mongo.db.all_manga_details.find()))
+    # number = []
+    # for item in total_manga:
+    #     number.append(item)
+    return render_template('manga.html', all_manga=all_manga, total_manga = total_manga)
 
 
 @app.route('/manga-id/')
@@ -88,8 +96,8 @@ def data():
     # getty = item.find_one({"data_id": "9m40"})
     # return getty['title']
 
-    items = mongo.db.items
-    all_items = items.find()
+    items = mongo.db.all_manga_details
+    all_items = list(items.find().limit(10))
 
     return render_template('data.html', all_items=all_items)
 

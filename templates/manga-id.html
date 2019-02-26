@@ -140,13 +140,13 @@
 
 
 <!-- coming next chapter code -->
-<div class="chapter_issue" style="font: 400 14px Open Sans, Tahoma, Geneva, sans-serif;color: #3e3e3e;width: 96%;padding: 10px 2%;background: #FFF;text-align: justify; border-top: 1px dashed #ff530d;margin-bottom: 10px;float: left;">
+<!-- <div class="chapter_issue" style="font: 400 14px Open Sans, Tahoma, Geneva, sans-serif;color: #3e3e3e;width: 96%;padding: 10px 2%;background: #FFF;text-align: justify; border-top: 1px dashed #ff530d;margin-bottom: 10px;float: left;">
 Maybe coming in the next issue
 <br>
   <a style="color: #2ecc71;" href="https://mangarock.herokuapp.com/chapter/zu917722/chapter_52" target="_blank">A Returner's Magic Should Be Special chapter 52</a>
   <br>
   <a style="color: #2ecc71;" href="https://mangarock.herokuapp.com/chapter/zu917722/chapter_53" target="_blank">A Returner's Magic Should Be Special chapter 53</a>
-</div>
+</div> -->
 <!-- coming next chapter code end -->
 
 
@@ -157,22 +157,21 @@ Maybe coming in the next issue
   <div class="manga-info-chapter">
     <div class="row title-list-chapter">
       <span>Chapter name</span>
-      <span>View</span>
+      <!-- <span>View</span> -->
       <span>Time uploaded</span>
     </div>
     <div class="chapter-list">
       <!-- each row represent a chapter of the manga -->
+      {% for item in chapter_list %}
       <div class="row">
-        <span><a href="https://mangarock.herokuapp.com/chapter/zu917722/chapter_51" title="A Returner's Magic Should Be Special Chapter 51">Chapter 51</a></span>
-        <span>113,889</span>
-        <span>14 hour ago </span>
-      </div>
+        <span><a href="{{url_for('manga_id_chapter')}}{{manga_id_here}}/{{item[0]}}" title="A Returner's Magic Should Be Special Chapter 51">{{item[2]}}</a></span>
 
-      <div class="row">
-        <span><a href="https://mangarock.herokuapp.com/chapter/zu917722/chapter_1" title="A Returner's Magic Should Be Special Chapter 1">Chapter 1</a></span>
-        <span>284,907</span>
-        <span>11-09 15:17</span>
+        <span>{{item[3]}}</span>
+
+        <!-- <span>14 hour ago </span> -->
       </div>
+      {% endfor %}
+
 
     </div>
   </div>

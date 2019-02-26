@@ -111,7 +111,24 @@ def manga():
 def manga_id(manga_id):
     manga_id = request.url.split('/')[-1]
     manga_details = mongo.db.all_manga_details.find_one({'id':manga_id})
-    return render_template('manga-id.html', manga_details = manga_details)
+    manga_chapter_list = mongo.db.manga_chapter_list.find_one({'manga_id':manga_id})
+
+    manga_id_here = manga_chapter_list['manga_id']
+    iteration = len(manga_chapter_list['chapter_id'])
+    chapter_list = []
+    for x in range(iteration):
+        chapter_list.append([manga_chapter_list['chapter_id'][x]])
+
+    for x in range(iteration):
+        chapter_list[x].append(manga_chapter_list['full_chapter_url'][x])
+
+    for x in range(iteration):
+        chapter_list[x].append(manga_chapter_list['chapter_link_text'][x])
+
+    for x in range(iteration):
+        chapter_list[x].append(manga_chapter_list['chapter_time_uploaded'][x])
+
+    return render_template('manga-id.html', manga_details = manga_details, chapter_list = chapter_list, manga_id_here = manga_id_here)
 
 
 @app.route('/manga-id-chapter/')

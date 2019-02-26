@@ -3,6 +3,7 @@
         var $searchInput = $(this);
         $searchInput.after('<div id="divResult"></div>');
         $resultDiv = $('#divResult');
+
         $searchInput.addClass('searchi');
         $resultDiv.html("<ul></ul><div id='search-footer' class='searchf'></div>");
         $old = '';

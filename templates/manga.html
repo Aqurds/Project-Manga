@@ -333,18 +333,18 @@
 </span>
 <span class="separator">»</span>
 <span itemscope itemtype="https://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" href="https://mangarock.herokuapp.com/manga_list?type=topview&category=all&state=all&page=1"><span itemprop="title">Category: All</span></a>
+<a itemprop="url" href="#"><span itemprop="title">Category: All</span></a>
 </span>
 <span class="separator">»</span>
 <span itemscope itemtype="https://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" href="https://mangarock.herokuapp.com/manga_list?type=topview&category=all&state=All&page=1"><span itemprop="title">Status: All</span></a>
+<a itemprop="url" href="#"><span itemprop="title">Status: All</span></a>
 </span>
 <span class="separator">»</span>
 <span itemscope itemtype="https://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" href="https://mangarock.herokuapp.com/manga_list?type=Latest&category=all&state=all&page=1"><span itemprop="title">Latest</span></a>
+<a itemprop="url" href="#"><span itemprop="title">Latest</span></a>
 </span>
 <span class="separator">»</span>
-Page 1 </p>
+Page {{current_page}} </p>
 </div>
 </div>
 </div>
@@ -353,11 +353,11 @@ Page 1 </p>
 
 {% for manga in all_manga %}
     <div class="list-truyen-item-wrap">
-      <a href="{{url_for('manga_id')}}{{manga['id']}}" title="{{manga['title']}}">
+      <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">
         <img src="{{ manga['image'] }}"  alt="{{manga['title']}}">
       </a>
       <h3>
-        <a href="{{url_for('manga_id')}}{{manga['id']}}" title="{{manga['title']}}">{{manga['title']}}</a>
+        <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">{{manga['title']}}</a>
       </h3>
       <!-- <a href="https://mangarock.herokuapp.com/chapter/jy918077/chapter_7" title="Vol.1 Chapter 7" style="color: black;font-size: 15px;">
         Vol.1 Chapter 7
@@ -367,7 +367,7 @@ Page 1 </p>
 
         {{manga['summary'] | truncate(350) }}
 
-        <a href="{{url_for('manga_id')}}{{manga['id']}}" title="{{manga['title']}}">
+        <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">
           More.
         </a>
       </p>

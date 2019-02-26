@@ -28,13 +28,52 @@ def home_json_tooltips():
 @app.route('/manga/')
 def manga():
     items = mongo.db.all_manga_details
-    all_manga = list(items.find().limit(24))
+    offset = 24
 
-    total_manga = len(list(mongo.db.all_manga_details.find()))
-    # number = []
-    # for item in total_manga:
-    #     number.append(item)
-    return render_template('manga.html', all_manga=all_manga, total_manga = total_manga)
+
+
+
+    if int(request.args['page']) == 1:
+        first_prev_page = 0
+        second_prev_page = 0
+        current_page = int(request.args['page'])
+        first_next_page = current_page + 1
+        second_next_page = current_page + 2
+    elif int(request.args['page']) == 2:
+        first_prev_page = 0
+        second_prev_page = current_page - 1
+        current_page = int(request.args['page'])
+        first_next_page = current_page + 1
+        second_next_page = current_page + 2
+    else:
+        first_prev_page = 1
+        second_prev_page = 2
+        current_page = 3
+        first_next_page = 4
+        second_next_page = 5
+
+
+    if current_page > 3:
+        first_prev_page = current_page - 2
+        second_prev_page = current_page - 1
+        first_next_page = current_page + 1
+        second_next_page = current_page + 2
+
+
+    all_manga = list(items.find().limit(offset))
+
+
+    #Getting total manga number
+    total_manga = len(list(items.find()))
+
+    #getting total page number
+    page_number = total_manga / offset
+    if total_manga % offset == 0:
+        total_page_number = int(str(page_number).split('.')[0])
+    else:
+        total_page_number = int(str(page_number).split('.')[0]) + 1
+
+    return render_template('manga.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page)
 
 
 @app.route('/manga-id/')
@@ -95,11 +134,57 @@ def data():
     # item = mongo.db.items
     # getty = item.find_one({"data_id": "9m40"})
     # return getty['title']
+    total_page_number = 29
+    first_prev_page = 0
+    second_prev_page = 0
+    current_page = 0
+    first_next_page = 0
+    second_next_page = 0
+
+
+    if int(request.args['page']) == 1:
+        current_page = int(request.args['page'])
+        first_prev_page = 0
+        second_prev_page = 0
+        first_next_page = current_page + 1
+        second_next_page = current_page + 2
+    elif int(request.args['page']) == 2:
+        current_page = int(request.args['page'])
+        first_prev_page = 0
+        second_prev_page = current_page - 1
+        first_next_page = current_page + 1
+        second_next_page = current_page + 2
+    elif int(request.args['page']) == total_page_number - 1:
+        current_page = int(request.args['page'])
+        first_prev_page = current_page - 2
+        second_prev_page = current_page - 1
+        first_next_page = current_page + 1
+        second_next_page = 0
+    elif int(request.args['page']) == total_page_number:
+        current_page = int(request.args['page'])
+        first_prev_page = current_page - 2
+        second_prev_page = current_page - 1
+        first_next_page = 0
+        second_next_page = 0
+    elif int(request.args['page']) > 3:
+        current_page = int(request.args['page'])
+        first_prev_page = current_page - 2
+        second_prev_page = current_page - 1
+        first_next_page = current_page + 1
+        second_next_page = current_page + 2
+    else:
+        first_prev_page = 1
+        second_prev_page = 2
+        current_page = 3
+        first_next_page = 4
+        second_next_page = 5
+
+
 
     items = mongo.db.all_manga_details
     all_items = list(items.find().limit(10))
 
-    return render_template('data.html', all_items=all_items)
+    return render_template('data.html', all_items=all_items, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page)
 
 
 @app.route('/account/')

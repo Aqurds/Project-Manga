@@ -1,7 +1,46 @@
 
 
-<div class="">
+<!-- <div class="">
   {% for item in all_items %}
       <p>{{ item['title'] }}</p>
   {% endfor %}
+</div> -->
+
+
+<div class="group-page">
+  <a href="{{url_for('manga', page = 1)}}" class="page page-blue">
+    First(1)
+  </a><br>
+
+  {% if first_prev_page != 0 %}
+    <a href="{{url_for('manga', page=first_prev_page)}}" class="pageselect">
+      {{first_prev_page}}
+    </a><br>
+  {% endif %}
+
+  {% if second_prev_page != 0 %}
+    <a href="{{url_for('manga', page=second_prev_page)}}" class="page">
+      {{second_prev_page}}
+    </a><br>
+  {% endif %}
+
+  <a href="{{url_for('manga', page=current_page)}}" class="page">
+    {{current_page}}
+  </a><br>
+
+  {% if first_next_page != 0 %}
+    <a href="{{url_for('manga', page=first_next_page)}}" class="page">
+      {{first_next_page}}
+    </a><br>
+  {% endif %}
+
+  {% if second_next_page != 0 %}
+    <a href="{{url_for('manga', page=second_next_page)}}" class="page">
+      {{second_next_page}}
+    </a><br>
+  {% endif %}
+
+  <a href="{{url_for('manga', page=total_page_number)}}" class="page page-blue">
+    Last({{total_page_number}})
+  </a>
 </div>

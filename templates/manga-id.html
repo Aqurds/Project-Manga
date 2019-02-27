@@ -164,7 +164,7 @@ Maybe coming in the next issue
       <!-- each row represent a chapter of the manga -->
       {% for item in chapter_list %}
       <div class="row">
-        <span><a href="{{url_for('manga_id_chapter', manga_id = manga_id_here, chapter_id = item[0])}}" title="A Returner's Magic Should Be Special Chapter 51">{{item[2]}}</a></span>
+        <span><a href="{{url_for('manga_id_chapter', manga_id = manga_id_here, chapter_id = item[0])}}" title="{{manga_details['title']}}">{{item[2]}}</a></span>
 
         <span>{{item[3]}}</span>
 

@@ -131,9 +131,20 @@ def manga_id(manga_id):
     return render_template('manga-id.html', manga_details = manga_details, chapter_list = chapter_list, manga_id_here = manga_id_here)
 
 
-@app.route('/manga-id-chapter/')
-def manga_id_chapter():
-    return render_template('manga-id-chapter.html')
+
+@app.route('/manga-id-chapter/<string:manga_id>/<string:chapter_id>')
+def manga_id_chapter(manga_id, chapter_id):
+    manga_id =request.url.split('/')[-2]
+    chapter_id = request.url.split('/')[-1]
+    manga_details = mongo.db.all_manga_details.find_one({'id':manga_id})
+    chapter_list = list(mongo.db.manga_each_chapter_image_list_with_manga_id.find({'manga_id':manga_id}))
+    # image_list = chapter_list.find_one({'chapter_id':chapter_id})
+    # image_list = []
+    # for item in chapter_list:
+    #     if item['chapter_id'] == str(chapter_id):
+    #         image_list.append(item)
+    return render_template('manga-id-chapter.html', manga_details = manga_details, image_list = chapter_list)
+
 
 
 # Register route

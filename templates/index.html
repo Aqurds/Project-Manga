@@ -45,23 +45,23 @@
 
 
 
-{% for item in all_items %}
+{% for item in latest_mange_releases %}
 <div class="itemupdate first">
 
   <a rel="nofollow" data-tooltip="sticky_10162" class="tooltip cover" href="manga/ueb1016274565487.html">
-    <img src="{{item['thumb']}}" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" width="60" height="85">
+    <img src="{{item['image']}}" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" width="60" height="85">
   </a>
 
   <ul>
     <li>
       <h3>
-        <a class="tooltip" data-tooltip="sticky_10162" href="manga/ueb1016274565487.html">{{item['title']}}
+        <a class="tooltip" data-tooltip="sticky_10162" href="{{url_for('manga_id', manga_id = item['id'])}}">{{item['title']}}
         </a>
       </h3>
       <a class=" textdecoration"></a>
       <a class="non"></a>
     </li>
-    <li>
+    <!-- <li>
       <span>
         <a class="sts sts_1" href="chapter/ueb1016274565487/chapter_17.html" title="Vol.4 Chapter 17">Vol.4 Chapter 17
         </a>
@@ -81,7 +81,7 @@
         </a>
       </span>
       <i>10 hour ago </i>
-    </li>
+    </li> -->
   </ul>
 </div>
 {% endfor %}
@@ -120,10 +120,15 @@
 <div class="xem-nhieu">
 <h3 class="title all-title">Most Popular Manga</h3>
 <div class="all">
-<div class="xem-nhieu-item">
-<h3><a href="manga/jc917903.html" title="Iron Ladies">Iron Ladies - Chapter 187: Having A Clear Conscience</a></h3>
-</div>
-<div class="xem-nhieu-item">
+
+  {% for item in most_popular_manga %}
+      <div class="xem-nhieu-item">
+      <h3><a href="{{url_for('manga_id', manga_id = item['id'])}}" title="{{item['title']}}">{{item['title']}}</a></h3>
+      </div>
+  {% endfor %}
+
+
+<!-- <div class="xem-nhieu-item">
 <h3><a href="manga/pn918005.html" title="Solo Leveling">Solo Leveling - Chapter 58</a></h3>
 </div>
 <div class="xem-nhieu-item">
@@ -149,7 +154,7 @@
 </div>
 <div class="xem-nhieu-item">
 <h3><a href="manga/moshi_fanren.html" title="Moshi Fanren">Moshi Fanren - Chapter 114</a></h3>
-</div>
+</div> -->
 </div>
 </div>
 <div class="tag tag-left">

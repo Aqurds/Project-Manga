@@ -14,10 +14,29 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def home():
-    # items = mongo.db.items
-    # all_items = items.find().sort('views', pymongo.DESCENDING).limit(56)
-    # return render_template("index.html", all_items = all_items)
-    return render_template('index.html')
+    front_page_manga = list(mongo.db.update_spider.find())
+    popular_manga_list = []
+
+    # for item in front_page_manga[0]['popular_manga']:
+    #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
+
+    sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
+    for item in sample_list:
+        popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
+
+    latest_mange_releases = []
+    sample_list_latest = ['troll_trap', 'little_13','jy918373','df918543','deatte_5_byou_de_battle','yotsukoto','martial_art_successor','the_ghostly_doctor','yd918542','oa917623','the_descendant_of_the_dynasty','uat947546','crossing_the_boundary_twins','hw917776','kishibe_no_uta','antinomy','takeda_shingen_yokoyama_mitsuteru','when_night_falls','legend_of_immortals','bw918450']
+    for item in sample_list_latest:
+        latest_mange_releases.append(mongo.db.all_manga_details.find_one({'id':item}))
+
+
+    most_popular_manga = []
+    sample_list_most = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550']
+    for item in sample_list_most:
+        most_popular_manga.append(mongo.db.all_manga_details.find_one({'id':item}))
+
+
+    return render_template('index.html', mangas = front_page_manga, popular_manga_list=popular_manga_list, latest_mange_releases=latest_mange_releases, most_popular_manga=most_popular_manga)
 
 
 @app.route('/home_json_tooltips/')

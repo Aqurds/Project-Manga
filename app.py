@@ -533,6 +533,17 @@ def manga_id(manga_id):
     for x in range(iteration):
         chapter_list[x].append(manga_chapter_list['chapter_time_uploaded'][x])
 
+    #store the manga id in users document for history page
+    if session:
+        user_name = session['username']
+        users = mongo.db.users
+        history_data = users.find_one({'name':user_name})
+        # history = {'history':manga_id}
+        # users.update({ "name":username },{$set : {"history":manga_id}})
+        # users.insert_one(history)
+        if manga_id not in history_data['history']:
+            users.update_one({'name': user_name}, {'$push': {'history': manga_id}})
+
 
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
@@ -554,7 +565,7 @@ def manga_id(manga_id):
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
-    return render_template('manga-id.html', manga_details = manga_details, chapter_list = chapter_list, manga_id_here = manga_id_here, popular_manga_list=popular_manga_list, most_popular_manga=most_popular_manga, genres=genres, categories=categories)
+    return render_template('manga-id.html', manga_details = manga_details, chapter_list = chapter_list, manga_id_here = manga_id_here, popular_manga_list=popular_manga_list, most_popular_manga=most_popular_manga, genres=genres, categories=categories, user_name=user_name, history_data=history_data)
 
 
 
@@ -572,7 +583,10 @@ def manga_id_chapter(manga_id, chapter_id):
     current_chapter_text = manga_chapter_list['chapter_link_text'][index]
 
     current_chapter_id = chapter_id
-    prev_chapter_id = manga_chapter_list['chapter_id'][index + 1]
+    if index == len(manga_chapter_list['chapter_id'])-1:
+        prev_chapter_id = manga_chapter_list['chapter_id'][1 + 1]
+    else:
+        prev_chapter_id = manga_chapter_list['chapter_id'][index + 1]
     next_chapter_id = manga_chapter_list['chapter_id'][index - 1]
     next_chapter_identifier = True
     prev_chapter_id_identifier = True
@@ -771,7 +785,23 @@ def bookmark():
 @app.route('/history/')
 def history():
     if session:
-        return render_template('history.html')
+        popular_manga_list = []
+        # for item in front_page_manga[0]['popular_manga']:
+        #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
+        sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
+        for item in sample_list:
+            popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
+
+
+        most_popular_manga = []
+        sample_list_most = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550']
+        for item in sample_list_most:
+            most_popular_manga.append(mongo.db.all_manga_details.find_one({'id':item}))
+
+        genres_categories = list(mongo.db.genres_categories.find())
+        genres = genres_categories[0]['genres']
+        categories = genres_categories[0]['categories']
+        return render_template('history.html', most_popular_manga=most_popular_manga, genres=genres, categories=categories, popular_manga_list=popular_manga_list)
     else:
         return redirect(url_for('login'))
 

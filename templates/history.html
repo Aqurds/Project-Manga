@@ -226,7 +226,18 @@
 </div>
 </div>
 <div class="history_list">
-</div> </div>
+  {% for item in history_data %}
+      <div class="history_item">
+        <a rel="nofollow" href="{{url_for('manga_id', manga_id = item['id'])}}">
+        <img src="{{item['image']}}" onerror="javascript:this.src='//manganelo.com/themes/home/images/404-avatar.png';" />
+        </a>
+        <a class="history_title" rel="nofollow" href="{{url_for('manga_id', manga_id = item['id'])}}">{{item['title']}}</a><br>
+        <span class="history_chap">Summary: <a rel="nofollow" href="{{url_for('manga_id', manga_id = item['id'])}}">{{item['summary'] | truncate(350) }}</a></span><br>
+        <!-- <span class="history_chap">Current : <a rel="nofollow" href="https://manganelo.com/chapter/legend_of_phoenix/chapter_22">Chapter 22</a></span> -->
+      </div>
+  {% endfor %}
+</div>
+</div>
 <div class="middleCol">
 <!-- <div style="float: left;width: 100%;text-align: center;">
 <div style="max-width: 300px;max-height: 250px;margin: 0px auto;overflow: hidden;">

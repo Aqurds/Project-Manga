@@ -801,7 +801,20 @@ def history():
         genres_categories = list(mongo.db.genres_categories.find())
         genres = genres_categories[0]['genres']
         categories = genres_categories[0]['categories']
-        return render_template('history.html', most_popular_manga=most_popular_manga, genres=genres, categories=categories, popular_manga_list=popular_manga_list)
+
+
+        user_name = session['username']
+        users = mongo.db.users
+        history_id = users.find_one({'name':user_name})
+        # history = {'history':manga_id}
+        # users.update({ "name":username },{$set : {"history":manga_id}})
+        # users.insert_one(history)
+        history_data = []
+        for history_manga in history_id['history']:
+            history_data.append(mongo.db.all_manga_details.find_one({'id':history_manga}))
+
+
+        return render_template('history.html', most_popular_manga=most_popular_manga, genres=genres, categories=categories, popular_manga_list=popular_manga_list, history_data=history_data)
     else:
         return redirect(url_for('login'))
 

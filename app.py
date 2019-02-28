@@ -6,6 +6,8 @@ app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = 'aqurds'
 app.config['MONGO_URI'] = 'mongodb://user:2252010baby@ds249035.mlab.com:49035/aqurds'
+app.config['SECRET_KEY'] = '0f9dc56d2288afa6e10b8d97577fe25b'
+
 
 mongo = PyMongo(app)
 
@@ -877,5 +879,4 @@ def test():
 #run the scrapy on 15 min schedule and collect the manga id from front page which are updated in the last 15 min, then update only those manga with specific login
 
 if __name__ == '__main__':
-    app.secret_key = '0f9dc56d2288afa6e10b8d97577fe25b'
     app.run(debug=True)

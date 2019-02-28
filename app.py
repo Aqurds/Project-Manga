@@ -614,7 +614,7 @@ def manga_id(manga_id):
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
-    return render_template('manga-id.html', manga_details = manga_details, chapter_list = chapter_list, manga_id_here = manga_id_here, popular_manga_list=popular_manga_list, most_popular_manga=most_popular_manga, genres=genres, categories=categories, history_data=history_data)
+    return render_template('manga-id.html', manga_details = manga_details, chapter_list = chapter_list, manga_id_here = manga_id_here, popular_manga_list=popular_manga_list, most_popular_manga=most_popular_manga, genres=genres, categories=categories)
 
 
 

@@ -223,7 +223,7 @@
 <div class="bookmark_list">
   {% for item in bookmark_data %}
     <div class="bookmark_item">
-      <a href="" class="bookmark_btnremove remove-follow">Remove</a>
+      <!-- <a href="" class="bookmark_btnremove remove-follow">Remove</a> -->
       <a rel="nofollow" href="{{url_for('manga_id', manga_id = item['id'])}}">
       <img src="{{item['image']}}" onerror="javascript:this.src='//manganelo.com/themes/home/images/404-avatar.png';" />
       </a>

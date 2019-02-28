@@ -48,7 +48,7 @@
 {% for item in latest_mange_releases %}
 <div class="itemupdate first">
 
-  <a rel="nofollow" data-tooltip="sticky_10162" class="tooltip cover" href="manga/ueb1016274565487.html">
+  <a rel="nofollow" data-tooltip="sticky_10162" class="tooltip cover" href="{{url_for('manga_id', manga_id = item['id'])}}">
     <img src="{{item['image']}}" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" width="60" height="85">
   </a>
 

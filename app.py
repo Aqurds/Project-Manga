@@ -819,6 +819,28 @@ def history():
         return redirect(url_for('login'))
 
 
+
+
+# add bookmark route
+@app.route('/add-bookmark/<string:manga_id>')
+def add_bookmark():
+    if session:
+        manga_id = request.url.split('/')[-1]
+        #store the manga id in users document for history page
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_data = users.find_one({'name':user_name})
+
+        if manga_id not in bookmark_data['bookmark']:
+            users.update_one({'name': user_name}, {'$push': {'bookmark': manga_id}})        
+
+        return render_template('bookmark.html')
+    else:
+        return redirect(url_for('login'))
+
+
+
+
 @app.route('/test/')
 def test():
     data = {'username':'aqurds', 'job':'coder'}

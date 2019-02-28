@@ -96,7 +96,7 @@
 <!-- Load Image Button -->
 <div id="loadpage">
 <div>
-<a href="#" class="xem-them">MORE</a>
+<a href="{{ url_for('manga', page=1) }}" class="xem-them">MORE</a>
 </div>
 </div>
 <!-- Load Image Button End -->
@@ -128,90 +128,29 @@
   {% endfor %}
 
 
-<!-- <div class="xem-nhieu-item">
-<h3><a href="manga/pn918005.html" title="Solo Leveling">Solo Leveling - Chapter 58</a></h3>
-</div>
-<div class="xem-nhieu-item">
-<h3><a href="manga/yuan_zun.html" title="Yuan Zun">Yuan Zun - Chapter 27: The Jade Falls (Part 1)</a></h3>
-</div>
-<div class="xem-nhieu-item">
-<h3><a href="manga/takarakuji_de_40oku_atattandakedo_isekai_ni_ijuu_suru.html" title="Takarakuji de 40-oku Atattandakedo Isekai ni Ijuu Suru">Takarakuji de 40-oku Atattandakedo Isekai ni Ijuu Suru - Vol.4 Chapter 20: Valetta's Resolve</a></h3>
-</div>
-<div class="xem-nhieu-item">
-<h3><a href="manga/star_martial_god_technique.html" title="Star Martial God Technique">Star Martial God Technique - Chapter 219</a></h3>
-</div>
-<div class="xem-nhieu-item">
-<h3><a href="manga/domestic_na_kanojo.html" title="Domestic na Kanojo">Domestic na Kanojo - Chapter 218: Bad Girl</a></h3>
-</div>
-<div class="xem-nhieu-item">
-<h3><a href="manga/shiro_no_koukoku_monogatari.html" title="Shiro no Koukoku Monogatari">Shiro no Koukoku Monogatari - Chapter 64.2</a></h3>
-</div>
-<div class="xem-nhieu-item">
-<h3><a href="manga/toaru_ossan_no_vrmmo_katsudouki.html" title="Toaru Ossan no VRMMO Katsudouki">Toaru Ossan no VRMMO Katsudouki - Chapter 51</a></h3>
-</div>
-<div class="xem-nhieu-item">
-<h3><a href="manga/tales_of_demons_and_gods.html" title="Tales of Demons and Gods">Tales of Demons and Gods - Chapter 210.5</a></h3>
-</div>
-<div class="xem-nhieu-item">
-<h3><a href="manga/moshi_fanren.html" title="Moshi Fanren">Moshi Fanren - Chapter 114</a></h3>
-</div> -->
 </div>
 </div>
 <div class="tag tag-left">
 <h3 class="title tag-title">GENRES</h3>
 
-<ul class="tags tag-name">
-<li><a rel="tag" class="highlight" href="manga_list35a3.html?type=topview&amp;category=all&amp;state=all&amp;page=1" title="All Manga">ALL</a></li>
-<li><a rel="tag" href="manga_lista22c.html?type=topview&amp;category=2&amp;state=all&amp;page=1" title="A work typically depicting fighting, violence, chaos, and fast paced motion....">Action</a></li>
-<li><a rel="tag" href="manga_list1973.html?type=topview&amp;category=3&amp;state=all&amp;page=1" title="Contains content that is suitable only for adults. Titles in this category may include prolonged scenes of intense violence and/or graphic sexual content and nudity.">Adult</a></li>
-<li><a rel="tag" href="manga_list2edd.html?type=topview&amp;category=4&amp;state=all&amp;page=1" title="If a character in the story goes on a trip or along that line, your best bet is that it is an adventure manga. Otherwise, it's up to your personal prejudice on this case.">Adventure</a></li>
-<li><a rel="tag" href="manga_list3d64.html?type=topview&amp;category=6&amp;state=all&amp;page=1" title="A dramatic work that is light and often humorous or satirical in tone and that usually contains a happy resolution of the thematic conflict.">Comedy</a></li>
-<li><a rel="tag" href="manga_listc521.html?type=topview&amp;category=7&amp;state=all&amp;page=1" title="Mangas about food, cooking skills with many food in it!!! If you're a food lover. This Cooking category is for youuu!!">Cooking</a></li>
-<li><a rel="tag" href="manga_listb470.html?type=topview&amp;category=9&amp;state=all&amp;page=1" title="Fan based work inspired by official anime or manga. For MangaUpdates, original works DO NOT fall under this category">Doujinshi</a></li>
-<li><a rel="tag" href="manga_listd211.html?type=topview&amp;category=10&amp;state=all&amp;page=1" title="A work meant to bring on an emotional response, such as instilling sadness or tension.">Drama</a></li>
-<li><a rel="tag" href="manga_listb614.html?type=topview&amp;category=11&amp;state=all&amp;page=1" title="Possibly the line between hentai and non-hentai, ecchi usually refers to fanservice put in to attract a certain group of fans.">Ecchi</a></li>
-<li><a rel="tag" href="manga_list3ae6.html?type=topview&amp;category=12&amp;state=all&amp;page=1" title="Anything that involves, but not limited to, magic, dream world, and fairy tales.">Fantasy</a></li>
-<li><a rel="tag" href="manga_listcb1e.html?type=topview&amp;category=13&amp;state=all&amp;page=1" title="Girls dressing up as guys, guys dressing up as girls.. Guys turning into girls, girls turning into guys.. I think you get the picture.">Gender bender</a></li>
-<li><a rel="tag" href="manga_list65d1.html?type=topview&amp;category=14&amp;state=all&amp;page=1" title="A series involving one male character and many female characters (usually attracted to the male character). A Reverse Harem is when the genders are reversed.">Harem</a></li>
-<li><a rel="tag" href="manga_list0104.html?type=topview&amp;category=15&amp;state=all&amp;page=1" title="Having to do with old or ancient times.">Historical</a></li>
-<li><a rel="tag" href="manga_list1de7.html?type=topview&amp;category=16&amp;state=all&amp;page=1" title="A painful emotion of fear, dread, and abhorrence; a shuddering with terror and detestation; the feeling inspired by something frightful and shocking.">Horror</a></li>
-<li><a rel="tag" href="manga_list8ea5.html?type=topview&amp;category=17&amp;state=all&amp;page=1" title="Literally " Woman". Targets women 18-30. Female equivalent to seinen. Unlike shoujo the romance is more realistic and less idealized. The storytelling is more explicit and mature.">Josei</a></li>
-<li><a rel="tag" href="manga_list0560.html?type=topview&amp;category=44&amp;state=all&amp;page=1" title="Manhua (simplified Chinese: 漫画; traditional Chinese: 漫畫; pinyin: Mànhuà; Jyutping: maan6 waa2) are Chinese comics produced in Mainland China, Hong Kong, and Taiwan.">Manhua</a></li>
-<li><a rel="tag" href="manga_list8809.html?type=topview&amp;category=43&amp;state=all&amp;page=1" title="Manhwa (Hangul: 만화; Popular known as Webtoon, is the general Korean term for comics and print cartoons (common usage also includes animated cartoons). Outside of Korea, the term usually refers to South Korean comics, although the comics industry emerges in North Korea as well.">Manhwa</a></li>
-<li><a rel="tag" href="manga_list0c3b.html?type=topview&amp;category=19&amp;state=all&amp;page=1" title="As the name suggests, anything martial arts related. Any of several arts of combat or self-defense, such as aikido, karate, judo, or tae kwon do, kendo, fencing, and so on and so forth.">Martial arts</a></li>
-<li><a rel="tag" href="manga_liste3bf.html?type=topview&amp;category=20&amp;state=all&amp;page=1" title="Contains subject matter which may be too extreme for people under the age of 17. Titles in this category may contain intense violence, blood and gore, sexual content and/or strong language.">Mature</a></li>
-<li><a rel="tag" href="manga_list6b99.html?type=topview&amp;category=21&amp;state=all&amp;page=1" title="A work involving and usually concentrating on all types of large robotic machines.">Mecha</a></li>
-<li><a rel="tag" href="manga_list63dd.html?type=topview&amp;category=22&amp;state=all&amp;page=1" title="Mangas which related to the treatment of illness and injuries.">Medical</a></li>
-<li><a rel="tag" href="manga_list2adc.html?type=topview&amp;category=24&amp;state=all&amp;page=1" title="Usually an unexplained event occurs, and the main protagonist attempts to find out what caused it.">Mystery</a></li>
-<li><a rel="tag" href="manga_list5159.html?type=topview&amp;category=25&amp;state=all&amp;page=1" title="One Shot" is a manga term that denotes series that are short, usually consisting of just one chapter. They are perfect for when you are looking for a quick read that has a start and an end, and do not want to be stuck in the middle of a story waiting for the next chapter to be released.">One shot</a></li>
-<li><a rel="tag" href="manga_list9969.html?type=topview&amp;category=26&amp;state=all&amp;page=1" title="Usually deals with the philosophy of a state of mind, in most cases detailing abnormal psychology.">Psychological</a></li>
-<li><a rel="tag" href="manga_list2598.html?type=topview&amp;category=27&amp;state=all&amp;page=1" title="Any love related story. We will define love as between man and woman in this case. Other than that, it is up to your own imagination of what love is.
-">Romance</a></li>
-<li><a rel="tag" href="manga_list164f.html?type=topview&amp;category=28&amp;state=all&amp;page=1" title="Having a major setting of the story deal with some type of school.">School life</a></li>
-<li><a rel="tag" href="manga_listd081.html?type=topview&amp;category=29&amp;state=all&amp;page=1" title="Short for science fiction, these works involve twists on technology and other science related phenomena which are contrary or stretches of the modern day scientific world.">Sci fi</a></li>
-<li><a rel="tag" href="manga_listf6af.html?type=topview&amp;category=30&amp;state=all&amp;page=1" title="Seinen means " young Man." Manga and anime that specifically targets young adult males around the ages of 18 to 25 are seinen titles. The stories in seinen works appeal to university students and those in the working world. Typically the story lines deal with the issues of adulthood.">Seinen</a></li>
- <li><a rel="tag" href="manga_list7d12.html?type=topview&amp;category=31&amp;state=all&amp;page=1" title="A work intended and primarily written for females. Usually involves a lot of romance and strong character development.">Shoujo</a></li>
-<li><a rel="tag" href="manga_listf0d0.html?type=topview&amp;category=32&amp;state=all&amp;page=1" title="Often synonymous with yuri, this can be thought of as somewhat less extreme. " Girl's Love", so to speak.">Shoujo ai</a></li>
-<li><a rel="tag" href="manga_listd8d5.html?type=topview&amp;category=33&amp;state=all&amp;page=1" title="A work intended and primarily written for males. These works usually involve fighting and/or violence.">Shounen</a></li>
-<li><a rel="tag" href="manga_list48bb.html?type=topview&amp;category=34&amp;state=all&amp;page=1" title="Often synonymous with yaoi, this can be thought of as somewhat less extreme. " Boy's Love", so to speak.">Shounen ai</a></li>
-<li><a rel="tag" href="manga_list435a.html?type=topview&amp;category=35&amp;state=all&amp;page=1" title="As the name suggests, this genre represents day-to-day tribulations of one/many character(s). These challenges/events could technically happen in real life and are often -if not all the time- set in the present timeline in a world that mirrors our own.">Slice of life</a></li>
-<li><a rel="tag" href="manga_list5070.html?type=topview&amp;category=36&amp;state=all&amp;page=1" title="Deals with series that are considered profane or offensive, particularly with regards to sexual content.">Smut</a></li>
-<li><a rel="tag" href="manga_list23fe.html?type=topview&amp;category=37&amp;state=all&amp;page=1" title="As the name suggests, anything sports related. Baseball, basketball, hockey, soccer, golf, and racing just to name a few.">Sports</a></li>
-<li><a rel="tag" href="manga_listf61b.html?type=topview&amp;category=38&amp;state=all&amp;page=1" title="Usually entails amazing and unexplained powers or events which defy the laws of physics.">Supernatural</a></li>
-<li><a rel="tag" href="manga_listb5ed.html?type=topview&amp;category=39&amp;state=all&amp;page=1" title="Contains events resulting in great loss and misfortune.">Tragedy</a></li>
-<li><a rel="tag" href="manga_liste7eb.html?type=topview&amp;category=40&amp;state=all&amp;page=1" title="Webtoon (Hangul: 웹툰) is a term used to describe South Korean webcomics or manhwa that are published online.">Webtoons</a></li>
-<li><a rel="tag" href="manga_list89c2.html?type=topview&amp;category=41&amp;state=all&amp;page=1" title="This work usually involves intimate relationships between men.">Yaoi</a></li>
-<li><a rel="tag" href="manga_list416d.html?type=topview&amp;category=42&amp;state=all&amp;page=1" title="This work usually involves intimate relationships between women.">Yuri</a></li>
-</ul>
+  <ul class="tags tag-name">
+      {% for genre in genres %}
+        <li>
+          <a rel="tag" href="#" title="{{genre}}">
+            {{genre}}
+          </a>
+        </li>
+      {% endfor %}
+  </ul>
 
 <ul class="tags spec-tag">
-  <li><a rel="tag" href="manga_list35a3.html?type=topview&amp;category=all&amp;state=all&amp;page=1" title="ALL  Manga" class="highlight">ALL</a></li>
-  <li><a rel="tag" href="manga_list3316.html?type=topview&amp;category=all&amp;state=completed&amp;page=1" title="Completed  Manga">Completed</a></li>
-  <li><a rel="tag" href="manga_listbda2.html?type=topview&amp;category=all&amp;state=ongoing&amp;page=1" title="Ongoing  Manga">Ongoing</a></li>
-  <li><a rel="tag" href="manga_list6396.html?type=topview&amp;category=all&amp;state=drop&amp;page=1" title="Droped Manga">Drop</a></li>
-  <li><a rel="tag" href="manga_list35a3.html?type=topview&amp;category=all&amp;state=all&amp;page=1" title="Top Read Manga">Top Read</a></li>
-  <li><a rel="tag" href="manga_liste585.html?type=newest&amp;category=all&amp;state=all&amp;page=1" title="Newest Manga">Newest</a></li>
-  <li><a rel="tag" href="manga_listb0d0.html?type=latest&amp;category=all&amp;state=all&amp;page=1" title="Newest Manga">Latest</a></li>
+  {% for category in categories %}
+    <li>
+      <a rel="tag" href="#" title="{{ category }}">
+        {{ category }}
+      </a>
+    </li>
+  {% endfor %}
 </ul>
 
 </div>

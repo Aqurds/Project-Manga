@@ -65,11 +65,11 @@
 <a class="mobile-menu">MENU</a>
 <nav class="wrap-menu-primary">
 <ul id="menu-menu-top" class="menu-primary">
-<li class="menu-item"><a href="{{ url_for('home') }}">HOME</a></li>
-<li class="menu-item"><a href="{{ url_for('manga') }}" title="LATEST MANGA">LATEST MANGA</a></li>
-<li class="menu-item"><a href="{{ url_for('manga') }}" title="HOT MANGA">HOT MANGA</a></li>
-<li class="menu-item"><a href="{{ url_for('manga') }}" title="NEW MANGA">NEW MANGA</a></li>
-<li class="menu-item"><a href="{{ url_for('manga') }}" title="COMPLETED MANGA">COMPLETED MANGA</a></li>
+  <li class="menu-item"><a href="{{ url_for('home') }}">HOME</a></li>
+  <li class="menu-item"><a href="{{ url_for('manga', page=1) }}" title="LATEST MANGA">LATEST MANGA</a></li>
+  <li class="menu-item"><a href="{{ url_for('manga_hot', page=1) }}" title="HOT MANGA">HOT MANGA</a></li>
+  <li class="menu-item"><a href="{{ url_for('manga_new', page=1) }}" title="NEW MANGA">NEW MANGA</a></li>
+  <li class="menu-item"><a href="{{ url_for('manga_completed', page=1) }}" title="COMPLETED MANGA">COMPLETED
 </ul>
 </nav>
 </div>
@@ -103,7 +103,7 @@
 Logged in successfully.<br>
 Hello, <b>{{session.username}}</b>.<br>
 <a href="{{ url_for('home') }}">Click here</a> go visit our homepage.
-<a href="{{ url_for('home') }}">https://manga.herokuapps.com</a><br><br>
+<a href="{{ url_for('home') }}">{{ url_for('home') }}</a><br><br>
 We have updated a version 2 for the web page. If you lost "bookmark", please <a href="{{ url_for('home') }}">click here</a> and press bookmark again.
 </div>
 </div>

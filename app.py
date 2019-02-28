@@ -770,7 +770,21 @@ def bookmark():
         genres_categories = list(mongo.db.genres_categories.find())
         genres = genres_categories[0]['genres']
         categories = genres_categories[0]['categories']
-        return render_template('bookmark.html', popular_manga_list=popular_manga_list, genres=genres, categories=categories)
+
+
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
+        # history = {'history':manga_id}
+        # users.update({ "name":username },{$set : {"history":manga_id}})
+        # users.insert_one(history)
+        bookmark_data = []
+        total_bookmark = len(bookmark_id['bookmark'])
+        for bookmark_manga in bookmark_id['bookmark']:
+            bookmark_data.append(mongo.db.all_manga_details.find_one({'id':bookmark_manga}))
+
+
+        return render_template('bookmark.html', popular_manga_list=popular_manga_list, most_popular_manga=most_popular_manga, genres=genres, categories=categories, bookmark_data=bookmark_data, total_bookmark=total_bookmark)
     else:
         return redirect(url_for('login'))
 
@@ -823,7 +837,7 @@ def history():
 
 # add bookmark route
 @app.route('/add-bookmark/<string:manga_id>')
-def add_bookmark():
+def add_bookmark(manga_id):
     if session:
         manga_id = request.url.split('/')[-1]
         #store the manga id in users document for history page
@@ -832,9 +846,9 @@ def add_bookmark():
         bookmark_data = users.find_one({'name':user_name})
 
         if manga_id not in bookmark_data['bookmark']:
-            users.update_one({'name': user_name}, {'$push': {'bookmark': manga_id}})        
+            users.update_one({'name': user_name}, {'$push': {'bookmark': manga_id}})
 
-        return render_template('bookmark.html')
+        return redirect(url_for('bookmark'))
     else:
         return redirect(url_for('login'))
 

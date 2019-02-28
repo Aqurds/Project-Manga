@@ -105,7 +105,7 @@
               <img src="../static/themes/home/images/user_avatar.jpg">
               <p>{{session.username}}</p>
             </span>
-            <a href="{{ url_for('bookmark') }}"><i class="notification"></i></a>
+            <a href="{{ url_for('bookmark') }}"><i class="notification"><em class="notifications_num">{% if total_bookmark %} {{total_bookmark}}  {% endif %}</em></i></a>
             <a href="{{ url_for('history') }}"><i class="history"></i></a>
             <a href="{{ url_for('logout') }}"><i class="logout"></i></a>
           </div>
@@ -163,9 +163,6 @@
   POPULAR MANGA
 </h3>
 
-
-
-
 <!-- Carousel Start Here -->
 <div id="owl-demo" class="owl-carousel">
 
@@ -186,7 +183,6 @@
   {% endfor %}
 </div>
 <!-- Carousel End Here -->
-
 
 </div>
 
@@ -209,13 +205,13 @@
 <p>
 <span class="breadcrumbs-title"> </span>
 <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" class="home" href="https://manganelo.com/home" title="Manga Online">
+<a itemprop="url" class="home" href="{{url_for('home')}}" title="Manga Online">
 <span itemprop="title">Manga Online</span>
 </a>
 </span>
 <span class="separator">»</span>
 <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" href="https://manganelo.com/bookmark">
+<a itemprop="url" href="{{url_for('bookmark')}}">
 <span itemprop="title">Bookmark</span>
 </a>
 </span>
@@ -223,8 +219,21 @@
 </div>
 </div>
 </div>
+
 <div class="bookmark_list">
+  {% for item in bookmark_data %}
+    <div class="bookmark_item">
+      <a href="" class="bookmark_btnremove remove-follow">Remove</a>
+      <a rel="nofollow" href="{{url_for('manga_id', manga_id = item['id'])}}">
+      <img src="{{item['image']}}" onerror="javascript:this.src='//manganelo.com/themes/home/images/404-avatar.png';" />
+      </a>
+      <a class="bookmark_title" rel="nofollow" style="color: red;" href="{{url_for('manga_id', manga_id = item['id'])}}">{{item['title']}}</a><br>
+      <span class="bookmark_chap">Summary : <a rel="nofollow" href="{{url_for('manga_id', manga_id = item['id'])}}">{{item['summary'] | truncate(350) }}</a></span><br>
+      <!-- <span class="bookmark_chap">Current : <a rel="nofollow" href="https://manganelo.com/chapter/bq918546/chapter_4">Vol.1 Chapter 4</a></span> -->
+    </div>
+  {% endfor %}
 </div>
+
 <div style="clear: both"></div>
 <div class="phan-trang" style='display: none;'>
 <div class="group-page"><a href="https://manganelo.com/bookmark?page=1" class="page page-blue">First(1)</a><a class="pageselect">0</a><a href="https://manganelo.com/bookmark?page=0" class="page page-blue">Last(0)</a></div><div class="group-qty"><a class="quantitychapter page-blue">Total: 0 stories</a></div></div>
@@ -275,6 +284,7 @@ jQuery(document).ready(function($) {
     </li>
   {% endfor %}
 </ul>
+<ul class="tags spec-tag">
 {% for category in categories %}
   <li>
     <a rel="tag" href="#" title="{{ category }}">

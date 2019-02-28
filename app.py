@@ -735,10 +735,35 @@ def password_change():
 # bookmark route: check if the session exist, if exist collect the user name and store the manga id. Fetch the manga id from user table and show the manga details.
 @app.route('/bookmark/')
 def bookmark():
+
     if session:
-        return render_template('bookmark.html')
+        front_page_manga = list(mongo.db.update_spider.find())
+        popular_manga_list = []
+
+        # for item in front_page_manga[0]['popular_manga']:
+        #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
+
+        sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
+        for item in sample_list:
+            popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
+
+
+        most_popular_manga = []
+        sample_list_most = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550']
+        for item in sample_list_most:
+            most_popular_manga.append(mongo.db.all_manga_details.find_one({'id':item}))
+
+        genres_categories = list(mongo.db.genres_categories.find())
+        genres = genres_categories[0]['genres']
+        categories = genres_categories[0]['categories']
+        return render_template('bookmark.html', popular_manga_list=popular_manga_list, genres=genres, categories=categories)
     else:
         return redirect(url_for('login'))
+
+
+
+
+
 
 
 

@@ -514,7 +514,8 @@ def manga_genre_search():
 
 @app.route('/manga-id/<string:manga_id>')
 def manga_id(manga_id):
-    manga_id = request.url.split('/')[-1]
+    # manga_id = request.url.split('/')[-1]
+    manga_id = manga_id
     manga_details = mongo.db.all_manga_details.find_one({'id':manga_id})
     manga_chapter_list = mongo.db.manga_chapter_list.find_one({'manga_id':manga_id})
 

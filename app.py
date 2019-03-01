@@ -591,7 +591,7 @@ def manga_id(manga_id):
         history_data = users.find_one({'name':user_name})
 
         if 'history' not in history_data:
-            users.update_one({'name': user_name}, {'$push': {'history': ''}})
+            users.update_one({'name': user_name}, {'$push': {'history':}})
 
         history_data_again = users.find_one({'name':user_name})
         if manga_id not in history_data_again['history']:

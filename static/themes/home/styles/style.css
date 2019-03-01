@@ -51,9 +51,9 @@
 .changes_info .alert-error{color:red;margin-top:15px;width:405px;max-width:100%;margin-bottom:10px;font-size:20px}
 
 
-.chapter_option{width:400px; max-width:100%; height:auto; overflow-x:hidden; overflow-y:scroll; position:absolute; top:13px; left:99999px;}
+.chapter_option{width:400px; max-width:100%; height:auto; overflow-x:hidden; overflow-y:scroll; position:absolute; top:13px; left:10px; display:none;}
 
-.option_wrap:hover .chapter_option{position:absolute; top:13px; left:10px;}
+.option_wrap:hover .chapter_option{display:block;}
 
 .option_a{margin:0px; border-bottom:1px solid #ffffff; width:100%;}
 

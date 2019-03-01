@@ -116,7 +116,7 @@ However - when Desir thought he would meet his demise, what is revealed before h
 
 <div class="option_wrap" style="position:relative;">
 
-  <select id="c_chapter" onchange="Changes('c_chapter');" style="200px">
+  <select class="custom_select" id="c_chapter" onchange="Changes('c_chapter');" style="200px">
     {% for chapter_link in chapter_option_list %}
         <option value="{{url_for('manga_id_chapter', manga_id = manga_details['id'], chapter_id = chapter_link[0])}}">{{ chapter_link[1] }}</option>
     {% endfor %}

@@ -49,3 +49,12 @@
 .changes_info .submit{line-height:60px;margin-top:10px;width:400px;max-width:100%;height:62px;border:1px solid #e9e9e9;-moz-border-radius:4px;-khtml-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;background:#474d5d;color:#fff;font-size:20px;font-weight:700;cursor:pointer;box-sizing:border-box}
 
 .changes_info .alert-error{color:red;margin-top:15px;width:405px;max-width:100%;margin-bottom:10px;font-size:20px}
+
+
+.chapter_option{width:400px; max-width:100%; height:auto; overflow-x:hidden; overflow-y:scroll; position:absolute; top:13px; left:99999px;}
+
+.option_wrap:hover .chapter_option{position:absolute; top:13px; left:10px;}
+
+.option_a{margin:0px; border-bottom:1px solid #ffffff; width:100%;}
+
+.option_a:hover{background:#145b32;}

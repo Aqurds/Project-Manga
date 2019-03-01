@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, session, redirect, abort
 from flask_pymongo import PyMongo, pymongo
 import bcrypt
+import json
 
 app = Flask(__name__)
 
@@ -40,6 +41,9 @@ def home():
     genres_categories = list(mongo.db.genres_categories.find())
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
+
+    # with open('test.html', 'w+') as outfile:
+    #     json.dump(most_popular_manga, outfile)
 
     return render_template('index.html', mangas = front_page_manga, popular_manga_list=popular_manga_list, latest_mange_releases=latest_mange_releases, most_popular_manga=most_popular_manga, genres=genres, categories=categories)
 

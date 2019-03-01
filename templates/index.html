@@ -10,7 +10,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             tooltip();
-            $.getJSON({{ url_for('home_json_tooltips') }}, function(manga) {
+            $.getJSON({{url_for('home_json_tooltips')}}, function(manga) {
                 var id = "";
                 var str_id_isset = ",";
                 $('a.tooltip').hover(function(e) {

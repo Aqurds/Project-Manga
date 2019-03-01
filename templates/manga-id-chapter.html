@@ -123,7 +123,7 @@ However - when Desir thought he would meet his demise, what is revealed before h
   </select>
 
   <!-- Testing code for chapter option -->
-  <div class="chapter_option">
+  <div class="chapter_option" id="chapter_get">
     <div class="" style="width:auto; height:auto;">
       {% for chapter_link in chapter_option_list %}
         <a href="{{url_for('manga_id_chapter', manga_id = manga_details['id'], chapter_id = chapter_link[0])}}" class="next option_a">
@@ -132,6 +132,26 @@ However - when Desir thought he would meet his demise, what is revealed before h
       {% endfor %}
     </div>
   </div>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+      $('#chapter_get').hide()
+      $('#c_chapter').hover(
+        function(){
+          $('#chapter_get').show()
+        },
+        function(){
+          $('#chapter_get').hide()
+        });
+      $('#chapter_get').hover(
+        function(){
+          $('#chapter_get').show()
+        },
+        function(){
+          $('#chapter_get').hide()
+        });
+  });
+  </script>
 
   <div class="btn-navigation-chap">
     {% if prev_chapter_id_identifier %}

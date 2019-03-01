@@ -589,12 +589,13 @@ def manga_id(manga_id):
         user_name = session['username']
         users = mongo.db.users
         history_data = users.find_one({'name':user_name})
-        # history = {'history':manga_id}
-        # users.update({ "name":username },{$set : {"history":manga_id}})
-        # users.insert_one(history)
-        if history_data['history']:
-            if manga_id not in history_data['history']:
-                users.update_one({'name': user_name}, {'$push': {'history': manga_id}})
+
+        if 'history' not in history_data:
+            users.update_one({'name': user_name}, {'$push': {'history': ''}})
+
+        history_data_again = users.find_one({'name':user_name})
+        if manga_id not in history_data_again['history']:
+            users.update_one({'name': user_name}, {'$push': {'history': manga_id}})
 
 
     front_page_manga = list(mongo.db.update_spider.find())

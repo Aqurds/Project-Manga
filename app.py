@@ -14,7 +14,7 @@ mongo = PyMongo(app)
 
 
 
-
+# home/index route
 @app.route('/')
 def home():
     front_page_manga = list(mongo.db.update_spider.find())

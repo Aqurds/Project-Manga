@@ -101,6 +101,7 @@ def home_json_tooltips():
     return render_template('home_json_tooltips.html')
 
 
+# Main manga page with pagintion. Used in all types of manga page
 @app.route('/manga/')
 def manga():
     items = mongo.db.all_manga_details

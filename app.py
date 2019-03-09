@@ -295,6 +295,11 @@ def manga_hot():
     # all_manga = list(items.find().limit(offset))
     all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('votes', pymongo.DESCENDING).limit(limit))
 
+    manga_chapter_list_from_paginated_manga = []
+    for item in all_manga:
+        manga_chapter_list_from_paginated_manga.append(mongo.db.manga_chapter_list.find_one({'manga_id':item['id']}))
+
+
     #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
@@ -317,7 +322,7 @@ def manga_hot():
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
-    return render_template('manga-hot.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
+    return render_template('manga-hot.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga)
 
 
 
@@ -394,6 +399,12 @@ def manga_new():
     # all_manga = list(items.find().limit(offset))
     all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('votes', pymongo.ASCENDING).limit(limit))
 
+
+    manga_chapter_list_from_paginated_manga = []
+    for item in all_manga:
+        manga_chapter_list_from_paginated_manga.append(mongo.db.manga_chapter_list.find_one({'manga_id':item['id']}))
+
+
     #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
@@ -417,7 +428,7 @@ def manga_new():
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
-    return render_template('manga-new.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
+    return render_template('manga-new.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga)
 
 
 
@@ -494,6 +505,11 @@ def manga_completed():
     # all_manga = list(items.find().limit(offset))
     all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('status', pymongo.ASCENDING).limit(limit))
 
+    manga_chapter_list_from_paginated_manga = []
+    for item in all_manga:
+        manga_chapter_list_from_paginated_manga.append(mongo.db.manga_chapter_list.find_one({'manga_id':item['id']}))
+
+
     #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
@@ -517,7 +533,7 @@ def manga_completed():
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
-    return render_template('manga-completed.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
+    return render_template('manga-completed.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga)
 
 
 

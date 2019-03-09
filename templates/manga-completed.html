@@ -212,9 +212,11 @@ Page {{current_page}} </p>
       <h3>
         <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">{{manga['title']}}</a>
       </h3>
-      <!-- <a href="https://mangarock.herokuapp.com/chapter/jy918077/chapter_7" title="Vol.1 Chapter 7" style="color: black;font-size: 15px;">
-        Vol.1 Chapter 7
-      </a> -->
+      {% if manga_chapter_list_from_paginated_manga[all_manga.index(manga)] %}
+        <a href="{{url_for('manga_id_chapter', manga_id = manga['id'], chapter_id = manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_id'][0])}}" title="{{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}"  style="color: #42cc15;font-size: 15px;">
+            {{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}
+        </a>
+      {% endif %}
       <br><br>
       <p>
 

@@ -217,7 +217,7 @@ Page {{current_page}} </p>
       </a> -->
 
       {% if manga_chapter_list_from_paginated_manga[all_manga.index(manga)] %}
-        <a href="{{url_for('manga_id_chapter', manga_id = manga['id'], chapter_id = manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_id'][0])}}" title="{{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}"  style="color: black;font-size: 15px;">
+        <a href="{{url_for('manga_id_chapter', manga_id = manga['id'], chapter_id = manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_id'][0])}}" title="{{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}"  style="color: #42cc15;font-size: 15px;">
             {{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}
         </a>
       {% endif %}

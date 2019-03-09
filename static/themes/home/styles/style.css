@@ -56,7 +56,7 @@
 .option_wrap:hover .chapter_option{display:block;} */
 
 
-.chapter_option{width:400px; max-width:100%; height:auto; max-height:300px; overflow-x:hidden; overflow-y:scroll; position:absolute; top:13px; left:10px; display:block;}
+.chapter_option{width:400px; max-width:100%; height:auto; max-height:300px; overflow-x:hidden; overflow-y:scroll; position:absolute; top:13px; left:10px; display:block; z-index: 9999;}
 
 
 .option_a{margin:0px; border-bottom:1px solid #ffffff; width:100%;}

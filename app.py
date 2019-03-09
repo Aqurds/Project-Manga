@@ -28,9 +28,13 @@ def home():
     #latest manga view
     latest_front_page_manga = list(mongo.db.update_spider.find())
     latest_mange_releases = []
-
     for item in latest_front_page_manga[0]['latest_mange_releases']:
         latest_mange_releases.append(mongo.db.all_manga_details.find_one({'id':item}))
+
+    latest_manga_releases_chapter_list = []
+    for item in latest_front_page_manga[0]['latest_mange_releases']:
+        latest_manga_releases_chapter_list.append(mongo.db.manga_chapter_list.find_one({'manga_id':item}))
+
 
     #most popular manga view
     most_popular_front_page_manga = list(mongo.db.update_spider.find())
@@ -56,7 +60,7 @@ def home():
     # with open('test.html', 'w+') as outfile:
     #     json.dump(most_popular_manga, outfile)
 
-    return render_template('index.html', mangas = front_page_manga, popular_manga_list=popular_manga_list, latest_mange_releases=latest_mange_releases, most_popular_manga=most_popular_manga, genres=genres, categories=categories, total_bookmark=total_bookmark)
+    return render_template('index.html', mangas = front_page_manga, popular_manga_list=popular_manga_list, latest_mange_releases=latest_mange_releases, most_popular_manga=most_popular_manga, genres=genres, categories=categories, total_bookmark=total_bookmark, latest_manga_releases_chapter_list=latest_manga_releases_chapter_list)
 
 
 

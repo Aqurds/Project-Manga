@@ -50,8 +50,10 @@
 <!-- User info in navigation menu -->
 <div class="user-options">
 <span class="name">
-<img src="../static/themes/home/images/user_avatar.jpg">
-<p>{{session.username}}</p>
+  <a href="{{ url_for('account') }}">
+    <img src="../static/themes/home/images/user_avatar.jpg">
+    <p>{{session.username}}</p>
+  </a>
 </span>
 <a href="{{ url_for('bookmark') }}"><i class="notification"></i></a>
 <a href="{{ url_for('history') }}"><i class="history"></i></a>
@@ -102,9 +104,8 @@
 <div style="font-size: 22px;">
 Logged in successfully.<br>
 Hello, <b>{{session.username}}</b>.<br>
-<a href="{{ url_for('home') }}">Click here</a> go visit our homepage.
-<a href="{{ url_for('home') }}">{{ url_for('home') }}</a><br><br>
-We have updated a version 2 for the web page. If you lost "bookmark", please <a href="{{ url_for('home') }}">click here</a> and press bookmark again.
+<a href="{{ url_for('home') }}">Click here</a> to visit our homepage.
+<!-- We have updated a version 2 for the web page. If you lost "bookmark", please <a href="{{ url_for('home') }}">click here</a> and press bookmark again. -->
 </div>
 </div>
 <script src="https://mangakakalot.com/login_al?u_t=bG9jYWw%3D&u_i=MTM5MzY2&u_u=Z2V0dHlwZXR0eQ%3D%3D&u_a=LTE%3D" async></script>

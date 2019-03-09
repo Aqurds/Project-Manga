@@ -64,13 +64,13 @@
     <li>
       <span>
         <a class="sts sts_1" href="chapter/ueb1016274565487/chapter_17.html" title="Vol.4 Chapter 17">
-          {% if latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_link_text'][0] %}
+          {% if 'chapter_link_text' in latest_manga_releases_chapter_list[latest_mange_releases.index(item)] %}
             {{latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_link_text'][0]}}
           {% endif %}
         </a>
       </span>
       <i>
-        {% if latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_time_uploaded'][0] %}
+        {% if 'chapter_time_uploaded' in latest_manga_releases_chapter_list[latest_mange_releases.index(item)] %}
           {{latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_time_uploaded'][0]}}
         {% endif %}
       </i>

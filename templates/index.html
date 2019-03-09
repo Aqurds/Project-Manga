@@ -61,14 +61,14 @@
       <a class=" textdecoration"></a>
       <a class="non"></a>
     </li>
-    <!-- <li>
+    <li>
       <span>
-        <a class="sts sts_1" href="chapter/ueb1016274565487/chapter_17.html" title="Vol.4 Chapter 17">Vol.4 Chapter 17
+        <a class="sts sts_1" href="chapter/ueb1016274565487/chapter_17.html" title="Vol.4 Chapter 17">{{latest_manga_releases_chapter_list[0]['chapter_link_text'][0]}}
         </a>
       </span>
-      <i>10 hour ago </i>
+      <i>{{latest_manga_releases_chapter_list[0]['chapter_time_uploaded'][0]}} </i>
     </li>
-    -->
+
   </ul>
 </div>
 {% endfor %}
@@ -78,7 +78,7 @@
 </div>
 </div>
 
-{{latest_manga_releases_chapter_list}}
+{{latest_manga_releases_chapter_list['fn918596']['chapter_id'][0]}}
 
 <!-- Load Image Button -->
 <div id="loadpage">

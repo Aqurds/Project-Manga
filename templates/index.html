@@ -66,7 +66,7 @@
       <li>
         <span>
             {% if latest_manga_releases_chapter_list[latest_mange_releases.index(item)] %}
-              <a class="sts sts_1" href="{{url_for('manga_id_chapter', manga_id = item['id'], chapter_id = latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_id'][x])}}" title="Vol.4 Chapter 17">
+              <a class="sts sts_1" href="{{url_for('manga_id_chapter', manga_id = item['id'], chapter_id = latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_id'][x])}}" title="{{latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_link_text'][x]}}">
                   {{latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_link_text'][x]}}
               </a>
             {% endif %}

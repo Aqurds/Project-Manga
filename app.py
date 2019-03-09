@@ -823,7 +823,7 @@ def history():
         for item in front_page_manga[0]['popular_manga']:
             # popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
             popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
-    
+
         #most popular manga view
         most_popular_front_page_manga = list(mongo.db.update_spider.find())
         most_popular_manga = []
@@ -843,8 +843,9 @@ def history():
         # users.update({ "name":username },{$set : {"history":manga_id}})
         # users.insert_one(history)
         history_data = []
-        for history_manga in history_id['history']:
-            history_data.append(mongo.db.all_manga_details.find_one({'id':history_manga}))
+        if 'history' in history_id:
+            for history_manga in history_id['history']:
+                history_data.append(mongo.db.all_manga_details.find_one({'id':history_manga}))
 
 
         return render_template('history.html', most_popular_manga=most_popular_manga, genres=genres, categories=categories, popular_manga_list=popular_manga_list, history_data=history_data)

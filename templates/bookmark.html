@@ -102,8 +102,10 @@
       {% if session %}
           <div class="user-options">
             <span class="name">
-              <img src="../static/themes/home/images/user_avatar.jpg">
-              <p>{{session.username}}</p>
+              <a href="{{ url_for('account') }}">
+                <img src="../static/themes/home/images/user_avatar.jpg">
+                <p>{{session.username}}</p>
+              </a>
             </span>
             <a href="{{ url_for('bookmark') }}"><i class="notification">{% if total_bookmark != 0 %}<em class="notifications_num"> {{total_bookmark}}  </em>{% endif %}</i></a>
             <a href="{{ url_for('history') }}"><i class="history"></i></a>

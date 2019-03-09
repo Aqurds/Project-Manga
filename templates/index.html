@@ -61,20 +61,23 @@
       <a class=" textdecoration"></a>
       <a class="non"></a>
     </li>
-    <li>
-      <span>
-        <a class="sts sts_1" href="chapter/ueb1016274565487/chapter_17.html" title="Vol.4 Chapter 17">
+
+    {% for x in range(0,3) %}
+      <li>
+        <span>
+            {% if latest_manga_releases_chapter_list[latest_mange_releases.index(item)] %}
+              <a class="sts sts_1" href="{{url_for('manga_id_chapter', manga_id = item['id'], chapter_id = latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_id'][x])}}" title="Vol.4 Chapter 17">
+                  {{latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_link_text'][x]}}
+              </a>
+            {% endif %}
+        </span>
+        <i>
           {% if latest_manga_releases_chapter_list[latest_mange_releases.index(item)] %}
-            {{latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_link_text'][0]}}
+            {{latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_time_uploaded'][x]}}
           {% endif %}
-        </a>
-      </span>
-      <i>
-        {% if latest_manga_releases_chapter_list[latest_mange_releases.index(item)] %}
-          {{latest_manga_releases_chapter_list[latest_mange_releases.index(item)]['chapter_time_uploaded'][0]}}
-        {% endif %}
-      </i>
-    </li>
+        </i>
+      </li>
+    {% endfor %}
 
   </ul>
 </div>

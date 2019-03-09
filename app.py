@@ -197,7 +197,17 @@ def manga():
     categories = genres_categories[0]['categories']
 
 
-    return render_template('manga.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories)
+    if session:
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
+
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+
+
+    return render_template('manga.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
 
 
 
@@ -282,14 +292,21 @@ def manga_hot():
         popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
 
 
-
-
     genres_categories = list(mongo.db.genres_categories.find())
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
 
-    return render_template('manga-hot.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories)
+    if session:
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
+
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+
+    return render_template('manga-hot.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
 
 
 
@@ -380,8 +397,16 @@ def manga_new():
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
+    if session:
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
 
-    return render_template('manga-new.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories)
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+
+    return render_template('manga-new.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
 
 
 
@@ -473,7 +498,16 @@ def manga_completed():
     categories = genres_categories[0]['categories']
 
 
-    return render_template('manga-completed.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories)
+    if session:
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
+
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+
+    return render_template('manga-completed.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
 
 
 
@@ -563,8 +597,16 @@ def manga_genre_search():
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
+    if session:
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
 
-    return render_template('manga-genre-search.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories)
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+
+    return render_template('manga-genre-search.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
 
 
 
@@ -628,7 +670,16 @@ def manga_id(manga_id):
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
-    return render_template('manga-id.html', manga_details = manga_details, chapter_list = chapter_list, manga_id_here = manga_id_here, popular_manga_list=popular_manga_list, most_popular_manga=most_popular_manga, genres=genres, categories=categories)
+    if session:
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
+
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+
+    return render_template('manga-id.html', manga_details = manga_details, chapter_list = chapter_list, manga_id_here = manga_id_here, popular_manga_list=popular_manga_list, most_popular_manga=most_popular_manga, genres=genres, categories=categories, total_bookmark=total_bookmark)
 
 
 
@@ -669,7 +720,16 @@ def manga_id_chapter(manga_id, chapter_id):
 
     related_manga = mongo.db.all_manga_details.find().sort('last_updated', pymongo.ASCENDING).limit(12)
 
-    return render_template('manga-id-chapter.html', manga_details = manga_details, manga_chapter_list = manga_chapter_list, image_list = image_list, url = url, current_chapter_id = current_chapter_text, prev_chapter_id = prev_chapter_id, next_chapter_id = next_chapter_id, next_chapter_identifier=next_chapter_identifier, prev_chapter_id_identifier=prev_chapter_id_identifier, chapter_option_list=chapter_option_list, related_manga=related_manga)
+    if session:
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
+
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+
+    return render_template('manga-id-chapter.html', manga_details = manga_details, manga_chapter_list = manga_chapter_list, image_list = image_list, url = url, current_chapter_id = current_chapter_text, prev_chapter_id = prev_chapter_id, next_chapter_id = next_chapter_id, next_chapter_identifier=next_chapter_identifier, prev_chapter_id_identifier=prev_chapter_id_identifier, chapter_option_list=chapter_option_list, related_manga=related_manga, total_bookmark=total_bookmark)
 
 
 
@@ -737,7 +797,15 @@ def data():
 @app.route('/account/')
 def account():
     if session:
-        return render_template('account.html')
+
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
+
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+        return render_template('account.html', total_bookmark=total_bookmark)
     else:
         return redirect(url_for('login'))
 
@@ -755,7 +823,14 @@ def logout():
 @app.route('/update/')
 def update():
     if session:
-        return render_template('update.html')
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
+
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+        return render_template('update.html', total_bookmark=total_bookmark)
     else:
         return redirect(url_for('login'))
 
@@ -764,7 +839,14 @@ def update():
 @app.route('/password-change/')
 def password_change():
     if session:
-        return render_template('password-change.html')
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
+
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+        return render_template('password-change.html', total_bookmark=total_bookmark)
     else:
         return redirect(url_for('login'))
 
@@ -859,7 +941,15 @@ def history():
 
         history_data.pop()
 
-        return render_template('history.html', most_popular_manga=most_popular_manga, genres=genres, categories=categories, popular_manga_list=popular_manga_list, history_data=history_data)
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
+
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+
+        return render_template('history.html', most_popular_manga=most_popular_manga, genres=genres, categories=categories, popular_manga_list=popular_manga_list, history_data=history_data, total_bookmark=total_bookmark)
     else:
         return redirect(url_for('login'))
 

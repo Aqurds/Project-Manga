@@ -332,7 +332,7 @@ However - when Desir thought he would meet his demise, what is revealed before h
     <em class="rate_row_result"></em>
     <p id="rate_row_cmd" style="text-transform:none;color:gray;line-height:1.5" class="rate-manga">
     <span xmlns:v="https://rdf.data-vocabulary.org/#" typeof="v:Review-aggregate">
-    <span property="v:itemreviewed">Mangakakalot.com</span>
+    <span property="v:itemreviewed">{{url_for('home')}}</span>
     <span rel="v:rating">
     <span typeof="v:Rating">rate:
     <span property="v:average">4.77</span>/
@@ -378,7 +378,7 @@ However - when Desir thought he would meet his demise, what is revealed before h
       {{ author }},
     {% endfor %}
   </p>
-  <p>If you want to read free manga, come visit us at anytime. We promise you that we will always bring you the latest, new and hot manga everyday. In case you don't know, Mangakakalot is a very cool responsive website and mobile-friendly, which means the images can be auto-resize to fit your pc or mobile screen. You can experience it by using your smartphone and <a href="{{ url_for('home') }}" style="margin: 0;padding: 0;"><strong>read manga online</strong></a> right now. It's manga time!!</p>
+  <p>If you want to read free manga, come visit us at anytime. We promise you that we will always bring you the latest, new and hot manga everyday. In case you don't know, {{url_for('home')}} is a very cool responsive website and mobile-friendly, which means the images can be auto-resize to fit your pc or mobile screen. You can experience it by using your smartphone and <a href="{{ url_for('home') }}" style="margin: 0;padding: 0;"><strong>read manga online</strong></a> right now. It's manga time!!</p>
 </div>
 
 
@@ -465,11 +465,11 @@ However - when Desir thought he would meet his demise, what is revealed before h
 
 <footer>
   <div class="footer-content">
-    <p>Why You Should <a href="{{ url_for('home') }}">Read Manga</a> Online at Mangakakalot.com ?</p>
+    <p>Why You Should <a href="{{ url_for('home') }}">Read Manga</a> Online at {{url_for('home')}} ?</p>
     <p>There are many reasons you should read Manga online, and if you are a fan of this unique storytelling style then learning about them is a must. One of the biggest reasons why you should read Manga online is the money it can save you. While there's nothing like actually holding a book in your hands, there's also no denying that the cost of those books can add up quickly. So why not join the digital age and read Manga online? Another big reason to read Manga online is the huge amount of material that is available. When you go to a comic store or other book store their shelves are limited by the space that they have. When you go to an online site to read Manga those limitations don't exist. So if you want the best selection and you also want to save money then reading Manga online should be an obvious choice for you</p>
-    <p>©2016 Mangakakalot.com, all rights reserved. Top speed, completely free. </p>
-    <p>Current Time is Feb-18-2019 18:21:40 PM.</p>
-    <p>If you have questions about anything or advertising, please contact us at <b><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3b565a555c5a505a505a57544f7b5c565a525715585456">[email&#160;protected]</a></b></p>
+    <p>©2016 {{url_for('home')}}, all rights reserved. Top speed, completely free. </p>
+    <!-- <p>Current Time is Feb-18-2019 18:21:40 PM.</p> -->
+    <!-- <p>If you have questions about anything or advertising, please contact us at <b><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3b565a555c5a505a505a57544f7b5c565a525715585456">[email&#160;protected]</a></b></p> -->
   </div>
 </footer>
 

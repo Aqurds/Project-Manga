@@ -871,7 +871,7 @@ def add_bookmark(manga_id):
             users.update_one({'name': user_name}, {'$push': {'bookmark':''}})
 
         bookmark_data_again = users.find_one({'name':user_name})
-        if manga_id not in bookmark_data['bookmark']:
+        if manga_id not in bookmark_data_again['bookmark']:
             users.update_one({'name': user_name}, {'$push': {'bookmark': manga_id}})
 
         return redirect(url_for('bookmark'))

@@ -795,10 +795,11 @@ def bookmark():
         bookmark_data = []
         total_bookmark = 0
         if 'bookmark' in bookmark_id:
-            total_bookmark = len(bookmark_id['bookmark'])
+            total_bookmark = len(bookmark_id['bookmark']) - 1
             for bookmark_manga in bookmark_id['bookmark']:
                 bookmark_data.append(mongo.db.all_manga_details.find_one({'id':bookmark_manga}))
 
+        bookmark_data.pop(0)
 
 
         return render_template('bookmark.html', popular_manga_list=popular_manga_list, most_popular_manga=most_popular_manga, genres=genres, categories=categories, bookmark_data=bookmark_data, total_bookmark=total_bookmark)

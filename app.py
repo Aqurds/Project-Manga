@@ -43,12 +43,13 @@ def home():
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
+    total_bookmark = 0
     if session:
         user_name = session['username']
         users = mongo.db.users
         bookmark_id = users.find_one({'name':user_name})
 
-        total_bookmark = 0
+
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
@@ -196,13 +197,13 @@ def manga():
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
-
+    total_bookmark = 0
     if session:
         user_name = session['username']
         users = mongo.db.users
         bookmark_id = users.find_one({'name':user_name})
 
-        total_bookmark = 0
+
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
@@ -296,13 +297,12 @@ def manga_hot():
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
-
+    total_bookmark = 0
     if session:
         user_name = session['username']
         users = mongo.db.users
         bookmark_id = users.find_one({'name':user_name})
 
-        total_bookmark = 0
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
@@ -397,12 +397,12 @@ def manga_new():
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
+    total_bookmark = 0
     if session:
         user_name = session['username']
         users = mongo.db.users
         bookmark_id = users.find_one({'name':user_name})
 
-        total_bookmark = 0
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
@@ -497,13 +497,12 @@ def manga_completed():
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
-
+    total_bookmark = 0
     if session:
         user_name = session['username']
         users = mongo.db.users
         bookmark_id = users.find_one({'name':user_name})
 
-        total_bookmark = 0
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
@@ -597,12 +596,13 @@ def manga_genre_search():
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
+
+    total_bookmark = 0
     if session:
         user_name = session['username']
         users = mongo.db.users
         bookmark_id = users.find_one({'name':user_name})
 
-        total_bookmark = 0
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
@@ -670,12 +670,13 @@ def manga_id(manga_id):
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
+
+    total_bookmark = 0
     if session:
         user_name = session['username']
         users = mongo.db.users
         bookmark_id = users.find_one({'name':user_name})
 
-        total_bookmark = 0
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
@@ -720,12 +721,13 @@ def manga_id_chapter(manga_id, chapter_id):
 
     related_manga = mongo.db.all_manga_details.find().sort('last_updated', pymongo.ASCENDING).limit(12)
 
+
+    total_bookmark = 0
     if session:
         user_name = session['username']
         users = mongo.db.users
         bookmark_id = users.find_one({'name':user_name})
 
-        total_bookmark = 0
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 

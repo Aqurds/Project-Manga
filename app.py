@@ -43,10 +43,19 @@ def home():
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
+    if session:
+        user_name = session['username']
+        users = mongo.db.users
+        bookmark_id = users.find_one({'name':user_name})
+
+        total_bookmark = 0
+        if 'bookmark' in bookmark_id:
+            total_bookmark = len(bookmark_id['bookmark']) - 1
+
     # with open('test.html', 'w+') as outfile:
     #     json.dump(most_popular_manga, outfile)
 
-    return render_template('index.html', mangas = front_page_manga, popular_manga_list=popular_manga_list, latest_mange_releases=latest_mange_releases, most_popular_manga=most_popular_manga, genres=genres, categories=categories)
+    return render_template('index.html', mangas = front_page_manga, popular_manga_list=popular_manga_list, latest_mange_releases=latest_mange_releases, most_popular_manga=most_popular_manga, genres=genres, categories=categories, total_bookmark=total_bookmark)
 
 
 
@@ -848,7 +857,7 @@ def history():
             for history_manga in history_id['history']:
                 history_data.append(mongo.db.all_manga_details.find_one({'id':history_manga}))
 
-        history_data.pop(0)
+        history_data.pop()
 
         return render_template('history.html', most_popular_manga=most_popular_manga, genres=genres, categories=categories, popular_manga_list=popular_manga_list, history_data=history_data)
     else:

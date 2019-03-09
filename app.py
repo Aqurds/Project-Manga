@@ -17,25 +17,26 @@ mongo = PyMongo(app)
 # home/index route
 @app.route('/')
 def home():
+    #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
 
     for item in front_page_manga[0]['popular_manga']:
-        popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
+        # popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
+        popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
 
-    # sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
-    # for item in sample_list:
-    #     popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
-
+    #latest manga view
+    latest_front_page_manga = list(mongo.db.update_spider.find())
     latest_mange_releases = []
-    sample_list_latest = ['troll_trap', 'little_13','jy918373','df918543','deatte_5_byou_de_battle','yotsukoto','martial_art_successor','the_ghostly_doctor','yd918542','oa917623','the_descendant_of_the_dynasty','uat947546','crossing_the_boundary_twins','hw917776','kishibe_no_uta','antinomy','takeda_shingen_yokoyama_mitsuteru','when_night_falls','legend_of_immortals','bw918450']
-    for item in sample_list_latest:
+
+    for item in latest_front_page_manga[0]['latest_mange_releases']:
         latest_mange_releases.append(mongo.db.all_manga_details.find_one({'id':item}))
 
-
+    #most popular manga view
+    most_popular_front_page_manga = list(mongo.db.update_spider.find())
     most_popular_manga = []
-    sample_list_most = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550']
-    for item in sample_list_most:
+
+    for item in most_popular_front_page_manga[0]['most_popular_manga']:
         most_popular_manga.append(mongo.db.all_manga_details.find_one({'id':item}))
 
     genres_categories = list(mongo.db.genres_categories.find())
@@ -172,15 +173,14 @@ def manga():
     # all_manga = list(items.find().limit(offset))
     all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('_id', pymongo.ASCENDING).limit(limit))
 
+    #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
 
-    # for item in front_page_manga[0]['popular_manga']:
-    #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
-
-    sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
-    for item in sample_list:
+    for item in front_page_manga[0]['popular_manga']:
+        # popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
         popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
+
 
 
     genres_categories = list(mongo.db.genres_categories.find())
@@ -264,15 +264,15 @@ def manga_hot():
     # all_manga = list(items.find().limit(offset))
     all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('votes', pymongo.DESCENDING).limit(limit))
 
+    #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
 
-    # for item in front_page_manga[0]['popular_manga']:
-    #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
-
-    sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
-    for item in sample_list:
+    for item in front_page_manga[0]['popular_manga']:
+        # popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
         popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
+
+
 
 
     genres_categories = list(mongo.db.genres_categories.find())
@@ -357,15 +357,14 @@ def manga_new():
     # all_manga = list(items.find().limit(offset))
     all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('votes', pymongo.ASCENDING).limit(limit))
 
+    #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
 
-    # for item in front_page_manga[0]['popular_manga']:
-    #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
-
-    sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
-    for item in sample_list:
+    for item in front_page_manga[0]['popular_manga']:
+        # popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
         popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
+
 
 
     genres_categories = list(mongo.db.genres_categories.find())
@@ -450,15 +449,14 @@ def manga_completed():
     # all_manga = list(items.find().limit(offset))
     all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('status', pymongo.ASCENDING).limit(limit))
 
+    #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
 
-    # for item in front_page_manga[0]['popular_manga']:
-    #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
-
-    sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
-    for item in sample_list:
+    for item in front_page_manga[0]['popular_manga']:
+        # popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
         popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
+
 
 
     genres_categories = list(mongo.db.genres_categories.find())
@@ -543,14 +541,12 @@ def manga_genre_search():
     # all_manga = list(items.find().limit(offset))
     all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('status', pymongo.ASCENDING).limit(limit))
 
+    #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
 
-    # for item in front_page_manga[0]['popular_manga']:
-    #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
-
-    sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
-    for item in sample_list:
+    for item in front_page_manga[0]['popular_manga']:
+        # popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
         popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
 
 
@@ -603,20 +599,20 @@ def manga_id(manga_id):
             users.update_one({'name': user_name}, {'$push': {'history': manga_id}})
 
 
+    #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
 
-    # for item in front_page_manga[0]['popular_manga']:
-    #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
-
-    sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
-    for item in sample_list:
+    for item in front_page_manga[0]['popular_manga']:
+        # popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
         popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
 
 
+    #most popular manga view
+    most_popular_front_page_manga = list(mongo.db.update_spider.find())
     most_popular_manga = []
-    sample_list_most = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550']
-    for item in sample_list_most:
+
+    for item in most_popular_front_page_manga[0]['most_popular_manga']:
         most_popular_manga.append(mongo.db.all_manga_details.find_one({'id':item}))
 
     genres_categories = list(mongo.db.genres_categories.find())
@@ -769,20 +765,20 @@ def password_change():
 def bookmark():
 
     if session:
+        #popular manga view
         front_page_manga = list(mongo.db.update_spider.find())
         popular_manga_list = []
 
-        # for item in front_page_manga[0]['popular_manga']:
-        #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
-
-        sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
-        for item in sample_list:
+        for item in front_page_manga[0]['popular_manga']:
+            # popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
             popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
 
 
+        #most popular manga view
+        most_popular_front_page_manga = list(mongo.db.update_spider.find())
         most_popular_manga = []
-        sample_list_most = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550']
-        for item in sample_list_most:
+
+        for item in most_popular_front_page_manga[0]['most_popular_manga']:
             most_popular_manga.append(mongo.db.all_manga_details.find_one({'id':item}))
 
         genres_categories = list(mongo.db.genres_categories.find())
@@ -820,17 +816,19 @@ def bookmark():
 @app.route('/history/')
 def history():
     if session:
+        #popular manga view
+        front_page_manga = list(mongo.db.update_spider.find())
         popular_manga_list = []
-        # for item in front_page_manga[0]['popular_manga']:
-        #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
-        sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
-        for item in sample_list:
+
+        for item in front_page_manga[0]['popular_manga']:
+            # popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
             popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
-
-
+    
+        #most popular manga view
+        most_popular_front_page_manga = list(mongo.db.update_spider.find())
         most_popular_manga = []
-        sample_list_most = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550']
-        for item in sample_list_most:
+
+        for item in most_popular_front_page_manga[0]['most_popular_manga']:
             most_popular_manga.append(mongo.db.all_manga_details.find_one({'id':item}))
 
         genres_categories = list(mongo.db.genres_categories.find())

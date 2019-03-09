@@ -848,6 +848,7 @@ def history():
             for history_manga in history_id['history']:
                 history_data.append(mongo.db.all_manga_details.find_one({'id':history_manga}))
 
+        history_data.pop(0)
 
         return render_template('history.html', most_popular_manga=most_popular_manga, genres=genres, categories=categories, popular_manga_list=popular_manga_list, history_data=history_data)
     else:

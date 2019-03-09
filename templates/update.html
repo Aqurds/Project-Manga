@@ -51,7 +51,7 @@
     <p>{{session.username}}</p>
   </a>
 </span>
-<a href="{{ url_for('bookmark') }}"><i class="notification"></i></a>
+<a href="{{ url_for('bookmark') }}"><i class="notification">{% if total_bookmark != 0 %}<em class="notifications_num"> {{total_bookmark}}  </em>{% endif %}</i></a>
 <a href="{{ url_for('history') }}"><i class="history"></i></a>
 <a href="{{ url_for('logout') }}"><i class="logout"></i></a>
 </div>

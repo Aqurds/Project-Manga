@@ -20,12 +20,12 @@ def home():
     front_page_manga = list(mongo.db.update_spider.find())
     popular_manga_list = []
 
-    # for item in front_page_manga[0]['popular_manga']:
-    #     popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
+    for item in front_page_manga[0]['popular_manga']:
+        popular_manga_list.append(list(mongo.db.all_manga_details.find_one({'id':item})))
 
-    sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
-    for item in sample_list:
-        popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
+    # sample_list = ['kz918552', 'radiant', 'zi918554', 'saikyou_no_shuzoku_ga_ningen_datta_ken', 'le918553', 'xy918428', 'zw918006', 'jb918548', 'gk918551', 'gg918550', 'gp918549', 'mata_kataomou', 'jc917903']
+    # for item in sample_list:
+    #     popular_manga_list.append(mongo.db.all_manga_details.find_one({'id':item}))
 
     latest_mange_releases = []
     sample_list_latest = ['troll_trap', 'little_13','jy918373','df918543','deatte_5_byou_de_battle','yotsukoto','martial_art_successor','the_ghostly_doctor','yd918542','oa917623','the_descendant_of_the_dynasty','uat947546','crossing_the_boundary_twins','hw917776','kishibe_no_uta','antinomy','takeda_shingen_yokoyama_mitsuteru','when_night_falls','legend_of_immortals','bw918450']

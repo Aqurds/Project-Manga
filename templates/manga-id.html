@@ -59,7 +59,7 @@
 <li>
   Genres :
   {% for genre in manga_details['genres'] %}
-  <a rel='nofollow' style="color:#059e9a;" href='https://mangarock.herokuapp.com/search_author/sunwook_jeon'>{{genre}}</a>,
+  <a rel='nofollow' style="color:#059e9a;" href="{{url_for('manga_genre_search', page = 1, genre=genre)}}">{{genre}}</a>,
   {% endfor %}
 </li>
 
@@ -71,7 +71,7 @@
 <span style="line-height: 100%!important;">&nbsp;</span>
 <em id="rate_row_cmd" style="color: black;">
 <em xmlns:v="https://rdf.data-vocabulary.org/#" typeof="v:Review-aggregate">
-<em property="v:itemreviewed">Mangakakalot.com</em>
+<em property="v:itemreviewed"></em>
 <em rel="v:rating">
 <em typeof="v:Rating">rate :
 <em property="v:average">{{manga_details['score']}}</em>/

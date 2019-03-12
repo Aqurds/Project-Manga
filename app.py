@@ -919,7 +919,8 @@ def bookmark():
             for bookmark_manga in bookmark_id['bookmark']:
                 bookmark_data.append(mongo.db.all_manga_details.find_one({'id':bookmark_manga}))
 
-        bookmark_data.pop(0)
+        if bookmark_data:
+            bookmark_data.pop(0)
 
 
         return render_template('bookmark.html', popular_manga_list=popular_manga_list, most_popular_manga=most_popular_manga, genres=genres, categories=categories, bookmark_data=bookmark_data, total_bookmark=total_bookmark)
@@ -968,7 +969,8 @@ def history():
             for history_manga in history_id['history']:
                 history_data.append(mongo.db.all_manga_details.find_one({'id':history_manga}))
 
-        history_data.pop()
+        if history_data:
+            history_data.pop()
 
         user_name = session['username']
         users = mongo.db.users

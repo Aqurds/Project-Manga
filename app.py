@@ -76,7 +76,7 @@ def register():
         current_user = users.find_one({'name' : request.form['username']})
 
         if current_user is None:
-            hashpass = bcrypt.hashpw(request.form['password'].decode('utf-8'), bcrypt.gensalt())
+            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
             users.insert({'name' : request.form['username'], 'password' : hashpass, 'displayname' : request.form['displayname'], 'email' : request.form['email']})
             session['username'] = request.form['username']
             return redirect(url_for('account'))

@@ -237,18 +237,18 @@ Page {{current_page}} </p>
 <!-- Pagination Code -->
 <div class="phan-trang">
   <div class="group-page">
-    <a href="{{url_for('manga', page = 1)}}" class="page page-blue">
+    <a href="{{url_for('manga_genre_search', page = 1, genre=genre_id)}}" class="page page-blue">
       First(1)
     </a>
 
     {% if first_prev_page != 0 %}
-      <a href="{{url_for('manga', page=first_prev_page)}}" class="page">
+      <a href="{{url_for('manga_genre_search', page=first_prev_page, genre=genre_id)}}" class="page">
         {{first_prev_page}}
       </a>
     {% endif %}
 
     {% if second_prev_page != 0 %}
-      <a href="{{url_for('manga', page=second_prev_page)}}" class="page">
+      <a href="{{url_for('manga_genre_search', page=second_prev_page, genre=genre_id)}}" class="page">
         {{second_prev_page}}
       </a>
     {% endif %}
@@ -258,18 +258,18 @@ Page {{current_page}} </p>
     </a>
 
     {% if first_next_page != 0 %}
-      <a href="{{url_for('manga', page=first_next_page)}}" class="page">
+      <a href="{{url_for('manga_genre_search', page=first_next_page, genre=genre_id)}}" class="page">
         {{first_next_page}}
       </a>
     {% endif %}
 
     {% if second_next_page != 0 %}
-      <a href="{{url_for('manga', page=second_next_page)}}" class="page">
+      <a href="{{url_for('manga_genre_search', page=second_next_page, genre=genre_id)}}" class="page">
         {{second_next_page}}
       </a>
     {% endif %}
 
-    <a href="{{url_for('manga', page=total_page_number)}}" class="page page-blue">
+    <a href="{{url_for('manga_genre_search', page=total_page_number, genre=genre_id)}}" class="page page-blue">
       Last({{total_page_number}})
     </a>
   </div>

@@ -610,11 +610,7 @@ def manga_genre_search():
     page_offset = (current_page-1) * 24
     limit = 24
 
-    starting_manga_id = items.find().sort('status', pymongo.ASCENDING)
-    last_manga_id = starting_manga_id[page_offset]['_id']
 
-    # all_manga = list(items.find().limit(offset))
-    # all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('status', pymongo.ASCENDING).limit(limit))
     all_manga = genres_manga_list[page_offset:limit]
 
 
@@ -641,7 +637,7 @@ def manga_genre_search():
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
-    return render_template('manga-genre-search.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, genres_manga_list=genres_manga_list)
+    return render_template('manga-genre-search.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, genre_id=genre_id)
 
 
 

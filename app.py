@@ -542,7 +542,6 @@ def manga_completed():
 
 @app.route('/manga-genre-search/')
 def manga_genre_search():
-    genres_id = genre_id
     items = mongo.db.all_manga_details
 
     #Getting total manga number

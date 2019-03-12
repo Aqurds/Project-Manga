@@ -552,7 +552,7 @@ def manga_genre_search():
             genres_manga_list.append(item)
 
     page_offset = (int(request.args['page'])-1) * 24
-    limit = 24
+    limit = 24 * int(request.args['page'])
     all_manga = genres_manga_list[page_offset:limit]
 
 

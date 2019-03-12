@@ -970,7 +970,7 @@ def history():
                 history_data.append(mongo.db.all_manga_details.find_one({'id':history_manga}))
 
         if history_data:
-            history_data.pop()
+            history_data.pop(0)
 
         user_name = session['username']
         users = mongo.db.users

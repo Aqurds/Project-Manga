@@ -637,7 +637,7 @@ def manga_genre_search():
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
-    return render_template('manga-genre-search.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, genre_id=genre_id)
+    return render_template('manga-genre-search.html', genre_id=genre_id, all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
 
 
 

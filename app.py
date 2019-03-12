@@ -614,7 +614,9 @@ def manga_genre_search():
     last_manga_id = starting_manga_id[page_offset]['_id']
 
     # all_manga = list(items.find().limit(offset))
-    all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('status', pymongo.ASCENDING).limit(limit))
+    # all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('status', pymongo.ASCENDING).limit(limit))
+    all_manga = genres_manga_list[page_offset:limit]
+
 
     #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())

@@ -540,8 +540,8 @@ def manga_completed():
 
 
 
-@app.route('/manga-genre-search/<string:genre_id>')
-def manga_genre_search(genre_id):
+@app.route('/manga-genresearch/<string:genre_id>')
+def manga_genresearch(genre_id):
     genres_id = genre_id
     items = mongo.db.all_manga_details
 

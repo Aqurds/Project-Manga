@@ -540,8 +540,8 @@ def manga_completed():
 
 
 
-@app.route('/manga-genre-search/<string:genre_id>')
-def manga_genre_search(genre_id):
+@app.route('/manga-genre-search/')
+def manga_genre_search():
     genres_id = genre_id
     items = mongo.db.all_manga_details
 
@@ -634,7 +634,7 @@ def manga_genre_search(genre_id):
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
-    return render_template('manga-genre-search.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
+    return render_template('manga-genre-search.html', all_manga=all_manga, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
 
 
 

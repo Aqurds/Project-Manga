@@ -549,9 +549,9 @@ def manga_genre_search():
 
     for item in list(items.find()):
         if genre_id in item['genres']:
-            genres_manga_list.append(item['id'])
+            genres_manga_list.append(item)
     #Getting total manga number
-    total_manga = len(list(items.find()))
+    total_manga = len(genres_manga_list)
 
     #getting total page number
     offset = 24

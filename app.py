@@ -607,7 +607,7 @@ def manga_genre_search():
         second_next_page = 5
     #pagination code ends here
 
-    page_offset = (current_page-1) * 24
+    page_offset = (int(request.args['page'])-1) * 24
     limit = 24
 
 

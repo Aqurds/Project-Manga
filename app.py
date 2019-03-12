@@ -544,8 +544,9 @@ def manga_completed():
 def manga_genre_search():
     items = mongo.db.all_manga_details
 
+    genre_id = request.args['genre']
     #Getting total manga number
-    total_manga = len(list(items.find()))
+    total_manga = len(list(items.find({'genres':genre_id})))
 
     #getting total page number
     offset = 24

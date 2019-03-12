@@ -545,8 +545,13 @@ def manga_genre_search():
     items = mongo.db.all_manga_details
 
     genre_id = request.args['genre']
+    genres_manga_list = []
+
+    for item in list(items.find()):
+        if genre_id in item['genres']:
+            genres_manga_list.append(item['id'])
     #Getting total manga number
-    total_manga = len(list(items.find({'genres':genre_id})))
+    total_manga = len(list(items.find()))
 
     #getting total page number
     offset = 24
@@ -634,7 +639,7 @@ def manga_genre_search():
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
-    return render_template('manga-genre-search.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark)
+    return render_template('manga-genre-search.html', all_manga=all_manga, total_manga = total_manga, total_page_number = total_page_number, current_page = current_page, first_prev_page = first_prev_page, second_prev_page = second_prev_page, first_next_page = first_next_page, second_next_page = second_next_page, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, genres_manga_list=genres_manga_list)
 
 
 

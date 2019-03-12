@@ -550,6 +550,12 @@ def manga_genre_search():
     for item in list(items.find()):
         if genre_id in item['genres']:
             genres_manga_list.append(item)
+
+    page_offset = (int(request.args['page'])-1) * 24
+    limit = 24
+    all_manga = genres_manga_list[page_offset:limit]
+
+
     #Getting total manga number
     total_manga = len(genres_manga_list)
 
@@ -607,11 +613,11 @@ def manga_genre_search():
         second_next_page = 5
     #pagination code ends here
 
-    page_offset = (int(request.args['page'])-1) * 24
-    limit = 24
-
-
-    all_manga = genres_manga_list[page_offset:limit]
+    # page_offset = (int(request.args['page'])-1) * 24
+    # limit = 24
+    #
+    #
+    # all_manga = genres_manga_list[page_offset:limit]
 
 
     #popular manga view

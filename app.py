@@ -540,12 +540,13 @@ def manga_completed():
 
 
 
-@app.route('/manga-genre-search/')
-def manga_genre_search():
+@app.route('/manga-genre-search/<string:genre_id>')
+def manga_genre_search(genre_id):
+    genres_id = genre_id
     items = mongo.db.all_manga_details
 
     #Getting total manga number
-    total_manga = len(list(items.find()))
+    total_manga = len(list(items.find({'genres':genres_id})))
 
     #getting total page number
     offset = 24
@@ -623,7 +624,7 @@ def manga_genre_search():
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
-
+    #counting bookmark number to show in menu
     total_bookmark = 0
     if session:
         user_name = session['username']
@@ -648,6 +649,7 @@ def manga_id(manga_id):
     manga_details = mongo.db.all_manga_details.find_one({'id':manga_id})
     manga_chapter_list = mongo.db.manga_chapter_list.find_one({'manga_id':manga_id})
 
+    # collecting each manga details in a single list with iteration. This code looking pretty complex. I will try to optimize this code later.
     manga_id_here = manga_chapter_list['manga_id']
     iteration = len(manga_chapter_list['chapter_id'])
     chapter_list = []
@@ -693,11 +695,12 @@ def manga_id(manga_id):
     for item in most_popular_front_page_manga[0]['most_popular_manga']:
         most_popular_manga.append(mongo.db.all_manga_details.find_one({'id':item}))
 
+    # genres & categories to show in sidebar
     genres_categories = list(mongo.db.genres_categories.find())
     genres = genres_categories[0]['genres']
     categories = genres_categories[0]['categories']
 
-
+    # counting bookmark number to show in the menu
     total_bookmark = 0
     if session:
         user_name = session['username']
@@ -969,6 +972,7 @@ def history():
             for history_manga in history_id['history']:
                 history_data.append(mongo.db.all_manga_details.find_one({'id':history_manga}))
 
+        # checking if the history_data has any manga id or not, If empty pop() will throw error
         if history_data:
             history_data.pop(0)
 

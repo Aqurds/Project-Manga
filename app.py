@@ -546,70 +546,70 @@ def manga_genre_search(genre_id):
     items = mongo.db.all_manga_details
 
     #Getting total manga number
-    total_manga = len(list(items.find({'genres':genres_id})))
+    total_manga = len(list(items.find()))
 
-    #getting total page number
-    offset = 24
-    page_number = total_manga / offset
-    if total_manga % offset == 0:
-        total_page_number = int(str(page_number).split('.')[0])
-    else:
-        total_page_number = int(str(page_number).split('.')[0]) + 1
-
-    #pagination code
-    first_prev_page = 0
-    second_prev_page = 0
-    current_page = 0
-    first_next_page = 0
-    second_next_page = 0
-
-
-    if int(request.args['page']) == 1:
-        current_page = int(request.args['page'])
-        first_prev_page = 0
-        second_prev_page = 0
-        first_next_page = current_page + 1
-        second_next_page = current_page + 2
-    elif int(request.args['page']) == 2:
-        current_page = int(request.args['page'])
-        first_prev_page = 0
-        second_prev_page = current_page - 1
-        first_next_page = current_page + 1
-        second_next_page = current_page + 2
-    elif int(request.args['page']) == total_page_number - 1:
-        current_page = int(request.args['page'])
-        first_prev_page = current_page - 2
-        second_prev_page = current_page - 1
-        first_next_page = current_page + 1
-        second_next_page = 0
-    elif int(request.args['page']) == total_page_number:
-        current_page = int(request.args['page'])
-        first_prev_page = current_page - 2
-        second_prev_page = current_page - 1
-        first_next_page = 0
-        second_next_page = 0
-    elif int(request.args['page']) > 3:
-        current_page = int(request.args['page'])
-        first_prev_page = current_page - 2
-        second_prev_page = current_page - 1
-        first_next_page = current_page + 1
-        second_next_page = current_page + 2
-    else:
-        first_prev_page = 1
-        second_prev_page = 2
-        current_page = 3
-        first_next_page = 4
-        second_next_page = 5
-    #pagination code ends here
-
-    page_offset = (current_page-1) * 24
-    limit = 24
-
-    starting_manga_id = items.find().sort('status', pymongo.ASCENDING)
-    last_manga_id = starting_manga_id[page_offset]['_id']
-
-    # all_manga = list(items.find().limit(offset))
-    all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('status', pymongo.ASCENDING).limit(limit))
+    # #getting total page number
+    # offset = 24
+    # page_number = total_manga / offset
+    # if total_manga % offset == 0:
+    #     total_page_number = int(str(page_number).split('.')[0])
+    # else:
+    #     total_page_number = int(str(page_number).split('.')[0]) + 1
+    #
+    # #pagination code
+    # first_prev_page = 0
+    # second_prev_page = 0
+    # current_page = 0
+    # first_next_page = 0
+    # second_next_page = 0
+    #
+    #
+    # if int(request.args['page']) == 1:
+    #     current_page = int(request.args['page'])
+    #     first_prev_page = 0
+    #     second_prev_page = 0
+    #     first_next_page = current_page + 1
+    #     second_next_page = current_page + 2
+    # elif int(request.args['page']) == 2:
+    #     current_page = int(request.args['page'])
+    #     first_prev_page = 0
+    #     second_prev_page = current_page - 1
+    #     first_next_page = current_page + 1
+    #     second_next_page = current_page + 2
+    # elif int(request.args['page']) == total_page_number - 1:
+    #     current_page = int(request.args['page'])
+    #     first_prev_page = current_page - 2
+    #     second_prev_page = current_page - 1
+    #     first_next_page = current_page + 1
+    #     second_next_page = 0
+    # elif int(request.args['page']) == total_page_number:
+    #     current_page = int(request.args['page'])
+    #     first_prev_page = current_page - 2
+    #     second_prev_page = current_page - 1
+    #     first_next_page = 0
+    #     second_next_page = 0
+    # elif int(request.args['page']) > 3:
+    #     current_page = int(request.args['page'])
+    #     first_prev_page = current_page - 2
+    #     second_prev_page = current_page - 1
+    #     first_next_page = current_page + 1
+    #     second_next_page = current_page + 2
+    # else:
+    #     first_prev_page = 1
+    #     second_prev_page = 2
+    #     current_page = 3
+    #     first_next_page = 4
+    #     second_next_page = 5
+    # #pagination code ends here
+    #
+    # page_offset = (current_page-1) * 24
+    # limit = 24
+    #
+    # starting_manga_id = items.find().sort('status', pymongo.ASCENDING)
+    # last_manga_id = starting_manga_id[page_offset]['_id']
+    #
+    # # all_manga = list(items.find().limit(offset))
+    # all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('status', pymongo.ASCENDING).limit(limit))
 
     #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())

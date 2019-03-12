@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
 <head>
-<link rel="alternate" hreflang="en-US" href="https://mangarock.herokuapp.com/chapter/zu917722/chapter_48" />
+<link rel="alternate" hreflang="en-US" href="#" />
 <meta name="google-site-verification" content="TNfDROcsP2nhZRixOKhUq1_GZ0d_EgiCxb0eRRgfMHg" />
 <meta name="robots" content="index,follow" />
 <meta charset="utf-8">
@@ -178,8 +178,8 @@ However - when Desir thought he would meet his demise, what is revealed before h
 
 <div class="info-top-chapter">
 <h2>{{ manga_details['title'] }} {{ current_chapter_id }}</h2>
-<p>You're reading <strong>{{manga_details['title']}}  {{ current_chapter_id }}</strong> at Mangakakalot.com.</p>
-<p>Please use the Bookmark button to get notifications about the latest chapters next time when you come visit Mangakakalot. You can use the F11 button to <a href="{{ url_for('home') }}"><strong>read manga</strong></a> in full-screen(PC only). It will be so grateful if you let Mangakakalot be your favorite <strong>manga site</strong>. We hope you'll come join us and become a manga reader in this community! </p>
+<p>You're reading <strong>{{manga_details['title']}}  {{ current_chapter_id }}</strong></p>
+<p>Please use the Bookmark button to get notifications about the latest chapters next time when you come visit this site. You can use the F11 button to <a href="{{ url_for('home') }}"><strong>read manga</strong></a> in full-screen(PC only). It will be so grateful if you let this be your favorite <strong>manga site</strong>. We hope you'll come join us and become a manga reader in this community! </p>
 <p>Have a beautiful day!</p>
 <!-- <p style="font-size: 14px;color: #19b65b;">Image shows slow or error, you should choose another IMAGE SERVER.</p> -->
 <!-- <div class="options-chapter">
@@ -229,7 +229,7 @@ However - when Desir thought he would meet his demise, what is revealed before h
     {% endfor %}
   </select>
 
-  <!-- Testing code for chapter option -->
+  <!-- alternative code overlap select option -->
   <div class="chapter_option" id="chapter_get_2">
     <div class="" style="width:auto; height:auto;">
       {% for chapter_link in chapter_option_list %}
@@ -465,7 +465,7 @@ However - when Desir thought he would meet his demise, what is revealed before h
 
 <footer>
   <div class="footer-content">
-    <p>Why You Should <a href="{{ url_for('home') }}">Read Manga</a> Online at {{url_for('home')}} ?</p>
+    <p>Why You Should <a href="{{ url_for('home') }}">Read Manga</a> Online?</p>
     <p>There are many reasons you should read Manga online, and if you are a fan of this unique storytelling style then learning about them is a must. One of the biggest reasons why you should read Manga online is the money it can save you. While there's nothing like actually holding a book in your hands, there's also no denying that the cost of those books can add up quickly. So why not join the digital age and read Manga online? Another big reason to read Manga online is the huge amount of material that is available. When you go to a comic store or other book store their shelves are limited by the space that they have. When you go to an online site to read Manga those limitations don't exist. So if you want the best selection and you also want to save money then reading Manga online should be an obvious choice for you</p>
     <p>©2016 {{url_for('home')}}, all rights reserved. Top speed, completely free. </p>
     <!-- <p>Current Time is Feb-18-2019 18:21:40 PM.</p> -->

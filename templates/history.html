@@ -213,13 +213,13 @@
 <p>
 <span class="breadcrumbs-title"> </span>
 <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" class="home" href="https://manganelo.com/home" title="Manga Online">
+<a itemprop="url" class="home" href="{{ url_for('home') }}" title="Manga Online">
 <span itemprop="title">Manga Online</span>
 </a>
 </span>
 <span class="separator">»</span>
 <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" href="https://manganelo.com/history">
+<a itemprop="url" href="{{ url_for('history') }}">
 <span itemprop="title">History</span>
 </a>
 </span>

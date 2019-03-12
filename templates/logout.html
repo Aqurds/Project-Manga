@@ -46,8 +46,8 @@
 </div>
 <div class="user-options">
 <div class="login-top">
-<a href="https://user.manganelo.com/login" class="btn-login">Login</a>
-<a href="https://user.manganelo.com/register" class="btn-register">Register</a>
+<a href="{{ url_for('login') }}" class="btn-login">Login</a>
+<a href="{{ url_for('register') }}" class="btn-register">Register</a>
 </div>
 </div>
 </div>
@@ -73,7 +73,7 @@
 <p>
 <span class="breadcrumbs-title"> </span>
 <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" href="https://user.manganelo.com/" class="home">
+<a itemprop="url" href="{{ url_for('home') }}" class="home">
 <span itemprop="title">Manga Online</span>
 </a>
 </span>
@@ -89,7 +89,7 @@
 </div>
 <div class="register-panel" style="font-size: 22px;">
 Logout in successfully.<br>
-<a style="color:  red;" href="https://manganelo.com">Click here</a> go visit our homepage.
+<a style="color:  red;" href="{{ url_for('home') }}">Click here</a> go visit our homepage.
 </div>
 <script src="https://mangakakalot.com/logout_al" async></script>
 <script src="https://manganelo.com/logout_al" async></script>

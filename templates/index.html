@@ -132,7 +132,7 @@
   <ul class="tags tag-name">
       {% for genre in genres %}
         <li>
-          <a rel="tag" href="#" title="{{genre}}">
+          <a rel="tag" href="{{url_for('manga_genre_search', page = 1, genre=genre)}}" title="{{genre}}">
             {{genre}}
           </a>
         </li>

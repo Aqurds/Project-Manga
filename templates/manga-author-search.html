@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+  <link rel="alternate" hreflang="en-US" href="index.html" />
+  <meta name="google-site-verification" content="TNfDROcsP2nhZRixOKhUq1_GZ0d_EgiCxb0eRRgfMHg" />
+  <meta name="robots" content="index,follow" />
+  <meta charset="utf-8">
+  <title>Read Manga Online</title>
+  <meta name="description" content="Read manga online free at Mangakakalot.com, update fastest, most full, synthesized 24h free with high-quality imagesa and be the first one to publish new chapters." />
+  <meta name="keywords" itemprop="keywords" content="Manga, Read Manga Online, Read Manga, Manga Online, Manga Scans, Free Manga, Mangakakalot" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="mangakakalot">
+  <meta name="twitter:title" content="Mangakakalot - Read Manga Online">
+  <meta name="twitter:description" content="Read manga online free at Mangakakalot.com, update fastest, most full, synthesized 24h free with high-quality images and be the first one to publish new chapters.">
+  <meta name="twitter:image" content="../lh3.googleusercontent.com/-iK1y5xV28gs/WCcslYmPKAI/AAAAAAACQGg/o9pv0oioVlY/s0/5826ca23a4ad3.jpg">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mangakakalot - Read Manga Online" />
+  <meta property="og:url" content="index.html" />
+  <meta property="og:image" content="../lh3.googleusercontent.com/-iK1y5xV28gs/WCcslYmPKAI/AAAAAAACQGg/o9pv0oioVlY/s0/5826ca23a4ad3.jpg" />
+  <meta property="og:description" content="Read manga online free at Mangakakalot.com, update fastest, most full, synthesized 24h free with high-quality images and be the first one to publish new chapters." />
+  <meta property="og:site_name" content="index.html" />
+  <meta property="fb:app_id" content="1664224760511779" />
+  <link rel="shortcut icon" href="../static/themes/home/images/favicon.ico" />
+
+  <script type="text/javascript" src="../static/themes/home/js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="../static/themes/home/js/owl.carousel.js"></script>
+  <script type="text/javascript" src="../static/themes/home/js/back-to-top3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/ddimgtooltip3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/fsearch614e.js?v=1.8?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/custom3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/cookie3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/starrate/js/starwarsjs3860.js?v=1"></script>
+
+  <link rel="stylesheet" href="../static/themes/home/styles/style.css">
+  <link rel="stylesheet" href="../static/themes/home/styles/owl.carousel3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/home/styles/owl.theme3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/home/styles/ddimgtooltip3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/home/styles/style_search3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/starrate/css/style3860.css?v=1" />
+
+  <script type='application/ld+json'>
+    {"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/mangarock.herokuapp.com\/","name":"mangakakalot Online","potentialAction":{"@type":"SearchAction","target":"https:\/\/mangarock.herokuapp.com\/search\/{search_term_string}","query-input":"required name=search_term_string"}}
+  </script>
+
+  <script type="application/javascript">
+      baseurljs = 'index.html';
+      tooltypejs = 'Computer';
+  </script>
+
+  <style>
+      .rate_star.over {
+          color: #00ff00;
+      }
+  </style>
+
+  <script type="application/javascript">
+      _base_url_search = 'search/index.html';
+      _base_url_search_author = "search_author/index.html";
+  </script>
+
+</head>
+
+
+
+<body>
+
+  <header>
+    <div class="container container-top">
+
+      <div class="top-logo">
+        <a href="{{ url_for('home') }}" title="Manga Online">
+          <img src="../static/themes/home/icons/logo.png" alt="Manga Online" title="Manga Online">
+        </a>
+      </div>
+      <div class="top-header">
+
+
+      <div class="searching">
+        <form name="frmsearch">
+          <input id="search_story" autocomplete="off" placeholder="Search manga..." />
+          <input style="display: none;" />
+          <select id="search_style" style="">
+            <option value="tentruyen">Manga Name</option>
+            <option value="tentacgia">Authors</option>
+          </select>
+        </form>
+      </div>
+
+
+      {% if session %}
+          <div class="user-options">
+            <span class="name">
+              <a href="{{ url_for('account') }}">
+                <img src="../static/themes/home/images/user_avatar.jpg">
+                <p>{{session.username}}</p>
+              </a>
+            </span>
+            <a href="{{ url_for('bookmark') }}"><i class="notification">{% if total_bookmark != 0 %}<em class="notifications_num"> {{total_bookmark}}  </em>{% endif %}</i></a>
+            <a href="{{ url_for('bookmark') }}"><i class="history"></i></a>
+            <a href="{{ url_for('logout') }}"><i class="logout"></i></a>
+          </div>
+      {% else %}
+            <!-- Login & Regitration Code -->
+          <div class="user-options">
+            <div class="login-top">
+              <a rel="nofollow" href="{{ url_for('login') }}" class="btn-login">
+                Login
+              </a>
+              <a rel="nofollow" href="{{ url_for('register') }}" class="btn-register">
+                Register
+              </a>
+            </div>
+          </div>
+          <!-- Login & Registration Code End -->
+      {% endif %}
+      </div>
+
+
+      <a class="mobile-menu">
+        MENU
+      </a>
+
+      <nav class="wrap-menu-primary">
+        <ul id="menu-menu-top" class="menu-primary">
+        <li class="menu-item"><a href="{{ url_for('home') }}">HOME</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga', page=1) }}" title="LATEST MANGA">LATEST MANGA</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga_hot', page=1) }}" title="HOT MANGA">HOT MANGA</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga_new', page=1) }}" title="NEW MANGA">NEW MANGA</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga_completed', page=1) }}" title="COMPLETED MANGA">COMPLETED MANGA</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+
+
+<div class="container">
+<div class="slide">
+<h3 class="title update-slide">POPULAR MANGA</h3>
+<div id="owl-demo" class="owl-carousel">
+
+  {% for item in popular_manga_list %}
+    <div class="item">
+      <img src="{{item['image']}}" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+      <div class="slide-caption">
+        <h3>
+          <a href="{{url_for('manga_id', manga_id = item['id'])}}" title="{{item['title']}}">
+            {{item['title']}}
+          </a>
+        </h3>
+        <!-- <a href="chapter/pn918005/chapter_58.html" title="Chapter 58">
+          Chapter 58
+        </a> -->
+      </div>
+    </div>
+  {% endfor %}
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="main-wrapper">
+<div></div>
+<div class="leftCol listCol">
+<div class="truyen-list">
+<h1 style="display: none;">Read manga online for free in high quality and most full</h1>
+<div class="breadcrumb breadcrumbs">
+<div class="rdfa-breadcrumb">
+<div>
+<p>
+<span class="breadcrumbs-title"></span>
+<span itemscope="" itemtype="https://data-vocabulary.org/Breadcrumb">
+<a itemprop="url" href="{{ url_for('home') }}" class="home" title="Manga online">
+<span itemprop="title">Manga online</span>
+</a>
+</span>
+</p>
+</div>
+</div>
+</div>
+
+
+
+{% for manga in all_manga %}
+    <div class="list-truyen-item-wrap">
+      <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">
+        <img src="{{ manga['image'] }}"  alt="{{manga['title']}}">
+      </a>
+      <h3>
+        <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">{{manga['title']}}</a>
+      </h3>
+      {% if manga_chapter_list_from_paginated_manga[all_manga.index(manga)] %}
+        <a href="{{url_for('manga_id_chapter', manga_id = manga['id'], chapter_id = manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_id'][0])}}" title="{{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}"  style="color: #42cc15;font-size: 15px;">
+            {{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}
+        </a>
+      {% endif %}
+      <br><br>
+      <p>
+
+        {{manga['summary'] | truncate(350) }}
+
+        <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">
+          More.
+        </a>
+      </p>
+    </div>
+{% endfor %}
+
+
+
+
+<div style="clear: both">
+</div>
+
+
+<!-- Pagination Code -->
+<!-- <div class="phan-trang">
+  <div class="group-page">
+    <a href="{{url_for('manga_ongoing', page = 1)}}" class="page page-blue">
+      First(1)
+    </a>
+
+    {% if first_prev_page != 0 %}
+      <a href="{{url_for('manga_ongoing', page=first_prev_page)}}" class="page">
+        {{first_prev_page}}
+      </a>
+    {% endif %}
+
+    {% if second_prev_page != 0 %}
+      <a href="{{url_for('manga_ongoing', page=second_prev_page)}}" class="page">
+        {{second_prev_page}}
+      </a>
+    {% endif %}
+
+    <a class="pageselect">
+      {{current_page}}
+    </a>
+
+    {% if first_next_page != 0 %}
+      <a href="{{url_for('manga_ongoing', page=first_next_page)}}" class="page">
+        {{first_next_page}}
+      </a>
+    {% endif %}
+
+    {% if second_next_page != 0 %}
+      <a href="{{url_for('manga_ongoing', page=second_next_page)}}" class="page">
+        {{second_next_page}}
+      </a>
+    {% endif %}
+
+    <a href="{{url_for('manga_ongoing', page=total_page_number)}}" class="page page-blue">
+      Last({{total_page_number}})
+    </a>
+  </div>
+  <div class="group-qty">
+    <a class="quantitychapter page-blue">
+      Total: {{ total_manga}} stories
+      {{page}}
+    </a>
+  </div>
+</div> -->
+<!-- Pagination code ends -->
+
+
+
+<ul class="tag tag-name">
+  {% for genre in genres %}
+    <li>
+      <a rel="tag" href="{{url_for('manga_genre_search', page = 1, genre=genre)}}" title="{{genre}}">
+        {{genre}}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+<ul class="tag spec-tag">
+
+    <li>
+      <a rel="tag" href="{{ url_for('manga', page=1) }}" title="Latest">
+        Latest
+      </a>
+    </li>
+
+    <li>
+      <a rel="tag" href="{{ url_for('manga_new', page=1) }}" title="Newest">
+        Newest
+      </a>
+    </li>
+
+    <li>
+      <a rel="tag" href="{{ url_for('manga_hot', page=1) }}" title="Top view">
+        Top view
+      </a>
+    </li>
+
+    <li>
+      <a rel="tag" href="{{url_for('manga_completed', page = 1)}}" title="Completed">
+        Completed
+      </a>
+    </li>
+
+    <li>
+      <a rel="tag" href="{{url_for('manga_ongoing', page = 1)}}" title="Ongoing">
+        Ongoing
+      </a>
+    </li>
+
+</ul> </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<footer>
+  <div class="footer-content">
+    <p>Why You Should <a href="{{url_for('home')}}">Read Manga</a> Online?</p>
+    <p>There are many reasons you should read Manga online, and if you are a fan of this unique storytelling style then learning about them is a must. One of the biggest reasons why you should read Manga online is the money it can save you. While there's nothing like actually holding a book in your hands, there's also no denying that the cost of those books can add up quickly. So why not join the digital age and read Manga online? Another big reason to read Manga online is the huge amount of material that is available. When you go to a comic store or other book store their shelves are limited by the space that they have. When you go to an online site to read Manga those limitations don't exist. So if you want the best selection and you also want to save money then reading Manga online should be an obvious choice for you</p>
+     <p>©2016 {{url_for('home')}}, all rights reserved. Top speed, completely free. </p>
+    <!-- <p>Current Time is Feb-15-2019 19:15:42 PM.</p>
+    <p>If you have questions about anything or advertising, please contact us at <b><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fd909c939a9c969c969c919289bd9a909c9491d39e9290">[email&#160;protected]</a></b></p> -->
+  </div>
+</footer>
+
+
+
+<!-- Javascript below footer section, footer js is influencial for carousel.js work -->
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script type="text/javascript" src="../static/themes/home/js/custom-fotter7839.js?v=1.2"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131398904-1"></script>
+
+
+
+
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-131398904-1');
+</script>
+<div id="fb-root"></div>
+<script>
+  $appidfb = '1664224760511779';
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "../connect.facebook.net/en_US/all.js#xfbml=1&appId=" + $appidfb;
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+</body>
+
+
+</html>

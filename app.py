@@ -713,6 +713,7 @@ def menu_search():
 
 
     search_manga_list = []
+    search_term = request.form['searchtext']
 
     if request.form['search_select'] == "Manga Name":
         #do text search
@@ -765,7 +766,7 @@ def menu_search():
 
     # return render_template('menu-search.html', all_manga=all_manga, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga)
 
-    return render_template('menu-search.html', popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, search_manga_list=search_manga_list, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga)
+    return render_template('menu-search.html', popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, search_manga_list=search_manga_list, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga, search_term=search_term)
 
 
 

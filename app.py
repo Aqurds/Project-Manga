@@ -717,12 +717,30 @@ def menu_search():
 
     if request.form['search_select'] == "Manga Name":
         #do text search
-        search_text = request.form['searchtext'].capitalize()
 
-        for item in list(items.find()):
-            title_name_list = item['title'].split()
-            if search_text in title_name_list:
-                search_manga_list.append(item)
+        initial_query_text = request.form['searchtext'].split()
+
+        if len(initial_query_text) > 1:
+            #do search with multi words
+            search_text = request.form['searchtext'].title()
+
+            for item in list(items.find()):
+                if search_text in item['title']:
+                    search_manga_list.append(item)
+
+
+        if len(initial_query_text) == 1:
+            #do single word search
+            search_text = request.form['searchtext'].capitalize()
+
+            for item in list(items.find()):
+                title_name_list = item['title'].split()
+                if search_text in title_name_list:
+                    search_manga_list.append(item)
+
+
+
+
 
         for item in search_manga_list:
             manga_chapter_list_from_paginated_manga.append(mongo.db.manga_chapter_list.find_one({'manga_id':item['id']}))

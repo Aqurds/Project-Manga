@@ -751,7 +751,7 @@ def menu_search():
 
     # return render_template('menu-search.html', all_manga=all_manga, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga)
 
-    return render_template('menu-search.html', all_manga=all_manga, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, select=select)
+    return render_template('menu-search.html', popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, select=select)
 
 
 

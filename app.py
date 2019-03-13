@@ -728,7 +728,7 @@ def menu_search():
 
     if request.form['search_select'] == "Authors":
         #do author search
-        author_text = request.form['search_select'].lower()
+        author_text = request.form['searchtext'].lower()
 
         for item in list(items.find()):
             for autnor_name in item['author']:

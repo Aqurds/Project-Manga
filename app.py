@@ -562,7 +562,7 @@ def manga_ongoing():
 
 
     #Getting total manga number
-    total_manga = len(completed_manga_list)
+    total_manga = len(ongoing_manga_list)
 
     #getting total page number
     offset = 24

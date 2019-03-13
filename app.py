@@ -723,8 +723,8 @@ def menu_search():
     # for item in all_manga:
     #     manga_chapter_list_from_paginated_manga.append(mongo.db.manga_chapter_list.find_one({'manga_id':item['id']}))
 
-    select = request.form
-
+    search_text = request.form['searchtext']
+    select_text = request.form['search_select']
 
     #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())
@@ -751,7 +751,7 @@ def menu_search():
 
     # return render_template('menu-search.html', all_manga=all_manga, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga)
 
-    return render_template('menu-search.html', popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, select=select)
+    return render_template('menu-search.html', popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, search_text=search_text, select_text=select_text)
 
 
 

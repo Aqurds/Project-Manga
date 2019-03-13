@@ -705,7 +705,7 @@ def manga_author_search():
 
 
 
-@app.route('/menu-search/')
+@app.route('/menu-search/', methods=['POST', 'GET'])
 def menu_search():
     # items = mongo.db.all_manga_details
     # author_id = request.args['author']

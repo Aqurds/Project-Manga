@@ -716,11 +716,11 @@ def menu_search():
 
     if request.form['search_select'] == "Manga Name":
         #do text search
-        search_text = request.form['searchtext'].capitalize()
+        search_text = request.form['searchtext'].lower()
 
         for item in list(items.find()):
             title_name_list = item['title'].split()
-            if search_text in title_name_list:
+            if search_text in title_name_list.lower():
                 search_manga_list.append(item)
 
         for item in search_manga_list:
@@ -728,12 +728,12 @@ def menu_search():
 
     elif request.form['search_select'] == "Authors":
         #do author search
-        author_text = request.form['search_select'].capitalize()
+        author_text = request.form['search_select'].lower()
 
         for item in list(items.find()):
-            author_name_list = item['author'].split()
-            if author_text in author_name_list:
-                search_manga_list.append(item)
+            for autnor_name in item['author']:
+                if author_text == autnor_name.lower():
+                    search_manga_list.append(item)
 
         for item in search_manga_list:
             manga_chapter_list_from_paginated_manga.append(mongo.db.manga_chapter_list.find_one({'manga_id':item['id']}))

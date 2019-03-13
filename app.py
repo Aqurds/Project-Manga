@@ -726,7 +726,7 @@ def menu_search():
         for item in search_manga_list:
             manga_chapter_list_from_paginated_manga.append(mongo.db.manga_chapter_list.find_one({'manga_id':item['id']}))
 
-    elif request.form['search_select'] == "Authors":
+    if request.form['search_select'] == "Authors":
         #do author search
         author_text = request.form['search_select'].lower()
 

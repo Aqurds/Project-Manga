@@ -186,15 +186,7 @@
 </span>
 <span class="separator">»</span>
 <span itemscope itemtype="https://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" href="#"><span itemprop="title">Category: All</span></a>
-</span>
-<span class="separator">»</span>
-<span itemscope itemtype="https://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" href="#"><span itemprop="title">Status: All</span></a>
-</span>
-<span class="separator">»</span>
-<span itemscope itemtype="https://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" href="#"><span itemprop="title">Latest</span></a>
+<a itemprop="url" href="#"><span itemprop="title">Completed</span></a>
 </span>
 <span class="separator">»</span>
 Page {{current_page}} </p>
@@ -296,13 +288,35 @@ Page {{current_page}} </p>
   {% endfor %}
 </ul>
 <ul class="tag spec-tag">
-  {% for category in categories %}
-    <li>
-      <a rel="tag" href="#" title="{{ category }}">
-        {{ category }}
-      </a>
-    </li>
-  {% endfor %}
+  <li>
+    <a rel="tag" href="{{ url_for('manga', page=1) }}" title="Latest">
+      Latest
+    </a>
+  </li>
+
+  <li>
+    <a rel="tag" href="{{ url_for('manga_new', page=1) }}" title="Newest">
+      Newest
+    </a>
+  </li>
+
+  <li>
+    <a rel="tag" href="{{ url_for('manga_hot', page=1) }}" title="Top view">
+      Top view
+    </a>
+  </li>
+
+  <li>
+    <a rel="tag" href="{{url_for('manga_completed', page = 1)}}" title="Completed">
+      Completed
+    </a>
+  </li>
+
+  <li>
+    <a rel="tag" href="{{url_for('manga_ongoing', page = 1)}}" title="Ongoing">
+      Ongoing
+    </a>
+  </li>
 </ul> </div>
 </div>
 </div>

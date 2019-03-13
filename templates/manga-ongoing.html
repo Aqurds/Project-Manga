@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
 
+
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
   <link rel="alternate" hreflang="en-US" href="index.html" />
@@ -185,7 +186,7 @@
 </span>
 <span class="separator">»</span>
 <span itemscope itemtype="https://data-vocabulary.org/Breadcrumb">
-<a itemprop="url" href="#"><span itemprop="title">All Manga</span></a>
+<a itemprop="url" href="#"><span itemprop="title">Ongoing</span></a>
 </span>
 <span class="separator">»</span>
 Page {{current_page}} </p>
@@ -203,16 +204,11 @@ Page {{current_page}} </p>
       <h3>
         <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">{{manga['title']}}</a>
       </h3>
-      <!-- <a href="https://mangarock.herokuapp.com/chapter/jy918077/chapter_7" title="Vol.1 Chapter 7" style="color: black;font-size: 15px;">
-        Vol.1 Chapter 7
-      </a> -->
-
       {% if manga_chapter_list_from_paginated_manga[all_manga.index(manga)] %}
         <a href="{{url_for('manga_id_chapter', manga_id = manga['id'], chapter_id = manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_id'][0])}}" title="{{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}"  style="color: #42cc15;font-size: 15px;">
             {{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}
         </a>
       {% endif %}
-
       <br><br>
       <p>
 
@@ -235,18 +231,18 @@ Page {{current_page}} </p>
 <!-- Pagination Code -->
 <div class="phan-trang">
   <div class="group-page">
-    <a href="{{url_for('manga', page = 1)}}" class="page page-blue">
+    <a href="{{url_for('manga_ongoing', page = 1)}}" class="page page-blue">
       First(1)
     </a>
 
     {% if first_prev_page != 0 %}
-      <a href="{{url_for('manga', page=first_prev_page)}}" class="page">
+      <a href="{{url_for('manga_ongoing', page=first_prev_page)}}" class="page">
         {{first_prev_page}}
       </a>
     {% endif %}
 
     {% if second_prev_page != 0 %}
-      <a href="{{url_for('manga', page=second_prev_page)}}" class="page">
+      <a href="{{url_for('manga_ongoing', page=second_prev_page)}}" class="page">
         {{second_prev_page}}
       </a>
     {% endif %}
@@ -256,18 +252,18 @@ Page {{current_page}} </p>
     </a>
 
     {% if first_next_page != 0 %}
-      <a href="{{url_for('manga', page=first_next_page)}}" class="page">
+      <a href="{{url_for('manga_ongoing', page=first_next_page)}}" class="page">
         {{first_next_page}}
       </a>
     {% endif %}
 
     {% if second_next_page != 0 %}
-      <a href="{{url_for('manga', page=second_next_page)}}" class="page">
+      <a href="{{url_for('manga_ongoing', page=second_next_page)}}" class="page">
         {{second_next_page}}
       </a>
     {% endif %}
 
-    <a href="{{url_for('manga', page=total_page_number)}}" class="page page-blue">
+    <a href="{{url_for('manga_ongoing', page=total_page_number)}}" class="page page-blue">
       Last({{total_page_number}})
     </a>
   </div>
@@ -292,35 +288,37 @@ Page {{current_page}} </p>
   {% endfor %}
 </ul>
 <ul class="tag spec-tag">
-  <li>
-    <a rel="tag" href="{{ url_for('manga', page=1) }}" title="Latest">
-      Latest
-    </a>
-  </li>
 
-  <li>
-    <a rel="tag" href="{{ url_for('manga_new', page=1) }}" title="Newest">
-      Newest
-    </a>
-  </li>
+    <li>
+      <a rel="tag" href="{{ url_for('manga', page=1) }}" title="Latest">
+        Latest
+      </a>
+    </li>
 
-  <li>
-    <a rel="tag" href="{{ url_for('manga_hot', page=1) }}" title="Top view">
-      Top view
-    </a>
-  </li>
+    <li>
+      <a rel="tag" href="{{ url_for('manga_new', page=1) }}" title="Newest">
+        Newest
+      </a>
+    </li>
 
-  <li>
-    <a rel="tag" href="{{url_for('manga_completed', page = 1)}}" title="Completed">
-      Completed
-    </a>
-  </li>
+    <li>
+      <a rel="tag" href="{{ url_for('manga_hot', page=1) }}" title="Top view">
+        Top view
+      </a>
+    </li>
 
-  <li>
-    <a rel="tag" href="{{url_for('manga_ongoing', page = 1)}}" title="Ongoing">
-      Ongoing
-    </a>
-  </li>
+    <li>
+      <a rel="tag" href="{{url_for('manga_completed', page = 1)}}" title="Completed">
+        Completed
+      </a>
+    </li>
+
+    <li>
+      <a rel="tag" href="{{url_for('manga_ongoing', page = 1)}}" title="Ongoing">
+        Ongoing
+      </a>
+    </li>
+
 </ul> </div>
 </div>
 </div>
@@ -338,8 +336,8 @@ Page {{current_page}} </p>
     <p>Why You Should <a href="{{url_for('home')}}">Read Manga</a> Online?</p>
     <p>There are many reasons you should read Manga online, and if you are a fan of this unique storytelling style then learning about them is a must. One of the biggest reasons why you should read Manga online is the money it can save you. While there's nothing like actually holding a book in your hands, there's also no denying that the cost of those books can add up quickly. So why not join the digital age and read Manga online? Another big reason to read Manga online is the huge amount of material that is available. When you go to a comic store or other book store their shelves are limited by the space that they have. When you go to an online site to read Manga those limitations don't exist. So if you want the best selection and you also want to save money then reading Manga online should be an obvious choice for you</p>
      <p>©2016 {{url_for('home')}}, all rights reserved. Top speed, completely free. </p>
-    <!-- <p>Current Time is Feb-15-2019 19:15:42 PM.</p> -->
-    <!-- <p>If you have questions about anything or advertising, please contact us at <b><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fd909c939a9c969c969c919289bd9a909c9491d39e9290">[email&#160;protected]</a></b></p> -->
+    <!-- <p>Current Time is Feb-15-2019 19:15:42 PM.</p>
+    <p>If you have questions about anything or advertising, please contact us at <b><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fd909c939a9c969c969c919289bd9a909c9491d39e9290">[email&#160;protected]</a></b></p> -->
   </div>
 </footer>
 

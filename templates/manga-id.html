@@ -221,13 +221,35 @@ Maybe coming in the next issue
           {% endfor %}
     </ul>
     <ul class="tags spec-tag">
-          {% for category in categories %}
-            <li>
-              <a rel="tag" href="#" title="{{ category }}">
-                {{ category }}
-              </a>
-            </li>
-          {% endfor %}
+      <li>
+        <a rel="tag" href="{{ url_for('manga', page=1) }}" title="Latest">
+          Latest
+        </a>
+      </li>
+
+      <li>
+        <a rel="tag" href="{{ url_for('manga_new', page=1) }}" title="Newest">
+          Newest
+        </a>
+      </li>
+
+      <li>
+        <a rel="tag" href="{{ url_for('manga_hot', page=1) }}" title="Top view">
+          Top view
+        </a>
+      </li>
+
+      <li>
+        <a rel="tag" href="{{url_for('manga_completed', page = 1)}}" title="Completed">
+          Completed
+        </a>
+      </li>
+
+      <li>
+        <a rel="tag" href="{{url_for('manga_ongoing', page = 1)}}" title="Ongoing">
+          Ongoing
+        </a>
+      </li>
     </ul>
 </div>
 <div style="clear: both"></div>

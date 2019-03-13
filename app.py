@@ -723,8 +723,18 @@ def menu_search():
     # for item in all_manga:
     #     manga_chapter_list_from_paginated_manga.append(mongo.db.manga_chapter_list.find_one({'manga_id':item['id']}))
 
-    search_text = request.form['searchtext']
-    select_text = request.form['search_select']
+
+
+    if request.form['search_select'] == "Manga Name":
+        #do text search
+        search_text = request.form['searchtext']
+        select_text = request.form['search_select']
+    elif request.form['search_select'] == "Authors":
+        #do author search
+        search_text = request.form['searchtext']
+        select_text = request.form['search_select']
+
+
 
     #popular manga view
     front_page_manga = list(mongo.db.update_spider.find())

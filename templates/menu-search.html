@@ -189,31 +189,35 @@
 </div>
 
 
+{% if search_manga_list %}
 
-{% for manga in all_manga %}
-    <div class="list-truyen-item-wrap">
-      <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">
-        <img src="{{ manga['image'] }}"  alt="{{manga['title']}}">
-      </a>
-      <h3>
-        <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">{{manga['title']}}</a>
-      </h3>
-      {% if manga_chapter_list_from_paginated_manga[all_manga.index(manga)] %}
-        <a href="{{url_for('manga_id_chapter', manga_id = manga['id'], chapter_id = manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_id'][0])}}" title="{{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}"  style="color: #42cc15;font-size: 15px;">
-            {{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}
-        </a>
-      {% endif %}
-      <br><br>
-      <p>
+    {% for manga in search_manga_list %}
+        <div class="list-truyen-item-wrap">
+          <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">
+            <img src="{{ manga['image'] }}"  alt="{{manga['title']}}">
+          </a>
+          <h3>
+            <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">{{manga['title']}}</a>
+          </h3>
+          {% if manga_chapter_list_from_paginated_manga[search_manga_list.index(manga)] %}
+            <a href="{{url_for('manga_id_chapter', manga_id = manga['id'], chapter_id = manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_id'][0])}}" title="{{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}"  style="color: #42cc15;font-size: 15px;">
+                {{manga_chapter_list_from_paginated_manga[search_manga_list.index(manga)]['chapter_link_text'][0]}}
+            </a>
+          {% endif %}
+          <br><br>
+          <p>
 
-        {{manga['summary'] | truncate(350) }}
+            {{manga['summary'] | truncate(350) }}
 
-        <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">
-          More.
-        </a>
-      </p>
-    </div>
-{% endfor %}
+            <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">
+              More.
+            </a>
+          </p>
+        </div>
+    {% endfor %}
+{% else %}
+      <p>No manga found with your search text! Please search again!</p>
+{% endif %}
 
 
 

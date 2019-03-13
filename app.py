@@ -707,7 +707,7 @@ def manga_author_search():
 
 @app.route('/menu-search/', methods=['POST', 'GET'])
 def menu_search():
-    # items = mongo.db.all_manga_details
+    items = mongo.db.all_manga_details
     # author_id = request.args['author']
     #
     # author_manga_list = []
@@ -723,12 +723,17 @@ def menu_search():
     # for item in all_manga:
     #     manga_chapter_list_from_paginated_manga.append(mongo.db.manga_chapter_list.find_one({'manga_id':item['id']}))
 
-
+    search_manga_list = []
 
     if request.form['search_select'] == "Manga Name":
         #do text search
         search_text = request.form['searchtext']
-        select_text = request.form['search_select']
+
+        for item in list(items.find()):
+            manga_name_list = item['title'].split()
+            if search_text in manga_name_list:
+                search_manga_list.append(item)
+
     elif request.form['search_select'] == "Authors":
         #do author search
         search_text = request.form['searchtext']
@@ -761,7 +766,7 @@ def menu_search():
 
     # return render_template('menu-search.html', all_manga=all_manga, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga)
 
-    return render_template('menu-search.html', popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, search_text=search_text, select_text=select_text)
+    return render_template('menu-search.html', popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, search_text=search_text, select_text=select_text, search_manga_list=search_manga_list)
 
 
 

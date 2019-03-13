@@ -716,7 +716,7 @@ def menu_search():
 
     if request.form['search_select'] == "Manga Name":
         #do text search
-        search_text = request.form['searchtext']
+        search_text = request.form['searchtext'].capitalize()
 
         for item in list(items.find()):
             manga_name_list = item['title'].split()

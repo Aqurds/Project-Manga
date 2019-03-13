@@ -759,7 +759,7 @@ def manga_author_search():
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
-    return render_template('manga-ongoing.html', all_manga=all_manga, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga)
+    return render_template('manga-author-search.html', all_manga=all_manga, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga)
 
 
 

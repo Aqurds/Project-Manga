@@ -439,8 +439,20 @@ def manga_new():
 def manga_completed():
     items = mongo.db.all_manga_details
 
+
+    completed_manga_list = []
+
+    for item in list(items.find()):
+        if item['status'] == "Completed":
+            completed_manga_list.append(item)
+
+    page_offset = (int(request.args['page'])-1) * 24
+    limit = 24 * int(request.args['page'])
+    all_manga = completed_manga_list[page_offset:limit]
+
+
     #Getting total manga number
-    total_manga = len(list(items.find()))
+    total_manga = len(completed_manga_list)
 
     #getting total page number
     offset = 24
@@ -496,14 +508,14 @@ def manga_completed():
         second_next_page = 5
     #pagination code ends here
 
-    page_offset = (current_page-1) * 24
-    limit = 24
-
-    starting_manga_id = items.find().sort('status', pymongo.ASCENDING)
-    last_manga_id = starting_manga_id[page_offset]['_id']
-
-    # all_manga = list(items.find().limit(offset))
-    all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('status', pymongo.ASCENDING).limit(limit))
+    # page_offset = (current_page-1) * 24
+    # limit = 24
+    #
+    # starting_manga_id = items.find().sort('status', pymongo.ASCENDING)
+    # last_manga_id = starting_manga_id[page_offset]['_id']
+    #
+    # # all_manga = list(items.find().limit(offset))
+    # all_manga = list(items.find({'_id':{'$gte':last_manga_id}}).sort('status', pymongo.ASCENDING).limit(limit))
 
     manga_chapter_list_from_paginated_manga = []
     for item in all_manga:
@@ -612,12 +624,6 @@ def manga_genre_search():
         first_next_page = 4
         second_next_page = 5
     #pagination code ends here
-
-    # page_offset = (int(request.args['page'])-1) * 24
-    # limit = 24
-    #
-    #
-    # all_manga = genres_manga_list[page_offset:limit]
 
 
     #popular manga view

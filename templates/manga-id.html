@@ -48,7 +48,7 @@
 <li>
   Author(s) :
   {% for author in manga_details['author'] %}
-  <a rel='nofollow' href='https://mangarock.herokuapp.com/search_author/sunwook_jeon'>{{author}}</a>,
+  <a rel='nofollow' href="{{url_for('manga_genre_search', author=author)}}">{{author}}</a>,
   {% endfor %}
 </li>
 <li>Status : {{manga_details['status']}}</li>

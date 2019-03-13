@@ -200,7 +200,7 @@
             <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">{{manga['title']}}</a>
           </h3>
           {% if manga_chapter_list_from_paginated_manga[search_manga_list.index(manga)] %}
-            <a href="{{url_for('manga_id_chapter', manga_id = manga['id'], chapter_id = manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_id'][0])}}" title="{{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}"  style="color: #42cc15;font-size: 15px;">
+            <a href="{{url_for('manga_id_chapter', manga_id = manga['id'], chapter_id = manga_chapter_list_from_paginated_manga[search_manga_list.index(manga)]['chapter_id'][0])}}" title="{{manga_chapter_list_from_paginated_manga[search_manga_list.index(manga)]['chapter_link_text'][0]}}"  style="color: #42cc15;font-size: 15px;">
                 {{manga_chapter_list_from_paginated_manga[search_manga_list.index(manga)]['chapter_link_text'][0]}}
             </a>
           {% endif %}

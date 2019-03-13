@@ -715,9 +715,9 @@ def menu_search():
     search_manga_list = []
     search_term = request.form['searchtext']
 
+    #manga search code
     if request.form['search_select'] == "Manga Name":
         #do text search
-
         initial_query_text = request.form['searchtext'].split()
 
         if len(initial_query_text) > 1:
@@ -725,7 +725,7 @@ def menu_search():
             search_text = request.form['searchtext'].title()
 
             for item in list(items.find()):
-                if search_text in item['title']:
+                if search_text in item['title'].title():
                     search_manga_list.append(item)
 
 
@@ -734,17 +734,16 @@ def menu_search():
             search_text = request.form['searchtext'].capitalize()
 
             for item in list(items.find()):
-                title_name_list = item['title'].split()
+                title_name_list = item['title'].title().split()
                 if search_text in title_name_list:
                     search_manga_list.append(item)
-
-
-
 
 
         for item in search_manga_list:
             manga_chapter_list_from_paginated_manga.append(mongo.db.manga_chapter_list.find_one({'manga_id':item['id']}))
 
+
+    #author search code
     if request.form['search_select'] == "Authors":
         #do author search
         author_text = request.form['searchtext'].lower()
@@ -782,7 +781,6 @@ def menu_search():
         if 'bookmark' in bookmark_id:
             total_bookmark = len(bookmark_id['bookmark']) - 1
 
-    # return render_template('menu-search.html', all_manga=all_manga, popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga)
 
     return render_template('menu-search.html', popular_manga_list=popular_manga_list, genres=genres, categories=categories, total_bookmark=total_bookmark, search_manga_list=search_manga_list, manga_chapter_list_from_paginated_manga=manga_chapter_list_from_paginated_manga, search_term=search_term)
 

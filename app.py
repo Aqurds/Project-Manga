@@ -723,7 +723,7 @@ def menu_search():
     # for item in all_manga:
     #     manga_chapter_list_from_paginated_manga.append(mongo.db.manga_chapter_list.find_one({'manga_id':item['id']}))
 
-    select = request.form.get('search_select')
+    select = request.form
 
 
     #popular manga view

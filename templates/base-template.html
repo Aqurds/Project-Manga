@@ -93,9 +93,8 @@
       <!-- Search Form Start -->
       <div class="searching">
         <form action="{{url_for('menu_search')}}" method="POST" style="position:relative;">
-          <input autocomplete="off" placeholder="Search manga..." />
-          <input style="display: none;" />
-          <select id="search_style" class="search_select" style="">
+          <input name='searchtext' placeholder="Search manga..." />
+          <select id="search_style" name="search_select" style="">
             <option value="Manga Name">Manga Name</option>
             <option value="Authors">Authors</option>
           </select>

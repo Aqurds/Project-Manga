@@ -20,7 +20,7 @@
   <meta property="og:url" content="index.html" />
   <meta property="og:image" content="../lh3.googleusercontent.com/-iK1y5xV28gs/WCcslYmPKAI/AAAAAAACQGg/o9pv0oioVlY/s0/5826ca23a4ad3.jpg" />
   <meta property="og:description" content="Read manga online free at Mangakakalot.com, update fastest, most full, synthesized 24h free with high-quality images and be the first one to publish new chapters." />
-  <meta property="og:site_name" content="index.html" />
+  <meta property="og:site_name" content="mangakakalots.com" />
   <link rel="shortcut icon" href="../static/themes/home/images/favicon.ico" />
 
   <script type="text/javascript" src="../static/themes/home/js/jquery-1.9.1.min.js"></script>
@@ -199,7 +199,7 @@ Page {{current_page}} </p>
       <h3>
         <a href="{{url_for('manga_id', manga_id = manga['id'])}}" title="{{manga['title']}}">{{manga['title']}}</a>
       </h3>
-      
+
       {% if manga_chapter_list_from_paginated_manga[all_manga.index(manga)] %}
         <a href="{{url_for('manga_id_chapter', manga_id = manga['id'], chapter_id = manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_id'][0])}}" title="{{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}"  style="color: #42cc15;font-size: 15px;">
             {{manga_chapter_list_from_paginated_manga[all_manga.index(manga)]['chapter_link_text'][0]}}

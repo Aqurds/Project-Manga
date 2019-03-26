@@ -1,7 +1,201 @@
-{% extends 'base-template.html' %}
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
 
 
-{% block content %}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+  <link rel="alternate" hreflang="en-US" href="index.html" />
+  <meta name="robots" content="index,follow" />
+  <meta charset="utf-8">
+
+
+
+  <title>{{manga_details['title']}}</title>
+  <meta name="description" content="{{manga_details['story_alternative'][0]}}" />
+  <meta name="twitter:title" content="{{manga_details['title']}}">
+  <meta name="twitter:description" content="{{manga_details['story_alternative'][0]}}">
+  <meta property="og:title" content="{{manga_details['title']}}" />
+  <meta property="og:description" content="{{manga_details['story_alternative'][0]}}" />
+
+
+
+
+  <meta property="og:site_name" content="mangakakalots.com" />
+  <link rel="shortcut icon" href="../static/themes/home/images/favicon.ico" />
+
+  <script type="text/javascript" src="../static/themes/home/js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="../static/themes/home/js/owl.carousel.js"></script>
+  <script type="text/javascript" src="../static/themes/home/js/back-to-top3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/ddimgtooltip3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/fsearch614e.js?v=1.8?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/custom3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/home/js/cookie3860.js?v=1"></script>
+  <script type="text/javascript" src="../static/themes/starrate/js/starwarsjs3860.js?v=1"></script>
+
+  <link rel="stylesheet" href="../static/themes/home/styles/style.css">
+  <link rel="stylesheet" href="../static/themes/home/styles/owl.carousel3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/home/styles/owl.theme3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/home/styles/ddimgtooltip3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/home/styles/style_search3860.css?v=1">
+  <link rel="stylesheet" href="../static/themes/starrate/css/style3860.css?v=1" />
+
+
+
+  <script type="application/javascript">
+      baseurljs = 'index.html';
+      tooltypejs = 'Computer';
+  </script>
+
+  <style>
+      .rate_star.over {
+          color: #00ff00;
+      }
+  </style>
+
+  <script type="application/javascript">
+      _base_url_search = 'search/index.html';
+      _base_url_search_author = "search_author/index.html";
+  </script>
+
+</head>
+
+
+
+<body>
+
+<!-- Header Start Here -->
+  <header>
+
+    <!-- Top Container (Logo, Search form, Login-Registration, Mobile-Menu, Primary Menu) Code Start Here -->
+    <div class="container container-top">
+
+      <!-- Main Logo Code -->
+      <div class="top-logo">
+        <a href="{{ url_for('home') }}" title="Manga Online">
+          <img src="../static/themes/home/icons/logo.png" alt="Manga Online" title="Manga Online">
+        </a>
+      </div>
+      <!-- Main Logo Code End -->
+
+
+      <!-- Top Header Section (Search form, Login-Registration) Start Here -->
+      <div class="top-header">
+
+
+
+      <!-- Search Form Start -->
+      <div class="searching">
+        <form action="{{url_for('menu_search')}}" method="POST" style="position:relative;">
+          <input name='searchtext' autocomplete="off"  placeholder="Search manga..." />
+          <select id="search_style" name="search_select" style="">
+            <option value="Manga Name">Manga Name</option>
+            <option value="Authors">Authors</option>
+          </select>
+          <input type="submit" value="submit" style="position:absolute; top:0px; left:0px; width:20px; height:32px;cursor:pointer;border-bottom:0px;">
+        </form>
+      </div>
+      <!-- Search Form End -->
+
+
+      {% if session %}
+          <div class="user-options">
+            <span class="name">
+              <a href="{{ url_for('account') }}">
+                <img src="../static/themes/home/images/user_avatar.jpg">
+                <p>{{session.username}}</p>
+              </a>
+            </span>
+            <a href="{{ url_for('bookmark') }}"><i class="notification">{% if total_bookmark != 0 %}<em class="notifications_num"> {{total_bookmark}}  </em>{% endif %}</i></a>
+            <a href="{{ url_for('history') }}"><i class="history"></i></a>
+            <a href="{{ url_for('logout') }}"><i class="logout"></i></a>
+          </div>
+      {% else %}
+            <!-- Login & Regitration Code -->
+          <div class="user-options">
+            <div class="login-top">
+              <a rel="nofollow" href="{{ url_for('login') }}" class="btn-login">
+                Login
+              </a>
+              <a rel="nofollow" href="{{ url_for('register') }}" class="btn-register">
+                Register
+              </a>
+            </div>
+          </div>
+          <!-- Login & Registration Code End -->
+      {% endif %}
+
+
+      </div>
+      <!-- Top Header Section (Search form, Login-Registration) End Here -->
+
+
+
+      <!-- Mobile Menu Button Code -->
+      <a class="mobile-menu">
+        MENU
+      </a>
+      <!-- Mobile Menu Button Code End -->
+
+
+      <!-- Navigation Menu Start Here -->
+      <nav class="wrap-menu-primary">
+        <ul id="menu-menu-top" class="menu-primary">
+        <li class="menu-item"><a href="{{ url_for('home') }}">HOME</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga', page=1) }}" title="LATEST MANGA">LATEST MANGA</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga_hot', page=1) }}" title="HOT MANGA">HOT MANGA</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga_new', page=1) }}" title="NEW MANGA">NEW MANGA</a></li>
+        <li class="menu-item"><a href="{{ url_for('manga_completed', page=1) }}" title="COMPLETED MANGA">COMPLETED MANGA</a></li>
+        </ul>
+      </nav>
+      <!-- Navigation Menu End Here -->
+
+    </div>
+    <!-- Top Container (Logo, Search form, Login-Registration, Mobile-Menu, Primary Menu) Code Start Here -->
+
+  </header>
+<!-- Header End Here -->
+
+
+
+<div class="container">
+<div class="slide">
+
+<h3 class="title update-slide">
+  POPULAR MANGA
+</h3>
+
+
+
+
+<!-- Carousel Start Here -->
+<div id="owl-demo" class="owl-carousel">
+
+{% for item in popular_manga_list %}
+  <div class="item">
+    <img src="{{item['image']}}" onerror="javascript:this.src='../static/themes/home/images/404-avatar.png';" />
+    <div class="slide-caption">
+      <h3>
+        <a href="{{url_for('manga_id', manga_id = item['id'])}}" title="{{item['title']}}">
+          {{item['title']}}
+        </a>
+      </h3>
+      <!-- <a href="chapter/pn918005/chapter_58.html" title="Chapter 58">
+        Chapter 58
+      </a> -->
+    </div>
+  </div>
+{% endfor %}
+
+
+
+</div>
+<!-- Carousel End Here -->
+
+
+</div>
+
+
+
 
 
 
@@ -248,4 +442,35 @@
 </div>
 
 
-{% endblock content %}
+
+
+
+
+
+
+
+<footer>
+  <div class="footer-content">
+    <p>Why You Should <a href="{{ url_for('home') }}">Read Manga</a> Online?</p>
+    <p>There are many reasons you should read Manga online, and if you are a fan of this unique storytelling style then learning about them is a must. One of the biggest reasons why you should read Manga online is the money it can save you. While there's nothing like actually holding a book in your hands, there's also no denying that the cost of those books can add up quickly. So why not join the digital age and read Manga online? Another big reason to read Manga online is the huge amount of material that is available. When you go to a comic store or other book store their shelves are limited by the space that they have. When you go to an online site to read Manga those limitations don't exist. So if you want the best selection and you also want to save money then reading Manga online should be an obvious choice for you</p>
+     <p>©2016 {{url_for('home')}}, all rights reserved. Top speed, completely free. </p>
+    <!-- <p>Current Time is Feb-15-2019 19:15:42 PM.</p>
+    <p>If you have questions about anything or advertising, please contact us at <b><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fd909c939a9c969c969c919289bd9a909c9491d39e9290">[email&#160;protected]</a></b></p> -->
+  </div>
+</footer>
+
+
+
+<!-- Javascript below footer section, footer js is influencial for carousel.js work -->
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script type="text/javascript" src="../static/themes/home/js/custom-fotter7839.js?v=1.2"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131398904-1"></script>
+
+
+
+
+
+</body>
+
+
+</html>

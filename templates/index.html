@@ -19,7 +19,7 @@
                         $.each(manga, function(key, val) {
                             if ("sticky_"+val.id == id && str_id_isset.indexOf(","+val.id+",") == -1) {
                                 str_id_isset += val.id + ",";
-                                $tooltip_add = '<div id="'+ id +'" class="atip"> <div id="tooltip"> <h3>' + val.name + '</h3> <div class="message_main"> <div class="message_mainT"> <div class="message_mainI"> <img src="' + val.image + '" onerror="javascript:this.src=\'//mangarock.herokuapp.com/themes/home/images/404-avatar.png\';"> </div> <div class="message_main_text"> <p> <label>Author(s):</label>' + val.author + '</p> <p> <label>Last updated:</label>' + val.updatetime + '</p> <p> <label>View :</label>' + val.view + '</p> <p> <label>Genre(s) :</label>' + val.genres + '</p> </div> </div> <div class="message_mainB"> <span>Summary :</span>' + val.description + '</div> </div> </div> </div>';
+                                $tooltip_add = '<div id="'+ id +'" class="atip"> <div id="tooltip"> <h3>' + val.name + '</h3> <div class="message_main"> <div class="message_mainT"> <div class="message_mainI"> <img src="' + val.image + '" onerror=""> </div> <div class="message_main_text"> <p> <label>Author(s):</label>' + val.author + '</p> <p> <label>Last updated:</label>' + val.updatetime + '</p> <p> <label>View :</label>' + val.view + '</p> <p> <label>Genre(s) :</label>' + val.genres + '</p> </div> </div> <div class="message_mainB"> <span>Summary :</span>' + val.description + '</div> </div> </div> </div>';
                                 $('#mystickytooltip').append($tooltip_add);
                                 return false;
                             }

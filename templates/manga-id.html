@@ -37,7 +37,7 @@
 </div>
 <div class="manga-info-top">
 <div class="manga-info-pic">
-<img src="{{manga_details['image']}}" onerror="javascript:this.src='//mangarock.herokuapp.com/themes/home/images/404-avatar.png';" alt="A Returner's Magic Should Be Special" />
+<img src="{{manga_details['image']}}"  alt="{{manga_details['title']}}" />
 <span onclick="movetolistchapter();" class="btn_chapterslist">CHAPTER LIST</span>
 </div>
 <ul class="manga-info-text">
@@ -107,8 +107,8 @@
 
 
 <li>
-<div><p class="fb-save" data-uri="https://mangarock.herokuapp.com/manga/zu917722" data-size="small" id="savefilmfb"></p></div>
-<div class="fb-like" data-href="https://mangarock.herokuapp.com/manga/zu917722" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+<div><p class="fb-save" data-uri="" data-size="small" id="savefilmfb"></p></div>
+<div class="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 </li>
 </ul>
 </div>
@@ -138,16 +138,6 @@
 </div>
 <!-- Show more & Show less button code end -->
 
-
-<!-- coming next chapter code -->
-<!-- <div class="chapter_issue" style="font: 400 14px Open Sans, Tahoma, Geneva, sans-serif;color: #3e3e3e;width: 96%;padding: 10px 2%;background: #FFF;text-align: justify; border-top: 1px dashed #ff530d;margin-bottom: 10px;float: left;">
-Maybe coming in the next issue
-<br>
-  <a style="color: #2ecc71;" href="https://mangarock.herokuapp.com/chapter/zu917722/chapter_52" target="_blank">A Returner's Magic Should Be Special chapter 52</a>
-  <br>
-  <a style="color: #2ecc71;" href="https://mangarock.herokuapp.com/chapter/zu917722/chapter_53" target="_blank">A Returner's Magic Should Be Special chapter 53</a>
-</div> -->
-<!-- coming next chapter code end -->
 
 
 <div style="clear: both;"></div>
@@ -188,8 +178,8 @@ Maybe coming in the next issue
     $votepointstar = '5';
     $defaultpointrating = '4.77';
     $postid = '28834';
-    $ddrate = 'https://mangarock.herokuapp.com/home_story_update_votes';
-    $ddbookmark = 'https://mangarock.herokuapp.com/home_story_set_bookmark'
+    $ddrate = '';
+    $ddbookmark = ''
     $lg = false;
 </script>
 <script type="text/javascript" src="../static/themes/home/js/custom_story.js"></script> </div>

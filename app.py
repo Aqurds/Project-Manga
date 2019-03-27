@@ -968,6 +968,7 @@ def manga_id(manga_id):
 
 
 
+
 @app.route('/manga-id-chapter/<string:manga_id>/<string:chapter_id>')
 def manga_id_chapter(manga_id, chapter_id):
     manga_id =manga_id
